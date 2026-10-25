@@ -1,0 +1,77 @@
+The plan is a good start: point lookup, aggregation, range query, and before/after indexing are the standard set of tests. It has a few problems that would make the comparison unfair or misleading, though, and it's missing the timing method and any write tests. The task says *quản lý* (management), so you should also measure inserts and updates, not only reads.
+
+## The four queries
+
+**First, write down the MongoDB data model.** All the plan's MongoDB queries assume one document per household with its members embedded inside:
+
+```js
+{ _id: 3000, GEO1_VN: 704001, URBAN: 2, ..., members: [ { PERNUM: 1, AGE: 84, SEX: 2, EMPSTAT: 3, ... }, ... ] }
+```
+
+Say this explicitly in the report, because it's the real difference you're measuring: MySQL needs a JOIN to put a household together, MongoDB doesn't. Use `_id: SERIAL` so MongoDB also has a built-in index on it, the same way `SERIAL` is the primary key in MySQL.
+
+**Q1: Point lookup.** This one is good, with two fixes:
+- The column names don't match your tables. There's no `ho_khau_id`; use `SERIAL`:
+  ```sql
+  SELECT * FROM hokhau h JOIN nhankhau n USING (SERIAL) WHERE h.SERIAL = 3000;
+  ```
+  ```js
+  db.hokhau.find({ _id: 3000 })
+  ```
+- Leave Q1 out of the "without index" test. `SERIAL` is already the primary key in MySQL, so it's always indexed. If MongoDB stored `serial` in a plain field with no index, you'd be comparing a full collection scan against a primary-key lookup.
+
+**Q2: Aggregation.** This is good and the most interesting result. Note that `EMPSTAT = 1` means employed in IPUMS; 2 is unemployed, 3 is not in the labour force, 0 is not applicable.
+```sql
+SELECT AGE, COUNT(*) FROM nhankhau WHERE EMPSTAT = 1 GROUP BY AGE ORDER BY AGE;
+```
+```js
+db.hokhau.aggregate([
+  { $unwind: "$members" },
+  { $match: { "members.EMPSTAT": 1 } },
+  { $group: { _id: "$members.AGE", n: { $sum: 1 } } },
+  { $sort: { _id: 1 } }
+])
+```
+With embedded members, MongoDB has to `$unwind` 3.5 million subdocuments, so MySQL will probably win here. Report that honestly: embedding makes Q1 faster and per-person statistics slower. The before/after index test means little for Q2, because both databases read every row either way.
+
+**Q3: Range query.** This one needs the most fixing:
+- `GEO1_VN` is in `hokhau` but `AGE` is in `nhankhau`, so MySQL needs a JOIN here too:
+  ```sql
+  SELECT n.* FROM nhankhau n JOIN hokhau h USING (SERIAL)
+  WHERE h.GEO1_VN = 704001 AND n.AGE BETWEEN 18 AND 60;
+  ```
+- MongoDB must return **people**, not households. A plain `find` with `$elemMatch` returns whole households, including children and elderly members, so the two results wouldn't match:
+  ```js
+  db.hokhau.aggregate([
+    { $match: { GEO1_VN: 704001, members: { $elemMatch: { AGE: { $gte: 18, $lte: 60 } } } } },
+    { $unwind: "$members" },
+    { $match: { "members.AGE": { $gte: 18, $lte: 60 } } }
+  ])
+  ```
+- Ages 18–60 cover roughly 60% of people, so an index on `AGE` alone barely narrows anything, and both optimizers may skip it. The index that matters is the province. If the plan shows no improvement, explain why in the report instead of treating it as a failure.
+
+**Q4: Indexes and EXPLAIN.** The idea is right; be specific about which indexes:
+- **MySQL:** `hokhau(GEO1_VN)` and `nhankhau(AGE)`. MySQL can't build one index across two tables, which is worth pointing out in the report.
+- **MongoDB:** `{ GEO1_VN: 1, "members.AGE": 1 }`. This is a compound multikey index, and it's possible because everything is in one document.
+- **Use `EXPLAIN ANALYZE`** (MySQL 8.0.18+) instead of plain `EXPLAIN`. Plain `EXPLAIN` shows estimates; `EXPLAIN ANALYZE` shows real time and row counts, which compares fairly with MongoDB's `executionStats`.
+
+## Missing method (without this the numbers don't mean much)
+
+1. **Give both databases the same memory.** By default MySQL's InnoDB cache is only 128 MB, while MongoDB's WiredTiger cache takes about half your RAM. Left alone, MongoDB "wins" just because it has more memory. Set both to the same size, for example:
+   - `innodb_buffer_pool_size=2G` in `my.ini`
+   - `storage.wiredTiger.engineConfig.cacheSizeGB: 2` in `mongod.cfg`
+2. **Time from a script, not the GUI.** Use one Python script with `mysql-connector` and `pymongo`, and make sure every result row is actually fetched:
+   - Workbench only fetches the first 1000 rows, so its timing is misleading.
+   - `pymongo`'s `find()` doesn't run the query until you read from it. Always use `list(...)` or iterate, otherwise you're timing nothing.
+3. **Repeat each query and report the median and p95.** Run each one about 30 times after a few warm-up runs. Optionally also report a cold run right after restarting the server.
+4. **Check that both return the same results.** Compare row counts for every query, or the timings aren't comparable.
+5. **Add write and storage tests:**
+   - Import time: `LOAD DATA` vs `mongoimport` or `insertMany`.
+   - Disk size including indexes: `information_schema.TABLES` vs `db.hokhau.stats()`. MongoDB compresses data, so it's often smaller.
+   - Inserting a new household with its members, and updating one person (e.g. `AGE` or `EMPSTAT`). Updating a person inside an embedded array behaves differently from updating a single MySQL row.
+6. **Test more than one data size** (e.g. 10%, 50% and 100% of the data, by filtering on `SERIAL`) and plot how time grows. That speaks directly to the *dữ liệu lớn* (big data) part of the task.
+7. **Run everything on the same machine and the same disk**, and write down the versions and hardware in the report.
+
+**Optional:** also build a second MongoDB design with two separate collections (`hokhau` and `nhankhau`, joined with `$lookup`). Comparing it with the embedded design lets you separate "MongoDB vs MySQL" from "embedded vs normalized data", which usually earns marks in a report like this.
+
+I can write the import script that turns your two CSVs into the embedded MongoDB documents, or the Python benchmark script that runs all of this and writes the results to a CSV.
