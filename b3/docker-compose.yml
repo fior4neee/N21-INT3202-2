@@ -1,0 +1,85 @@
+# MongoDB 8.0 sharded-cluster lab.
+#   3 config servers (cfgRS) + 2 shards x 3 members (shard1RS, shard2RS) + 1 mongos
+# Every mongod listens on 27017 inside the Docker network (hostname:27017) and is
+# published on its own host port (27101-27109). mongos is published on ${MONGOS_PORT:-27100}.
+# No keyfile / auth: local lab simplification.
+name: mongolab
+
+x-logging: &logging      # rotate container logs (disk space on the Windows host)
+  driver: json-file
+  options: {max-size: "10m", max-file: "2"}
+
+x-mongod: &mongod
+  image: mongo:8.0
+  restart: "no"            # no auto-restart: chaos experiments decide when nodes come back
+  mem_limit: 640m
+  logging: *logging
+  networks: [labnet]
+  healthcheck:
+    test: ["CMD", "mongosh", "--quiet", "--port", "27017", "--eval", "db.adminCommand('ping').ok"]
+    interval: 15s
+    timeout: 10s
+    retries: 5
+    start_period: 30s
+
+# --oplogSize 1024 (MB): the default is 5% of the disk, which inside Docker Desktop's VM is ~48 GB
+# per node and made the lab's volumes grow by GBs on the Windows C: drive. 1 GB is far more than
+# any experiment needs (a 500k-doc load is ~212 MB of oplog).
+x-cfg-cmd: &cfgcmd ["mongod", "--configsvr", "--replSet", "cfgRS", "--port", "27017", "--bind_ip_all",
+                    "--dbpath", "/data/db", "--wiredTigerCacheSizeGB", "0.25", "--oplogSize", "1024"]
+x-s1-cmd: &s1cmd ["mongod", "--shardsvr", "--replSet", "shard1RS", "--port", "27017", "--bind_ip_all",
+                  "--dbpath", "/data/db", "--wiredTigerCacheSizeGB", "0.25", "--oplogSize", "1024"]
+x-s2-cmd: &s2cmd ["mongod", "--shardsvr", "--replSet", "shard2RS", "--port", "27017", "--bind_ip_all",
+                  "--dbpath", "/data/db", "--wiredTigerCacheSizeGB", "0.25", "--oplogSize", "1024"]
+
+services:
+  cfg1: {<<: *mongod, container_name: cfg1, hostname: cfg1, command: *cfgcmd, ports: ["27101:27017"], volumes: ["cfg1_data:/data/db"]}
+  cfg2: {<<: *mongod, container_name: cfg2, hostname: cfg2, command: *cfgcmd, ports: ["27102:27017"], volumes: ["cfg2_data:/data/db"]}
+  cfg3: {<<: *mongod, container_name: cfg3, hostname: cfg3, command: *cfgcmd, ports: ["27103:27017"], volumes: ["cfg3_data:/data/db"]}
+
+  s1a: {<<: *mongod, container_name: s1a, hostname: s1a, command: *s1cmd, ports: ["27104:27017"], volumes: ["s1a_data:/data/db"]}
+  s1b: {<<: *mongod, container_name: s1b, hostname: s1b, command: *s1cmd, ports: ["27105:27017"], volumes: ["s1b_data:/data/db"]}
+  s1c: {<<: *mongod, container_name: s1c, hostname: s1c, command: *s1cmd, ports: ["27106:27017"], volumes: ["s1c_data:/data/db"]}
+
+  s2a: {<<: *mongod, container_name: s2a, hostname: s2a, command: *s2cmd, ports: ["27107:27017"], volumes: ["s2a_data:/data/db"]}
+  s2b: {<<: *mongod, container_name: s2b, hostname: s2b, command: *s2cmd, ports: ["27108:27017"], volumes: ["s2b_data:/data/db"]}
+  s2c: {<<: *mongod, container_name: s2c, hostname: s2c, command: *s2cmd, ports: ["27109:27017"], volumes: ["s2c_data:/data/db"]}
+
+  mongos:
+    image: mongo:8.0
+    container_name: mongos
+    hostname: mongos
+    restart: on-failure
+    mem_limit: 512m
+    logging: *logging
+    networks: [labnet]
+    command: ["mongos", "--configdb", "cfgRS/cfg1:27017,cfg2:27017,cfg3:27017",
+              "--port", "27017", "--bind_ip_all"]
+    # Host port defaults to 27100 because a native MongoDB Windows service already owns
+    # 127.0.0.1:27017 on this machine. Set MONGOS_PORT=27017 in .env if that service is stopped.
+    ports: ["${MONGOS_PORT:-27100}:27017"]
+    depends_on:
+      cfg1: {condition: service_healthy}
+      cfg2: {condition: service_healthy}
+      cfg3: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--port", "27017", "--eval", "db.adminCommand('ping').ok"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+networks:
+  labnet:
+    name: mongolab_net
+
+volumes:
+  cfg1_data: {}
+  cfg2_data: {}
+  cfg3_data: {}
+  s1a_data: {}
+  s1b_data: {}
+  s1c_data: {}
+  s2a_data: {}
+  s2b_data: {}
+  s2c_data: {}

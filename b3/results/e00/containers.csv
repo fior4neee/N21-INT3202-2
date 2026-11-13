@@ -1,0 +1,11 @@
+container,role,image,host_port,ip,mem_limit_MB,wt_cache_GB,oplog_MB,volume,restart
+cfg1,cfgRS,mongo:8.0,27101,172.19.0.9,640,0.25,default (5% disk),mongolab_cfg1_data,no
+cfg2,cfgRS,mongo:8.0,27102,172.19.0.7,640,0.25,default (5% disk),mongolab_cfg2_data,no
+cfg3,cfgRS,mongo:8.0,27103,172.19.0.6,640,0.25,default (5% disk),mongolab_cfg3_data,no
+s1a,shard1RS,mongo:8.0,27104,172.19.0.4,640,0.25,default (5% disk),mongolab_s1a_data,no
+s1b,shard1RS,mongo:8.0,27105,172.19.0.3,640,0.25,default (5% disk),mongolab_s1b_data,no
+s1c,shard1RS,mongo:8.0,27106,172.19.0.10,640,0.25,default (5% disk),mongolab_s1c_data,no
+s2a,shard2RS,mongo:8.0,27107,172.19.0.8,640,0.25,default (5% disk),mongolab_s2a_data,no
+s2b,shard2RS,mongo:8.0,27108,172.19.0.5,640,0.25,default (5% disk),mongolab_s2b_data,no
+s2c,shard2RS,mongo:8.0,27109,172.19.0.2,640,0.25,default (5% disk),mongolab_s2c_data,no
+mongos,router,mongo:8.0,27100,172.19.0.11,512,-,-,(anonymous),on-failure

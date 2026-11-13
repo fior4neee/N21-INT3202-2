@@ -1,0 +1,17 @@
+t_rel_s,tag,coll,shard,owned_docs,owned_MB,orphan_docs,orphan_MB,raw_docs,raw_MB,chunks,jumbo,write_ops,read_ops
+0.0,off,ship_mono,shard2RS,500,0.21,0,0.0,500,0.21,1,0,0,3
+5.0,off,ship_mono,shard2RS,29000,12.31,0,0.0,29000,12.32,1,0,29,6
+10.0,off,ship_mono,shard2RS,59000,25.04,0,0.0,59000,25.06,1,0,59,9
+15.0,off,ship_mono,shard2RS,91000,38.62,0,0.0,91000,38.65,1,0,91,12
+20.0,off,ship_mono,shard2RS,104000,44.14,0,0.0,104000,44.17,1,0,104,15
+25.0,off,ship_mono,shard2RS,123000,52.2,0,0.0,123000,52.24,1,0,123,18
+30.0,off,ship_mono,shard2RS,153000,64.93,0,0.0,153000,64.98,1,0,153,21
+35.0,off,ship_mono,shard2RS,206000,87.42,0,0.0,206000,87.49,1,0,206,24
+40.0,off,ship_mono,shard2RS,244000,103.55,0,0.0,244000,103.64,1,0,244,27
+45.0,off,ship_mono,shard2RS,277000,117.55,0,0.0,277000,117.65,1,0,277,30
+50.0,off,ship_mono,shard2RS,324000,137.5,0,0.0,324000,137.61,1,0,324,33
+55.0,off,ship_mono,shard2RS,361000,153.2,0,0.0,361000,153.33,1,0,361,36
+60.0,off,ship_mono,shard2RS,406000,172.3,0,0.0,406000,172.44,1,0,406,39
+65.0,off,ship_mono,shard2RS,455000,193.1,0,0.0,455000,193.25,1,0,455,42
+70.0,off,ship_mono,shard2RS,500000,212.19,0,0.0,500000,212.36,1,0,500,45
+70.2,off,ship_mono,shard2RS,500000,212.19,0,0.0,500000,212.36,1,0,500,48

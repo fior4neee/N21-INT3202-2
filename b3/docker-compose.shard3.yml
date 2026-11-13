@@ -1,0 +1,28 @@
+# Third shard (shard3RS: s3a/s3b/s3c), used only in experiment E9 (scale-out).
+# Always used together with the base file:
+#   docker compose -f docker-compose.yml -f docker-compose.shard3.yml up -d s3a s3b s3c
+x-mongod: &mongod
+  image: mongo:8.0
+  restart: "no"
+  mem_limit: 640m
+  logging: {driver: json-file, options: {max-size: "10m", max-file: "2"}}
+  networks: [labnet]
+  healthcheck:
+    test: ["CMD", "mongosh", "--quiet", "--port", "27017", "--eval", "db.adminCommand('ping').ok"]
+    interval: 15s
+    timeout: 10s
+    retries: 5
+    start_period: 30s
+
+x-s3-cmd: &s3cmd ["mongod", "--shardsvr", "--replSet", "shard3RS", "--port", "27017", "--bind_ip_all",
+                  "--dbpath", "/data/db", "--wiredTigerCacheSizeGB", "0.25", "--oplogSize", "1024"]
+
+services:
+  s3a: {<<: *mongod, container_name: s3a, hostname: s3a, command: *s3cmd, ports: ["27110:27017"], volumes: ["s3a_data:/data/db"]}
+  s3b: {<<: *mongod, container_name: s3b, hostname: s3b, command: *s3cmd, ports: ["27111:27017"], volumes: ["s3b_data:/data/db"]}
+  s3c: {<<: *mongod, container_name: s3c, hostname: s3c, command: *s3cmd, ports: ["27112:27017"], volumes: ["s3c_data:/data/db"]}
+
+volumes:
+  s3a_data: {}
+  s3b_data: {}
+  s3c_data: {}

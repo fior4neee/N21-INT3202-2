@@ -1,0 +1,78 @@
+{
+  "time": "2026-11-13T04:45:57.250+00:00",
+  "version": "8.0.38",
+  "hello": {
+    "isWritablePrimary": true,
+    "msg": "isdbgrid",
+    "topologyVersion": {
+      "processId": "6af693f61b5349d26ba5a8d2",
+      "counter": 0
+    },
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.282000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 280,
+    "maxWireVersion": 25,
+    "minWireVersion": 0,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545156, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545156, 1)"
+  },
+  "listShards": [
+    {
+      "_id": "shard1RS",
+      "host": "shard1RS/s1a:27017,s1b:27017,s1c:27017",
+      "state": 1,
+      "topologyTime": "Timestamp(1794544669, 10)",
+      "replSetConfigVersion": -1
+    },
+    {
+      "_id": "shard2RS",
+      "host": "shard2RS/s2a:27017,s2b:27017,s2c:27017",
+      "state": 1,
+      "topologyTime": "Timestamp(1794544669, 29)",
+      "replSetConfigVersion": -1
+    }
+  ],
+  "balancerStatus": {
+    "mode": "full",
+    "inBalancerRound": false,
+    "numBalancerRounds": 52,
+    "term": 1,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545157, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545157, 1)"
+  },
+  "config.settings": [
+    {
+      "_id": "chunksize",
+      "value": 8
+    }
+  ],
+  "config.databases": [],
+  "config.mongos": [
+    {
+      "_id": "mongos:27017",
+      "advisoryHostFQDNs": [],
+      "created": "2026-11-13 04:37:26.084000",
+      "mongoVersion": "8.0.38",
+      "ping": "2026-11-13 04:45:47.498000",
+      "up": 501,
+      "waiting": true
+    }
+  ]
+}

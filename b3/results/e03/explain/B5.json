@@ -1,0 +1,277 @@
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "SHARD_MERGE",
+      "shards": [
+        {
+          "explainVersion": "1",
+          "shardName": "shard1RS",
+          "connectionString": "shard1RS/s1a:27017,s1b:27017,s1c:27017",
+          "serverInfo": {
+            "host": "s1a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_mono",
+          "parsedQuery": {
+            "chart": {
+              "$eq": "US,US,graph,Chart 14969"
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "71AC6923",
+          "planCacheShapeHash": "71AC6923",
+          "planCacheKey": "9AFF6FBF",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "chart": {
+                    "$eq": "US,US,graph,Chart 14969"
+                  }
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        },
+        {
+          "explainVersion": "1",
+          "shardName": "shard2RS",
+          "connectionString": "shard2RS/s2a:27017,s2b:27017,s2c:27017",
+          "serverInfo": {
+            "host": "s2a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_mono",
+          "parsedQuery": {
+            "chart": {
+              "$eq": "US,US,graph,Chart 14969"
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "71AC6923",
+          "planCacheShapeHash": "71AC6923",
+          "planCacheKey": "9AFF6FBF",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "chart": {
+                    "$eq": "US,US,graph,Chart 14969"
+                  }
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        }
+      ]
+    }
+  },
+  "executionStats": {
+    "nReturned": 324,
+    "executionTimeMillis": 218,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 500000,
+    "executionStages": {
+      "stage": "SHARD_MERGE",
+      "nReturned": 324,
+      "executionTimeMillis": 218,
+      "totalKeysExamined": 0,
+      "totalDocsExamined": 500000,
+      "totalChildMillis": 404,
+      "shards": [
+        {
+          "shardName": "shard1RS",
+          "executionSuccess": true,
+          "nReturned": 130,
+          "executionTimeMillis": 188,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 226188,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 130,
+            "executionTimeMillisEstimate": 164,
+            "works": 226189,
+            "advanced": 130,
+            "needTime": 226058,
+            "needYield": 0,
+            "saveState": 9,
+            "restoreState": 9,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 130,
+              "executionTimeMillisEstimate": 162,
+              "works": 226189,
+              "advanced": 130,
+              "needTime": 226058,
+              "needYield": 0,
+              "saveState": 9,
+              "restoreState": 9,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "chart": {
+                    "$eq": "US,US,graph,Chart 14969"
+                  }
+                },
+                "nReturned": 130,
+                "executionTimeMillisEstimate": 162,
+                "works": 226189,
+                "advanced": 130,
+                "needTime": 226058,
+                "needYield": 0,
+                "saveState": 9,
+                "restoreState": 9,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 226188
+              }
+            }
+          }
+        },
+        {
+          "shardName": "shard2RS",
+          "executionSuccess": true,
+          "nReturned": 194,
+          "executionTimeMillis": 216,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 273812,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 194,
+            "executionTimeMillisEstimate": 212,
+            "works": 273813,
+            "advanced": 194,
+            "needTime": 273618,
+            "needYield": 0,
+            "saveState": 13,
+            "restoreState": 13,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 194,
+              "executionTimeMillisEstimate": 202,
+              "works": 273813,
+              "advanced": 194,
+              "needTime": 273618,
+              "needYield": 0,
+              "saveState": 13,
+              "restoreState": 13,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "chart": {
+                    "$eq": "US,US,graph,Chart 14969"
+                  }
+                },
+                "nReturned": 194,
+                "executionTimeMillisEstimate": 202,
+                "works": 273813,
+                "advanced": 194,
+                "needTime": 273618,
+                "needYield": 0,
+                "saveState": 13,
+                "restoreState": 13,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 273812
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "queryShapeHash": "CB152E87FCC574CD59234A750CB2ED2C879DFB560B3E0CC5BEAE96F247266ADE",
+  "serverInfo": {
+    "host": "mongos",
+    "port": 27017,
+    "version": "8.0.38",
+    "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "find": "ship_mono",
+    "filter": {
+      "chart": "US,US,graph,Chart 14969"
+    },
+    "projection": {
+      "_id": 1
+    },
+    "lsid": {
+      "id": "b'\\x9aT\\x85\\x93E\\xe4G`\\x96yI\\x83\\x84\\x9db\\x97'"
+    },
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794548837, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "$db": "lab"
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1794548837, 1)",
+    "signature": {
+      "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "keyId": 0
+    }
+  },
+  "operationTime": "Timestamp(1794548837, 1)"
+}

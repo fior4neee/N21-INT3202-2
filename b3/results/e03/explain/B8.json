@@ -1,0 +1,203 @@
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "SINGLE_SHARD",
+      "shards": [
+        {
+          "explainVersion": "1",
+          "shardName": "shard1RS",
+          "connectionString": "shard1RS/s1a:27017,s1b:27017,s1c:27017",
+          "serverInfo": {
+            "host": "s1a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_lowcard",
+          "parsedQuery": {
+            "feature_type": {
+              "$eq": "Wrecks - Visible"
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "4BD61261",
+          "planCacheShapeHash": "4BD61261",
+          "planCacheKey": "B5DCE314",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "inputStage": {
+                "stage": "IXSCAN",
+                "keyPattern": {
+                  "feature_type": 1
+                },
+                "indexName": "feature_type_1",
+                "isMultiKey": false,
+                "multiKeyPaths": {
+                  "feature_type": []
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "feature_type": [
+                    "[\"Wrecks - Visible\", \"Wrecks - Visible\"]"
+                  ]
+                }
+              }
+            }
+          },
+          "rejectedPlans": []
+        }
+      ]
+    }
+  },
+  "executionStats": {
+    "nReturned": 116284,
+    "executionTimeMillis": 156,
+    "totalKeysExamined": 116284,
+    "totalDocsExamined": 116284,
+    "executionStages": {
+      "stage": "SINGLE_SHARD",
+      "nReturned": 116284,
+      "executionTimeMillis": 156,
+      "totalKeysExamined": 116284,
+      "totalDocsExamined": 116284,
+      "totalChildMillis": 154,
+      "shards": [
+        {
+          "shardName": "shard1RS",
+          "executionSuccess": true,
+          "nReturned": 116284,
+          "executionTimeMillis": 154,
+          "totalKeysExamined": 116284,
+          "totalDocsExamined": 116284,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 116284,
+            "executionTimeMillisEstimate": 150,
+            "works": 116285,
+            "advanced": 116284,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 9,
+            "restoreState": 9,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "nReturned": 116284,
+              "executionTimeMillisEstimate": 116,
+              "works": 116285,
+              "advanced": 116284,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 9,
+              "restoreState": 9,
+              "isEOF": 1,
+              "docsExamined": 116284,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "IXSCAN",
+                "nReturned": 116284,
+                "executionTimeMillisEstimate": 64,
+                "works": 116285,
+                "advanced": 116284,
+                "needTime": 0,
+                "needYield": 0,
+                "saveState": 9,
+                "restoreState": 9,
+                "isEOF": 1,
+                "keyPattern": {
+                  "feature_type": 1
+                },
+                "indexName": "feature_type_1",
+                "isMultiKey": false,
+                "multiKeyPaths": {
+                  "feature_type": []
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "feature_type": [
+                    "[\"Wrecks - Visible\", \"Wrecks - Visible\"]"
+                  ]
+                },
+                "keysExamined": 116284,
+                "seeks": 1,
+                "dupsTested": 0,
+                "dupsDropped": 0
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "queryShapeHash": "A56FB9C1AFE35524DAA37D0F90317CBC09A30059729A1987E92A47003F91D006",
+  "serverInfo": {
+    "host": "mongos",
+    "port": 27017,
+    "version": "8.0.38",
+    "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "find": "ship_lowcard",
+    "filter": {
+      "feature_type": "Wrecks - Visible"
+    },
+    "projection": {
+      "_id": 1
+    },
+    "lsid": {
+      "id": "b'\\x9aT\\x85\\x93E\\xe4G`\\x96yI\\x83\\x84\\x9db\\x97'"
+    },
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794548839, 2)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "$db": "lab"
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1794548839, 2)",
+    "signature": {
+      "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "keyId": 0
+    }
+  },
+  "operationTime": "Timestamp(1794548837, 1)"
+}

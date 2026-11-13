@@ -1,0 +1,277 @@
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "SHARD_MERGE",
+      "shards": [
+        {
+          "explainVersion": "1",
+          "shardName": "shard1RS",
+          "connectionString": "shard1RS/s1a:27017,s1b:27017,s1c:27017",
+          "serverInfo": {
+            "host": "s1a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_lowcard",
+          "parsedQuery": {
+            "region": {
+              "$eq": "great_lakes"
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "14217A95",
+          "planCacheShapeHash": "14217A95",
+          "planCacheKey": "1F284271",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "region": {
+                    "$eq": "great_lakes"
+                  }
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        },
+        {
+          "explainVersion": "1",
+          "shardName": "shard2RS",
+          "connectionString": "shard2RS/s2a:27017,s2b:27017,s2c:27017",
+          "serverInfo": {
+            "host": "s2a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_lowcard",
+          "parsedQuery": {
+            "region": {
+              "$eq": "great_lakes"
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "14217A95",
+          "planCacheShapeHash": "14217A95",
+          "planCacheKey": "1F284271",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "region": {
+                    "$eq": "great_lakes"
+                  }
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        }
+      ]
+    }
+  },
+  "executionStats": {
+    "nReturned": 34811,
+    "executionTimeMillis": 354,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 500000,
+    "executionStages": {
+      "stage": "SHARD_MERGE",
+      "nReturned": 34811,
+      "executionTimeMillis": 354,
+      "totalKeysExamined": 0,
+      "totalDocsExamined": 500000,
+      "totalChildMillis": 498,
+      "shards": [
+        {
+          "shardName": "shard1RS",
+          "executionSuccess": true,
+          "nReturned": 10895,
+          "executionTimeMillis": 146,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 203600,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 10895,
+            "executionTimeMillisEstimate": 120,
+            "works": 203601,
+            "advanced": 10895,
+            "needTime": 192705,
+            "needYield": 0,
+            "saveState": 8,
+            "restoreState": 8,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 10895,
+              "executionTimeMillisEstimate": 120,
+              "works": 203601,
+              "advanced": 10895,
+              "needTime": 192705,
+              "needYield": 0,
+              "saveState": 8,
+              "restoreState": 8,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "region": {
+                    "$eq": "great_lakes"
+                  }
+                },
+                "nReturned": 10895,
+                "executionTimeMillisEstimate": 119,
+                "works": 203601,
+                "advanced": 10895,
+                "needTime": 192705,
+                "needYield": 0,
+                "saveState": 8,
+                "restoreState": 8,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 203600
+              }
+            }
+          }
+        },
+        {
+          "shardName": "shard2RS",
+          "executionSuccess": true,
+          "nReturned": 23916,
+          "executionTimeMillis": 352,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 296400,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 23916,
+            "executionTimeMillisEstimate": 320,
+            "works": 296401,
+            "advanced": 23916,
+            "needTime": 272484,
+            "needYield": 0,
+            "saveState": 20,
+            "restoreState": 20,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 23916,
+              "executionTimeMillisEstimate": 319,
+              "works": 296401,
+              "advanced": 23916,
+              "needTime": 272484,
+              "needYield": 0,
+              "saveState": 20,
+              "restoreState": 20,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "region": {
+                    "$eq": "great_lakes"
+                  }
+                },
+                "nReturned": 23916,
+                "executionTimeMillisEstimate": 288,
+                "works": 296401,
+                "advanced": 23916,
+                "needTime": 272484,
+                "needYield": 0,
+                "saveState": 20,
+                "restoreState": 20,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 296400
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "queryShapeHash": "1404E496E1B73306DAF2EF7424F5E909FAE895C393901C27EAD9787DA5BCB928",
+  "serverInfo": {
+    "host": "mongos",
+    "port": 27017,
+    "version": "8.0.38",
+    "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "find": "ship_lowcard",
+    "filter": {
+      "region": "great_lakes"
+    },
+    "projection": {
+      "_id": 1
+    },
+    "lsid": {
+      "id": "b'\\x9aT\\x85\\x93E\\xe4G`\\x96yI\\x83\\x84\\x9db\\x97'"
+    },
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794548819, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "$db": "lab"
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1794548819, 1)",
+    "signature": {
+      "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "keyId": 0
+    }
+  },
+  "operationTime": "Timestamp(1794548819, 1)"
+}

@@ -1,0 +1,440 @@
+{
+  "cfg1": {
+    "topologyVersion": {
+      "processId": "6af693ef46ace889d3e998e3",
+      "counter": 6
+    },
+    "hosts": [
+      "cfg1:27017",
+      "cfg2:27017",
+      "cfg3:27017"
+    ],
+    "setName": "cfgRS",
+    "setVersion": 1,
+    "isWritablePrimary": true,
+    "secondary": false,
+    "primary": "cfg1:27017",
+    "me": "cfg1:27017",
+    "electionId": "7fffffff0000000000000001",
+    "lastWrite": {
+      "opTime": {
+        "ts": "Timestamp(1794545157, 1)",
+        "t": 1
+      },
+      "lastWriteDate": "2026-11-13 04:45:57",
+      "majorityOpTime": {
+        "ts": "Timestamp(1794545157, 1)",
+        "t": 1
+      },
+      "majorityWriteDate": "2026-11-13 04:45:57"
+    },
+    "isImplicitDefaultMajorityWC": true,
+    "configsvr": 2,
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.409000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 372,
+    "minWireVersion": 0,
+    "maxWireVersion": 25,
+    "readOnly": false,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545157, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545157, 1)"
+  },
+  "cfg2": {
+    "topologyVersion": {
+      "processId": "6af693ee878625a42db0e391",
+      "counter": 4
+    },
+    "hosts": [
+      "cfg1:27017",
+      "cfg2:27017",
+      "cfg3:27017"
+    ],
+    "setName": "cfgRS",
+    "setVersion": 1,
+    "isWritablePrimary": false,
+    "secondary": true,
+    "primary": "cfg1:27017",
+    "me": "cfg2:27017",
+    "lastWrite": {
+      "opTime": {
+        "ts": "Timestamp(1794545157, 1)",
+        "t": 1
+      },
+      "lastWriteDate": "2026-11-13 04:45:57",
+      "majorityOpTime": {
+        "ts": "Timestamp(1794545157, 1)",
+        "t": 1
+      },
+      "majorityWriteDate": "2026-11-13 04:45:57"
+    },
+    "isImplicitDefaultMajorityWC": true,
+    "configsvr": 2,
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.457000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 301,
+    "minWireVersion": 0,
+    "maxWireVersion": 25,
+    "readOnly": false,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545157, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545157, 1)"
+  },
+  "cfg3": {
+    "topologyVersion": {
+      "processId": "6af693ee3141167281810d2f",
+      "counter": 4
+    },
+    "hosts": [
+      "cfg1:27017",
+      "cfg2:27017",
+      "cfg3:27017"
+    ],
+    "setName": "cfgRS",
+    "setVersion": 1,
+    "isWritablePrimary": false,
+    "secondary": true,
+    "primary": "cfg1:27017",
+    "me": "cfg3:27017",
+    "lastWrite": {
+      "opTime": {
+        "ts": "Timestamp(1794545157, 1)",
+        "t": 1
+      },
+      "lastWriteDate": "2026-11-13 04:45:57",
+      "majorityOpTime": {
+        "ts": "Timestamp(1794545157, 1)",
+        "t": 1
+      },
+      "majorityWriteDate": "2026-11-13 04:45:57"
+    },
+    "isImplicitDefaultMajorityWC": true,
+    "configsvr": 2,
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.515000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 302,
+    "minWireVersion": 0,
+    "maxWireVersion": 25,
+    "readOnly": false,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545157, 2)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545157, 1)"
+  },
+  "s1a": {
+    "topologyVersion": {
+      "processId": "6af693eea2a07390810bb850",
+      "counter": 8
+    },
+    "hosts": [
+      "s1a:27017",
+      "s1b:27017",
+      "s1c:27017"
+    ],
+    "setName": "shard1RS",
+    "setVersion": 1,
+    "isWritablePrimary": true,
+    "secondary": false,
+    "primary": "s1a:27017",
+    "me": "s1a:27017",
+    "electionId": "7fffffff0000000000000001",
+    "lastWrite": {
+      "opTime": {
+        "ts": "Timestamp(1794545156, 1)",
+        "t": 1
+      },
+      "lastWriteDate": "2026-11-13 04:45:56",
+      "majorityOpTime": {
+        "ts": "Timestamp(1794545156, 1)",
+        "t": 1
+      },
+      "majorityWriteDate": "2026-11-13 04:45:56"
+    },
+    "isImplicitDefaultMajorityWC": true,
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.589000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 335,
+    "minWireVersion": 0,
+    "maxWireVersion": 25,
+    "readOnly": false,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545156, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545156, 1)"
+  },
+  "s1b": {
+    "topologyVersion": {
+      "processId": "6af693ee71bbcd513621cd66",
+      "counter": 5
+    },
+    "hosts": [
+      "s1a:27017",
+      "s1b:27017",
+      "s1c:27017"
+    ],
+    "setName": "shard1RS",
+    "setVersion": 1,
+    "isWritablePrimary": false,
+    "secondary": true,
+    "primary": "s1a:27017",
+    "me": "s1b:27017",
+    "lastWrite": {
+      "opTime": {
+        "ts": "Timestamp(1794545156, 1)",
+        "t": 1
+      },
+      "lastWriteDate": "2026-11-13 04:45:56",
+      "majorityOpTime": {
+        "ts": "Timestamp(1794545156, 1)",
+        "t": 1
+      },
+      "majorityWriteDate": "2026-11-13 04:45:56"
+    },
+    "isImplicitDefaultMajorityWC": true,
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.681000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 303,
+    "minWireVersion": 0,
+    "maxWireVersion": 25,
+    "readOnly": false,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545156, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545156, 1)"
+  },
+  "s1c": {
+    "topologyVersion": {
+      "processId": "6af693efdc1b94365bc7d2ee",
+      "counter": 5
+    },
+    "hosts": [
+      "s1a:27017",
+      "s1b:27017",
+      "s1c:27017"
+    ],
+    "setName": "shard1RS",
+    "setVersion": 1,
+    "isWritablePrimary": false,
+    "secondary": true,
+    "primary": "s1a:27017",
+    "me": "s1c:27017",
+    "lastWrite": {
+      "opTime": {
+        "ts": "Timestamp(1794545156, 1)",
+        "t": 1
+      },
+      "lastWriteDate": "2026-11-13 04:45:56",
+      "majorityOpTime": {
+        "ts": "Timestamp(1794545156, 1)",
+        "t": 1
+      },
+      "majorityWriteDate": "2026-11-13 04:45:56"
+    },
+    "isImplicitDefaultMajorityWC": true,
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.757000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 301,
+    "minWireVersion": 0,
+    "maxWireVersion": 25,
+    "readOnly": false,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545156, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545156, 1)"
+  },
+  "s2a": {
+    "topologyVersion": {
+      "processId": "6af693ef91a7c68a427645a1",
+      "counter": 8
+    },
+    "hosts": [
+      "s2a:27017",
+      "s2b:27017",
+      "s2c:27017"
+    ],
+    "setName": "shard2RS",
+    "setVersion": 1,
+    "isWritablePrimary": true,
+    "secondary": false,
+    "primary": "s2a:27017",
+    "me": "s2a:27017",
+    "electionId": "7fffffff0000000000000001",
+    "lastWrite": {
+      "opTime": {
+        "ts": "Timestamp(1794545148, 1)",
+        "t": 1
+      },
+      "lastWriteDate": "2026-11-13 04:45:48",
+      "majorityOpTime": {
+        "ts": "Timestamp(1794545148, 1)",
+        "t": 1
+      },
+      "majorityWriteDate": "2026-11-13 04:45:48"
+    },
+    "isImplicitDefaultMajorityWC": true,
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.824000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 323,
+    "minWireVersion": 0,
+    "maxWireVersion": 25,
+    "readOnly": false,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545156, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545148, 1)"
+  },
+  "s2b": {
+    "topologyVersion": {
+      "processId": "6af693eef178d3c714193da0",
+      "counter": 5
+    },
+    "hosts": [
+      "s2a:27017",
+      "s2b:27017",
+      "s2c:27017"
+    ],
+    "setName": "shard2RS",
+    "setVersion": 1,
+    "isWritablePrimary": false,
+    "secondary": true,
+    "primary": "s2a:27017",
+    "me": "s2b:27017",
+    "lastWrite": {
+      "opTime": {
+        "ts": "Timestamp(1794545148, 1)",
+        "t": 1
+      },
+      "lastWriteDate": "2026-11-13 04:45:48",
+      "majorityOpTime": {
+        "ts": "Timestamp(1794545148, 1)",
+        "t": 1
+      },
+      "majorityWriteDate": "2026-11-13 04:45:48"
+    },
+    "isImplicitDefaultMajorityWC": true,
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.868000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 296,
+    "minWireVersion": 0,
+    "maxWireVersion": 25,
+    "readOnly": false,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545156, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545148, 1)"
+  },
+  "s2c": {
+    "topologyVersion": {
+      "processId": "6af693ee739bb2aabbc8de85",
+      "counter": 5
+    },
+    "hosts": [
+      "s2a:27017",
+      "s2b:27017",
+      "s2c:27017"
+    ],
+    "setName": "shard2RS",
+    "setVersion": 1,
+    "isWritablePrimary": false,
+    "secondary": true,
+    "primary": "s2a:27017",
+    "me": "s2c:27017",
+    "lastWrite": {
+      "opTime": {
+        "ts": "Timestamp(1794545148, 1)",
+        "t": 1
+      },
+      "lastWriteDate": "2026-11-13 04:45:48",
+      "majorityOpTime": {
+        "ts": "Timestamp(1794545148, 1)",
+        "t": 1
+      },
+      "majorityWriteDate": "2026-11-13 04:45:48"
+    },
+    "isImplicitDefaultMajorityWC": true,
+    "maxBsonObjectSize": 16777216,
+    "maxMessageSizeBytes": 48000000,
+    "maxWriteBatchSize": 100000,
+    "localTime": "2026-11-13 04:45:57.913000",
+    "logicalSessionTimeoutMinutes": 30,
+    "connectionId": 293,
+    "minWireVersion": 0,
+    "maxWireVersion": 25,
+    "readOnly": false,
+    "ok": 1.0,
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794545156, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "operationTime": "Timestamp(1794545148, 1)"
+  }
+}

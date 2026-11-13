@@ -1,0 +1,14 @@
+id,group,collection,shard_key,filter,why,plan_stage,shards_contacted,n_shards,scan,keys_examined,docs_examined,returned,server_ms,client_median_ms,client_n
+A1,A,ship_compound,"{'region': 1, 'recrd': 1}","{region: ""great_lakes""}",region = prefix of shard key,SINGLE_SHARD,shard1RS,1,IXSCAN,34811,34811,34811,121,208.6,34811
+A2,A,ship_mono,{'ts': 1},"{region: ""great_lakes""}",region not in shard key {ts},SHARD_MERGE,shard1RS+shard2RS,2,COLLSCAN,0,500000,34811,225,395.3,34811
+A3,A,ship_hashed,{'_id': 'hashed'},"{region: ""great_lakes""}",region not in shard key {_id hashed},SHARD_MERGE,shard1RS+shard2RS,2,COLLSCAN,0,500000,34811,233,251.6,34811
+A4,A,ship_lowcard,{'feature_type': 1},"{region: ""great_lakes""}",region not in shard key {feature_type},SHARD_MERGE,shard1RS+shard2RS,2,COLLSCAN,0,500000,34811,354,311.0,34811
+B1,B,ship_compound,"{'region': 1, 'recrd': 1}","{region: ""gulf_of_mexico"", recrd: ""19950101""}",full shard key (equality),SINGLE_SHARD,shard1RS,1,IXSCAN,9,9,9,1,2.1,9
+B2,B,ship_compound,"{'region': 1, 'recrd': 1}","{region: ""gulf_of_mexico""}",key prefix whose range spans 2 shards,SHARD_MERGE,shard1RS+shard2RS,2,IXSCAN,162778,162778,162778,658,986.5,162778
+B3,B,ship_compound,"{'region': 1, 'recrd': 1}","{feature_type: ""Wrecks - Submerged, dangerous"", depth: {$gt: 20}}",no shard key,SHARD_MERGE,shard1RS+shard2RS,2,COLLSCAN,0,500000,2715,183,264.8,2715
+B4,B,ship_mono,{'ts': 1},"{ts: {$gte: ISODate(""2025-01-01T00:00""), $lt: ISODate(""2025-01-01T01:00"")}}",range on shard key (first hour),SINGLE_SHARD,shard1RS,1,IXSCAN,3600,3600,3600,16,36.9,3600
+B5,B,ship_mono,{'ts': 1},"{chart: ""US,US,graph,Chart 14969""}",no shard key,SHARD_MERGE,shard1RS+shard2RS,2,COLLSCAN,0,500000,324,218,188.3,324
+B6,B,ship_hashed,{'_id': 'hashed'},"{_id: ObjectId(""…000036"")}",equality on hashed key,SINGLE_SHARD,shard1RS,1,EXPRESS_IXSCAN,1,1,1,2,3.4,1
+B7,B,ship_hashed,{'_id': 'hashed'},"{_id: {$gte: ObjectId(""…0186a0""), $lte: ObjectId(""…018e6f"")}}",RANGE on hashed key (hash destroys order),SHARD_MERGE,shard1RS+shard2RS,2,IXSCAN,2000,0,2000,3,14.7,2000
+B8,B,ship_lowcard,{'feature_type': 1},"{feature_type: ""Wrecks - Visible""}",equality on shard key,SINGLE_SHARD,shard1RS,1,IXSCAN,116284,116284,116284,156,444.3,116284
+B9,B,ship_lowcard,{'feature_type': 1},"{watlev: ""awash""}",no shard key,SHARD_MERGE,shard1RS+shard2RS,2,COLLSCAN,0,500000,703,220,163.8,703

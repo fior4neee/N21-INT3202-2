@@ -1,0 +1,277 @@
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "SHARD_MERGE",
+      "shards": [
+        {
+          "explainVersion": "1",
+          "shardName": "shard1RS",
+          "connectionString": "shard1RS/s1a:27017,s1b:27017,s1c:27017",
+          "serverInfo": {
+            "host": "s1a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_lowcard",
+          "parsedQuery": {
+            "watlev": {
+              "$eq": "awash"
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "08205141",
+          "planCacheShapeHash": "08205141",
+          "planCacheKey": "CF117735",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "watlev": {
+                    "$eq": "awash"
+                  }
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        },
+        {
+          "explainVersion": "1",
+          "shardName": "shard2RS",
+          "connectionString": "shard2RS/s2a:27017,s2b:27017,s2c:27017",
+          "serverInfo": {
+            "host": "s2a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_lowcard",
+          "parsedQuery": {
+            "watlev": {
+              "$eq": "awash"
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "08205141",
+          "planCacheShapeHash": "08205141",
+          "planCacheKey": "CF117735",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "watlev": {
+                    "$eq": "awash"
+                  }
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        }
+      ]
+    }
+  },
+  "executionStats": {
+    "nReturned": 703,
+    "executionTimeMillis": 220,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 500000,
+    "executionStages": {
+      "stage": "SHARD_MERGE",
+      "nReturned": 703,
+      "executionTimeMillis": 220,
+      "totalKeysExamined": 0,
+      "totalDocsExamined": 500000,
+      "totalChildMillis": 321,
+      "shards": [
+        {
+          "shardName": "shard1RS",
+          "executionSuccess": true,
+          "nReturned": 227,
+          "executionTimeMillis": 103,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 203600,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 227,
+            "executionTimeMillisEstimate": 90,
+            "works": 203601,
+            "advanced": 227,
+            "needTime": 203373,
+            "needYield": 0,
+            "saveState": 4,
+            "restoreState": 4,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 227,
+              "executionTimeMillisEstimate": 90,
+              "works": 203601,
+              "advanced": 227,
+              "needTime": 203373,
+              "needYield": 0,
+              "saveState": 4,
+              "restoreState": 4,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "watlev": {
+                    "$eq": "awash"
+                  }
+                },
+                "nReturned": 227,
+                "executionTimeMillisEstimate": 90,
+                "works": 203601,
+                "advanced": 227,
+                "needTime": 203373,
+                "needYield": 0,
+                "saveState": 4,
+                "restoreState": 4,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 203600
+              }
+            }
+          }
+        },
+        {
+          "shardName": "shard2RS",
+          "executionSuccess": true,
+          "nReturned": 476,
+          "executionTimeMillis": 218,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 296400,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 476,
+            "executionTimeMillisEstimate": 210,
+            "works": 296401,
+            "advanced": 476,
+            "needTime": 295924,
+            "needYield": 0,
+            "saveState": 11,
+            "restoreState": 11,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 476,
+              "executionTimeMillisEstimate": 200,
+              "works": 296401,
+              "advanced": 476,
+              "needTime": 295924,
+              "needYield": 0,
+              "saveState": 11,
+              "restoreState": 11,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "watlev": {
+                    "$eq": "awash"
+                  }
+                },
+                "nReturned": 476,
+                "executionTimeMillisEstimate": 191,
+                "works": 296401,
+                "advanced": 476,
+                "needTime": 295924,
+                "needYield": 0,
+                "saveState": 11,
+                "restoreState": 11,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 296400
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "queryShapeHash": "5A01AFEE2FD801214F3482FA6007FEF4FE43E9B85BFD9EF328DE4EFE1AB05925",
+  "serverInfo": {
+    "host": "mongos",
+    "port": 27017,
+    "version": "8.0.38",
+    "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "find": "ship_lowcard",
+    "filter": {
+      "watlev": "awash"
+    },
+    "projection": {
+      "_id": 1
+    },
+    "lsid": {
+      "id": "b'\\x9aT\\x85\\x93E\\xe4G`\\x96yI\\x83\\x84\\x9db\\x97'"
+    },
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794548843, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "$db": "lab"
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1794548843, 1)",
+    "signature": {
+      "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "keyId": 0
+    }
+  },
+  "operationTime": "Timestamp(1794548839, 1)"
+}

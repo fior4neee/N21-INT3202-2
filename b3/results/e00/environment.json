@@ -1,0 +1,139 @@
+{
+  "host": {
+    "os": "Windows 11 (10.0.26200)",
+    "ram_GB": 15.6,
+    "python": "3.13.9"
+  },
+  "docker": {
+    "server": "27.5.1",
+    "os": "Docker Desktop",
+    "kernel": "6.6.114.1-microsoft-standard-WSL2",
+    "vm_cpus": 4,
+    "vm_mem_GB": 7.76
+  },
+  "mongodb": "8.0.38",
+  "mongos_host_port": 27100,
+  "network": "mongolab_net (bridge)",
+  "containers": [
+    {
+      "container": "cfg1",
+      "role": "cfgRS",
+      "image": "mongo:8.0",
+      "host_port": "27101",
+      "ip": "172.19.0.9",
+      "mem_limit_MB": 640,
+      "wt_cache_GB": "0.25",
+      "oplog_MB": "default (5% disk)",
+      "volume": "mongolab_cfg1_data",
+      "restart": "no"
+    },
+    {
+      "container": "cfg2",
+      "role": "cfgRS",
+      "image": "mongo:8.0",
+      "host_port": "27102",
+      "ip": "172.19.0.7",
+      "mem_limit_MB": 640,
+      "wt_cache_GB": "0.25",
+      "oplog_MB": "default (5% disk)",
+      "volume": "mongolab_cfg2_data",
+      "restart": "no"
+    },
+    {
+      "container": "cfg3",
+      "role": "cfgRS",
+      "image": "mongo:8.0",
+      "host_port": "27103",
+      "ip": "172.19.0.6",
+      "mem_limit_MB": 640,
+      "wt_cache_GB": "0.25",
+      "oplog_MB": "default (5% disk)",
+      "volume": "mongolab_cfg3_data",
+      "restart": "no"
+    },
+    {
+      "container": "s1a",
+      "role": "shard1RS",
+      "image": "mongo:8.0",
+      "host_port": "27104",
+      "ip": "172.19.0.4",
+      "mem_limit_MB": 640,
+      "wt_cache_GB": "0.25",
+      "oplog_MB": "default (5% disk)",
+      "volume": "mongolab_s1a_data",
+      "restart": "no"
+    },
+    {
+      "container": "s1b",
+      "role": "shard1RS",
+      "image": "mongo:8.0",
+      "host_port": "27105",
+      "ip": "172.19.0.3",
+      "mem_limit_MB": 640,
+      "wt_cache_GB": "0.25",
+      "oplog_MB": "default (5% disk)",
+      "volume": "mongolab_s1b_data",
+      "restart": "no"
+    },
+    {
+      "container": "s1c",
+      "role": "shard1RS",
+      "image": "mongo:8.0",
+      "host_port": "27106",
+      "ip": "172.19.0.10",
+      "mem_limit_MB": 640,
+      "wt_cache_GB": "0.25",
+      "oplog_MB": "default (5% disk)",
+      "volume": "mongolab_s1c_data",
+      "restart": "no"
+    },
+    {
+      "container": "s2a",
+      "role": "shard2RS",
+      "image": "mongo:8.0",
+      "host_port": "27107",
+      "ip": "172.19.0.8",
+      "mem_limit_MB": 640,
+      "wt_cache_GB": "0.25",
+      "oplog_MB": "default (5% disk)",
+      "volume": "mongolab_s2a_data",
+      "restart": "no"
+    },
+    {
+      "container": "s2b",
+      "role": "shard2RS",
+      "image": "mongo:8.0",
+      "host_port": "27108",
+      "ip": "172.19.0.5",
+      "mem_limit_MB": 640,
+      "wt_cache_GB": "0.25",
+      "oplog_MB": "default (5% disk)",
+      "volume": "mongolab_s2b_data",
+      "restart": "no"
+    },
+    {
+      "container": "s2c",
+      "role": "shard2RS",
+      "image": "mongo:8.0",
+      "host_port": "27109",
+      "ip": "172.19.0.2",
+      "mem_limit_MB": 640,
+      "wt_cache_GB": "0.25",
+      "oplog_MB": "default (5% disk)",
+      "volume": "mongolab_s2c_data",
+      "restart": "no"
+    },
+    {
+      "container": "mongos",
+      "role": "router",
+      "image": "mongo:8.0",
+      "host_port": "27100",
+      "ip": "172.19.0.11",
+      "mem_limit_MB": 512,
+      "wt_cache_GB": "-",
+      "oplog_MB": "-",
+      "volume": "(anonymous)",
+      "restart": "on-failure"
+    }
+  ]
+}

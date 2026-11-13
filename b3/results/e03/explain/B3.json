@@ -1,0 +1,334 @@
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "SHARD_MERGE",
+      "shards": [
+        {
+          "explainVersion": "1",
+          "shardName": "shard1RS",
+          "connectionString": "shard1RS/s1a:27017,s1b:27017,s1c:27017",
+          "serverInfo": {
+            "host": "s1a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_compound",
+          "parsedQuery": {
+            "$and": [
+              {
+                "feature_type": {
+                  "$eq": "Wrecks - Submerged, dangerous"
+                }
+              },
+              {
+                "depth": {
+                  "$gt": 20
+                }
+              }
+            ]
+          },
+          "indexFilterSet": false,
+          "queryHash": "855F879B",
+          "planCacheShapeHash": "855F879B",
+          "planCacheKey": "BE1E3647",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "$and": [
+                    {
+                      "feature_type": {
+                        "$eq": "Wrecks - Submerged, dangerous"
+                      }
+                    },
+                    {
+                      "depth": {
+                        "$gt": 20
+                      }
+                    }
+                  ]
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        },
+        {
+          "explainVersion": "1",
+          "shardName": "shard2RS",
+          "connectionString": "shard2RS/s2a:27017,s2b:27017,s2c:27017",
+          "serverInfo": {
+            "host": "s2a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_compound",
+          "parsedQuery": {
+            "$and": [
+              {
+                "feature_type": {
+                  "$eq": "Wrecks - Submerged, dangerous"
+                }
+              },
+              {
+                "depth": {
+                  "$gt": 20
+                }
+              }
+            ]
+          },
+          "indexFilterSet": false,
+          "queryHash": "855F879B",
+          "planCacheShapeHash": "855F879B",
+          "planCacheKey": "BE1E3647",
+          "optimizationTimeMillis": 2,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "$and": [
+                    {
+                      "feature_type": {
+                        "$eq": "Wrecks - Submerged, dangerous"
+                      }
+                    },
+                    {
+                      "depth": {
+                        "$gt": 20
+                      }
+                    }
+                  ]
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        }
+      ]
+    }
+  },
+  "executionStats": {
+    "nReturned": 2715,
+    "executionTimeMillis": 183,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 500000,
+    "executionStages": {
+      "stage": "SHARD_MERGE",
+      "nReturned": 2715,
+      "executionTimeMillis": 183,
+      "totalKeysExamined": 0,
+      "totalDocsExamined": 500000,
+      "totalChildMillis": 318,
+      "shards": [
+        {
+          "shardName": "shard1RS",
+          "executionSuccess": true,
+          "nReturned": 994,
+          "executionTimeMillis": 137,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 223076,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 994,
+            "executionTimeMillisEstimate": 131,
+            "works": 223077,
+            "advanced": 994,
+            "needTime": 222082,
+            "needYield": 0,
+            "saveState": 6,
+            "restoreState": 6,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 994,
+              "executionTimeMillisEstimate": 121,
+              "works": 223077,
+              "advanced": 994,
+              "needTime": 222082,
+              "needYield": 0,
+              "saveState": 6,
+              "restoreState": 6,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "$and": [
+                    {
+                      "feature_type": {
+                        "$eq": "Wrecks - Submerged, dangerous"
+                      }
+                    },
+                    {
+                      "depth": {
+                        "$gt": 20
+                      }
+                    }
+                  ]
+                },
+                "nReturned": 994,
+                "executionTimeMillisEstimate": 121,
+                "works": 223077,
+                "advanced": 994,
+                "needTime": 222082,
+                "needYield": 0,
+                "saveState": 6,
+                "restoreState": 6,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 223076
+              }
+            }
+          }
+        },
+        {
+          "shardName": "shard2RS",
+          "executionSuccess": true,
+          "nReturned": 1721,
+          "executionTimeMillis": 181,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 276924,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 1721,
+            "executionTimeMillisEstimate": 165,
+            "works": 276925,
+            "advanced": 1721,
+            "needTime": 275203,
+            "needYield": 0,
+            "saveState": 10,
+            "restoreState": 10,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 1721,
+              "executionTimeMillisEstimate": 165,
+              "works": 276925,
+              "advanced": 1721,
+              "needTime": 275203,
+              "needYield": 0,
+              "saveState": 10,
+              "restoreState": 10,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "$and": [
+                    {
+                      "feature_type": {
+                        "$eq": "Wrecks - Submerged, dangerous"
+                      }
+                    },
+                    {
+                      "depth": {
+                        "$gt": 20
+                      }
+                    }
+                  ]
+                },
+                "nReturned": 1721,
+                "executionTimeMillisEstimate": 155,
+                "works": 276925,
+                "advanced": 1721,
+                "needTime": 275203,
+                "needYield": 0,
+                "saveState": 10,
+                "restoreState": 10,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 276924
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "queryShapeHash": "10ADFD10926E8743EE95A9823856AC0918EEF7B66887EAFF5493923C5068A3E2",
+  "serverInfo": {
+    "host": "mongos",
+    "port": 27017,
+    "version": "8.0.38",
+    "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "find": "ship_compound",
+    "filter": {
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "depth": {
+        "$gt": 20
+      }
+    },
+    "projection": {
+      "_id": 1
+    },
+    "lsid": {
+      "id": "b'\\x9aT\\x85\\x93E\\xe4G`\\x96yI\\x83\\x84\\x9db\\x97'"
+    },
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794548829, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "$db": "lab"
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1794548829, 1)",
+    "signature": {
+      "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "keyId": 0
+    }
+  },
+  "operationTime": "Timestamp(1794548824, 441)"
+}

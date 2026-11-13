@@ -1,0 +1,13 @@
+t_rel_s,tag,mode,in_round,rounds,migrations_total,active_migrations,compliant_ship_lowcard,reason_ship_lowcard
+0.0,off,off,False,307,55,0,True,
+5.0,off,off,False,307,55,0,False,chunksImbalance
+10.0,off,off,False,308,55,0,False,chunksImbalance
+15.0,off,off,False,308,55,0,False,chunksImbalance
+20.0,off,off,False,309,55,0,False,chunksImbalance
+25.0,off,off,False,309,55,0,False,chunksImbalance
+30.0,off,off,False,310,55,0,False,chunksImbalance
+35.0,off,off,False,310,55,0,False,chunksImbalance
+40.0,off,off,False,311,55,0,False,chunksImbalance
+45.0,off,off,False,311,55,0,False,chunksImbalance
+48.8,off,off,False,312,55,0,False,chunksImbalance
+50.0,off,off,False,312,55,0,False,chunksImbalance

@@ -1,0 +1,11 @@
+container,cpu,mem_used,mem_limit,mem_pct
+cfg1,4.77%,132.9MiB,640MiB,20.76%
+cfg2,2.90%,126.4MiB,640MiB,19.75%
+cfg3,2.43%,126.1MiB,640MiB,19.71%
+s1a,2.91%,125.3MiB,640MiB,19.57%
+s1b,4.75%,123.8MiB,640MiB,19.34%
+s1c,4.50%,122MiB,640MiB,19.07%
+s2a,4.72%,120.2MiB,640MiB,18.79%
+s2b,4.67%,118.7MiB,640MiB,18.54%
+s2c,4.58%,126.2MiB,640MiB,19.71%
+mongos,0.17%,23.2MiB,512MiB,4.53%

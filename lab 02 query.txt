@@ -1,0 +1,68 @@
+-- lab 02 query
+USE sakila;
+
+-- Câu 1: Khách hàng, film đang thuê chưa trả tại cửa hàng 2, trong tháng 2/2006
+SELECT c.customer_id, c.first_name, c.last_name, c.email,
+       f.film_id, f.title, r.rental_id, r.rental_date
+FROM rental r
+JOIN inventory i ON r.inventory_id = i.inventory_id
+JOIN customer  c ON r.customer_id  = c.customer_id
+JOIN film      f ON i.film_id      = f.film_id
+WHERE i.store_id = 2
+  AND r.return_date IS NULL
+  AND r.rental_date >= '2006-02-01'
+  AND r.rental_date <  '2006-03-01';
+
+-- Câu 2a: film_text có cả 'drama' và 'teacher' trong mô tả - dùng LIKE
+SELECT film_id, title, description
+FROM film_text
+WHERE description LIKE '%drama%'
+  AND description LIKE '%teacher%';
+
+-- Câu 2b: dùng FULL TEXT SEARCH (cần FULLTEXT index trên (title, description))
+SELECT film_id, title, description
+FROM film_text
+WHERE MATCH(title, description) AGAINST('+drama +teacher' IN BOOLEAN MODE);
+
+-- Câu 3 - Cách 1: truy vấn con
+SELECT f.title,
+       (SELECT COUNT(*)
+        FROM rental r
+        JOIN inventory i ON r.inventory_id = i.inventory_id
+        WHERE i.film_id = f.film_id
+          AND r.rental_date >= '2006-02-01'
+          AND r.rental_date <  '2006-03-01') AS so_lan_thue
+FROM film f
+ORDER BY so_lan_thue DESC
+LIMIT 10;
+
+-- Câu 3 - Cách 2: nối bảng
+SELECT f.title, COUNT(r.rental_id) AS so_lan_thue
+FROM film f
+JOIN inventory i ON f.film_id      = i.film_id
+JOIN rental    r ON i.inventory_id = r.inventory_id
+WHERE r.rental_date >= '2006-02-01'
+  AND r.rental_date <  '2006-03-01'
+GROUP BY f.film_id, f.title
+ORDER BY so_lan_thue DESC
+LIMIT 10;
+
+-- Câu 4: Cửa hàng và tổng số đĩa được thuê trong tháng 2/2006, giảm dần
+SELECT s.store_id, COUNT(r.rental_id) AS tong_so_dia_thue
+FROM store s
+JOIN inventory i ON s.store_id     = i.store_id
+JOIN rental    r ON i.inventory_id = r.inventory_id
+WHERE r.rental_date >= '2006-02-01'
+  AND r.rental_date <  '2006-03-01'
+GROUP BY s.store_id
+ORDER BY tong_so_dia_thue DESC;
+
+-- Câu 5: Đĩa phim có tiêu đề chứa 'dinosaur' còn ở cửa hàng 1 (chưa bị thuê)
+SELECT i.inventory_id, f.film_id, f.title
+FROM inventory i
+JOIN film f ON i.film_id = f.film_id
+WHERE f.title LIKE '%dinosaur%'
+  AND i.store_id = 1
+  AND NOT EXISTS (SELECT 1 FROM rental r
+                  WHERE r.inventory_id = i.inventory_id
+                    AND r.return_date IS NULL);

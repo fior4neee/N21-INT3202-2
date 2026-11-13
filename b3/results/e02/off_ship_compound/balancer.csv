@@ -1,0 +1,15 @@
+t_rel_s,tag,mode,in_round,rounds,migrations_total,active_migrations,compliant_ship_compound,reason_ship_compound
+0.0,off,off,False,319,55,0,True,
+5.0,off,off,False,319,55,0,True,
+10.0,off,off,False,320,55,0,False,chunksImbalance
+15.0,off,off,False,320,55,0,False,chunksImbalance
+20.0,off,off,False,321,55,0,False,chunksImbalance
+25.0,off,off,False,321,55,0,False,chunksImbalance
+30.0,off,off,False,322,55,0,False,chunksImbalance
+35.0,off,off,False,322,55,0,False,chunksImbalance
+40.0,off,off,False,323,55,0,False,chunksImbalance
+45.0,off,off,False,323,55,0,False,chunksImbalance
+50.0,off,off,False,324,55,0,False,chunksImbalance
+55.0,off,off,False,324,55,0,False,chunksImbalance
+58.2,off,off,False,324,55,0,False,chunksImbalance
+60.0,off,off,False,325,55,0,False,chunksImbalance

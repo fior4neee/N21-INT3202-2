@@ -1,0 +1,115 @@
+-- lab03 procedure and function
+USE sakila;
+
+-- Câu 1: displayFilmInfo(category_id, language_id)
+DROP PROCEDURE IF EXISTS displayFilmInfo;
+DELIMITER $$
+CREATE PROCEDURE displayFilmInfo(IN p_category_id INT, IN p_language_id INT)
+BEGIN
+    IF p_category_id <> 0 AND p_language_id <> 0 THEN
+        SELECT f.*
+        FROM film f
+        JOIN film_category fc ON f.film_id = fc.film_id
+        WHERE fc.category_id = p_category_id
+          AND f.language_id  = p_language_id;
+    ELSEIF p_language_id = 0 AND p_category_id <> 0 THEN
+        SELECT f.*
+        FROM film f
+        JOIN film_category fc ON f.film_id = fc.film_id
+        WHERE fc.category_id = p_category_id;
+    ELSEIF p_category_id = 0 AND p_language_id <> 0 THEN
+        SELECT f.*
+        FROM film f
+        WHERE f.language_id = p_language_id;
+    ELSE
+        SELECT f.* FROM film f;   -- cả hai = 0: trả về tất cả
+    END IF;
+END$$
+DELIMITER ;
+
+CALL displayFilmInfo(1, 1);
+CALL displayFilmInfo(1, 0);
+CALL displayFilmInfo(0, 1);
+
+-- Câu 2: Hàm tính tổng số đĩa được thuê của cửa hàng trong tháng, năm
+DROP FUNCTION IF EXISTS fn_TongDiaThue;
+DELIMITER $$
+CREATE FUNCTION fn_TongDiaThue(p_store_id INT, p_thang INT, p_nam INT)
+RETURNS INT
+READS SQL DATA
+BEGIN
+    DECLARE v_tong INT;
+    SELECT COUNT(r.rental_id) INTO v_tong
+    FROM rental r
+    JOIN inventory i ON r.inventory_id = i.inventory_id
+    WHERE i.store_id = p_store_id
+      AND MONTH(r.rental_date) = p_thang
+      AND YEAR(r.rental_date)  = p_nam;
+    RETURN v_tong;
+END$$
+DELIMITER ;
+
+SELECT store_id, fn_TongDiaThue(store_id, 2, 2006) AS tong_so_film_thue
+FROM store;
+
+-- Câu 3: Khách hàng thuê film chưa trả quá 30 ngày
+DROP PROCEDURE IF EXISTS sp_KhachChuaTraQua30Ngay;
+DELIMITER $$
+CREATE PROCEDURE sp_KhachChuaTraQua30Ngay()
+BEGIN
+    SELECT c.customer_id, c.first_name, c.last_name, c.email,
+           f.title, r.rental_date,
+           DATEDIFF(NOW(), r.rental_date) AS so_ngay_chua_tra
+    FROM rental r
+    JOIN customer  c ON r.customer_id  = c.customer_id
+    JOIN inventory i ON r.inventory_id = i.inventory_id
+    JOIN film      f ON i.film_id      = f.film_id
+    WHERE r.return_date IS NULL
+      AND DATEDIFF(NOW(), r.rental_date) > 30
+    ORDER BY so_ngay_chua_tra DESC;
+END$$
+DELIMITER ;
+
+CALL sp_KhachChuaTraQua30Ngay();
+
+-- Câu 4: Giảm p% giá thuê cho n film thuê ít nhất trong tháng trước (dùng con trỏ)
+DROP PROCEDURE IF EXISTS sp_GiamGiaThue;
+DELIMITER $$
+CREATE PROCEDURE sp_GiamGiaThue(IN p DECIMAL(5,2), IN n INT)
+BEGIN
+    DECLARE v_film_id INT;
+    DECLARE done INT DEFAULT 0;
+    DECLARE v_dau_thang_truoc DATE
+        DEFAULT DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-01');
+    DECLARE v_dau_thang_nay DATE
+        DEFAULT DATE_FORMAT(CURDATE(), '%Y-%m-01');
+
+    -- n film có số lần thuê ít nhất trong tháng trước (kể cả film không được thuê)
+    DECLARE cur CURSOR FOR
+        SELECT f.film_id
+        FROM film f
+        LEFT JOIN inventory i ON i.film_id = f.film_id
+        LEFT JOIN rental r    ON r.inventory_id = i.inventory_id
+                             AND r.rental_date >= v_dau_thang_truoc
+                             AND r.rental_date <  v_dau_thang_nay
+        GROUP BY f.film_id
+        ORDER BY COUNT(r.rental_id) ASC
+        LIMIT n;
+
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    OPEN cur;
+    doc_loop: LOOP
+        FETCH cur INTO v_film_id;
+        IF done = 1 THEN
+            LEAVE doc_loop;
+        END IF;
+        UPDATE film
+        SET rental_rate = rental_rate * (1 - p / 100)
+        WHERE film_id = v_film_id;
+    END LOOP;
+    CLOSE cur;
+END$$
+DELIMITER ;
+
+CALL sp_GiamGiaThue(10, 5);   -- giảm 10% cho 5 film

@@ -1,0 +1,15 @@
+t_rel_s,tag,coll,shard,owned_docs,owned_MB,orphan_docs,orphan_MB,raw_docs,raw_MB,chunks,jumbo,write_ops,read_ops
+0.0,off,ship_compound,shard2RS,0,0.0,0,0.0,0,0.0,1,0,0,3
+5.0,off,ship_compound,shard2RS,45000,19.1,0,0.0,45000,19.11,1,0,45,6
+10.0,off,ship_compound,shard2RS,94500,40.1,0,0.0,94500,40.13,1,0,94,9
+15.0,off,ship_compound,shard2RS,145000,61.54,0,0.0,145000,61.58,1,0,145,12
+20.0,off,ship_compound,shard2RS,181000,76.81,0,0.0,181000,76.88,1,0,181,15
+25.0,off,ship_compound,shard2RS,224000,95.06,0,0.0,224000,95.14,1,0,224,18
+30.0,off,ship_compound,shard2RS,275000,116.71,0,0.0,275000,116.8,1,0,275,21
+35.0,off,ship_compound,shard2RS,330000,140.05,0,0.0,330500,140.37,1,0,330,24
+40.0,off,ship_compound,shard2RS,367500,155.96,0,0.0,368000,156.3,1,0,367,27
+45.0,off,ship_compound,shard2RS,411000,174.42,0,0.0,411000,174.56,1,0,411,30
+50.0,off,ship_compound,shard2RS,451500,191.61,0,0.0,451500,191.77,1,0,451,33
+55.0,off,ship_compound,shard2RS,488000,207.1,0,0.0,488000,207.27,1,0,488,36
+58.2,off,ship_compound,shard2RS,500000,212.19,0,0.0,500000,212.36,1,0,500,39
+60.0,off,ship_compound,shard2RS,500000,212.19,0,0.0,500000,212.36,1,0,500,42

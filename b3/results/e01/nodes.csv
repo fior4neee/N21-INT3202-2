@@ -1,0 +1,10 @@
+node,host_port,internal,setName,cluster_role,role,primary,version,wt_cache_GB,electionId
+cfg1,27101,cfg1:27017,cfgRS,configsvr,PRIMARY,cfg1:27017,8.0.38,0.25,7fffffff0000000000000001
+cfg2,27102,cfg2:27017,cfgRS,configsvr,SECONDARY,cfg1:27017,8.0.38,0.25,
+cfg3,27103,cfg3:27017,cfgRS,configsvr,SECONDARY,cfg1:27017,8.0.38,0.25,
+s1a,27104,s1a:27017,shard1RS,shardsvr,PRIMARY,s1a:27017,8.0.38,0.25,7fffffff0000000000000001
+s1b,27105,s1b:27017,shard1RS,shardsvr,SECONDARY,s1a:27017,8.0.38,0.25,
+s1c,27106,s1c:27017,shard1RS,shardsvr,SECONDARY,s1a:27017,8.0.38,0.25,
+s2a,27107,s2a:27017,shard2RS,shardsvr,PRIMARY,s2a:27017,8.0.38,0.25,7fffffff0000000000000001
+s2b,27108,s2b:27017,shard2RS,shardsvr,SECONDARY,s2a:27017,8.0.38,0.25,
+s2c,27109,s2c:27017,shard2RS,shardsvr,SECONDARY,s2a:27017,8.0.38,0.25,

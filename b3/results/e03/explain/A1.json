@@ -1,0 +1,229 @@
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "SINGLE_SHARD",
+      "shards": [
+        {
+          "explainVersion": "1",
+          "shardName": "shard1RS",
+          "connectionString": "shard1RS/s1a:27017,s1b:27017,s1c:27017",
+          "serverInfo": {
+            "host": "s1a",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_compound",
+          "parsedQuery": {
+            "region": {
+              "$eq": "great_lakes"
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "14217A95",
+          "planCacheShapeHash": "14217A95",
+          "planCacheKey": "0A45C16E",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "inputStage": {
+                "stage": "SHARDING_FILTER",
+                "inputStage": {
+                  "stage": "IXSCAN",
+                  "keyPattern": {
+                    "region": 1,
+                    "recrd": 1
+                  },
+                  "indexName": "region_1_recrd_1",
+                  "isMultiKey": false,
+                  "multiKeyPaths": {
+                    "region": [],
+                    "recrd": []
+                  },
+                  "isUnique": false,
+                  "isSparse": false,
+                  "isPartial": false,
+                  "indexVersion": 2,
+                  "direction": "forward",
+                  "indexBounds": {
+                    "region": [
+                      "[\"great_lakes\", \"great_lakes\"]"
+                    ],
+                    "recrd": [
+                      "[MinKey, MaxKey]"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "rejectedPlans": []
+        }
+      ]
+    }
+  },
+  "executionStats": {
+    "nReturned": 34811,
+    "executionTimeMillis": 121,
+    "totalKeysExamined": 34811,
+    "totalDocsExamined": 34811,
+    "executionStages": {
+      "stage": "SINGLE_SHARD",
+      "nReturned": 34811,
+      "executionTimeMillis": 121,
+      "totalKeysExamined": 34811,
+      "totalDocsExamined": 34811,
+      "totalChildMillis": 119,
+      "shards": [
+        {
+          "shardName": "shard1RS",
+          "executionSuccess": true,
+          "nReturned": 34811,
+          "executionTimeMillis": 119,
+          "totalKeysExamined": 34811,
+          "totalDocsExamined": 34811,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 34811,
+            "executionTimeMillisEstimate": 119,
+            "works": 34812,
+            "advanced": 34811,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 6,
+            "restoreState": 6,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "nReturned": 34811,
+              "executionTimeMillisEstimate": 106,
+              "works": 34812,
+              "advanced": 34811,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 6,
+              "restoreState": 6,
+              "isEOF": 1,
+              "docsExamined": 34811,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "SHARDING_FILTER",
+                "nReturned": 34811,
+                "executionTimeMillisEstimate": 17,
+                "works": 34812,
+                "advanced": 34811,
+                "needTime": 0,
+                "needYield": 0,
+                "saveState": 6,
+                "restoreState": 6,
+                "isEOF": 1,
+                "chunkSkips": 0,
+                "inputStage": {
+                  "stage": "IXSCAN",
+                  "nReturned": 34811,
+                  "executionTimeMillisEstimate": 10,
+                  "works": 34812,
+                  "advanced": 34811,
+                  "needTime": 0,
+                  "needYield": 0,
+                  "saveState": 6,
+                  "restoreState": 6,
+                  "isEOF": 1,
+                  "keyPattern": {
+                    "region": 1,
+                    "recrd": 1
+                  },
+                  "indexName": "region_1_recrd_1",
+                  "isMultiKey": false,
+                  "multiKeyPaths": {
+                    "region": [],
+                    "recrd": []
+                  },
+                  "isUnique": false,
+                  "isSparse": false,
+                  "isPartial": false,
+                  "indexVersion": 2,
+                  "direction": "forward",
+                  "indexBounds": {
+                    "region": [
+                      "[\"great_lakes\", \"great_lakes\"]"
+                    ],
+                    "recrd": [
+                      "[MinKey, MaxKey]"
+                    ]
+                  },
+                  "keysExamined": 34811,
+                  "seeks": 1,
+                  "dupsTested": 0,
+                  "dupsDropped": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "queryShapeHash": "5603E0F32E400848F1B37E308437FB896645F8454DC24A885ECE58D04FEC7E07",
+  "serverInfo": {
+    "host": "mongos",
+    "port": 27017,
+    "version": "8.0.38",
+    "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "find": "ship_compound",
+    "filter": {
+      "region": "great_lakes"
+    },
+    "projection": {
+      "_id": 1
+    },
+    "lsid": {
+      "id": "b'\\x9aT\\x85\\x93E\\xe4G`\\x96yI\\x83\\x84\\x9db\\x97'"
+    },
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794548807, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "$db": "lab"
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1794548807, 1)",
+    "signature": {
+      "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "keyId": 0
+    }
+  },
+  "operationTime": "Timestamp(1794548807, 1)"
+}

@@ -1,0 +1,130 @@
+﻿
+==============================================================================
+E2 configuration
+==============================================================================
+documents per collection: 500,000   chunk size: 8 MB   migration threshold (3 x chunk): 24 MB   sample interval: 5 s
+shard keys: {'ship_mono': {'ts': 1}, 'ship_lowcard': {'feature_type': 1}, 'ship_hashed': {'_id': 'hashed'}, 'ship_compound': {'region': 1, 'recrd': 1}}
+[12:18:36] balancer stopped: off
+
+==============================================================================
+OFF | ship_mono  key={'ts': 1}
+==============================================================================
+[12:18:37] shardCollection lab.ship_mono key={'ts': 1}
+[12:19:46] ship_mono: inserted 500,000 docs in 68.8s (7,266 docs/s)
+shard     owned_docs  owned_MB  orphan_docs  orphan_MB  raw_MB  chunks  jumbo  write_ops
+--------  ----------  --------  -----------  ---------  ------  ------  -----  ---------
+shard2RS  500000      212.19    0            0.0        212.36  1       0      500      
+
+load 69.2s (7,266 docs/s); migrations committed: 0; balancer off
+client insert commands per shard (latencyStats, 1,000-doc batches split by mongos): shard2RS 500 (100%)
+
+==============================================================================
+OFF | ship_lowcard  key={'feature_type': 1}
+==============================================================================
+[12:19:51] shardCollection lab.ship_lowcard key={'feature_type': 1}
+[12:20:39] ship_lowcard: inserted 500,000 docs in 47.6s (10,510 docs/s)
+shard     owned_docs  owned_MB  orphan_docs  orphan_MB  raw_MB  chunks  jumbo  write_ops
+--------  ----------  --------  -----------  ---------  ------  ------  -----  ---------
+shard2RS  500000      212.19    0            0.0        212.36  1       0      500      
+
+load 47.8s (10,510 docs/s); migrations committed: 0; balancer off
+client insert commands per shard (latencyStats, 1,000-doc batches split by mongos): shard2RS 500 (100%)
+
+==============================================================================
+OFF | ship_hashed  key={'_id': 'hashed'}
+==============================================================================
+[12:20:45] shardCollection lab.ship_hashed key={'_id': 'hashed'}
+[12:21:42] ship_hashed: inserted 500,000 docs in 56.8s (8,802 docs/s)
+shard     owned_docs  owned_MB  orphan_docs  orphan_MB  raw_MB  chunks  jumbo  write_ops
+--------  ----------  --------  -----------  ---------  ------  ------  -----  ---------
+shard1RS  249779      106.0     0            0.0        106.08  1       0      500      
+shard2RS  250221      106.19    0            0.0        106.28  1       0      500      
+
+load 57.1s (8,802 docs/s); migrations committed: 0; balancer off
+client insert commands per shard (latencyStats, 1,000-doc batches split by mongos): shard1RS 500 (50%), shard2RS 500 (50%)
+
+==============================================================================
+OFF | ship_compound  key={'region': 1, 'recrd': 1}
+==============================================================================
+[12:21:49] shardCollection lab.ship_compound key={'region': 1, 'recrd': 1}
+[12:22:46] ship_compound: inserted 500,000 docs in 56.6s (8,830 docs/s)
+shard     owned_docs  owned_MB  orphan_docs  orphan_MB  raw_MB  chunks  jumbo  write_ops
+--------  ----------  --------  -----------  ---------  ------  ------  -----  ---------
+shard2RS  500000      212.19    0            0.0        212.36  1       0      500      
+
+load 57.2s (8,830 docs/s); migrations committed: 0; balancer off
+client insert commands per shard (latencyStats, 1,000-doc batches split by mongos): shard2RS 500 (100%)
+[12:22:53] balancer started: full
+
+==============================================================================
+ON | ship_mono  key={'ts': 1}
+==============================================================================
+[12:22:53] shardCollection lab.ship_mono key={'ts': 1}
+[12:23:54] ship_mono: inserted 500,000 docs in 60.4s (8,276 docs/s)
+shard     owned_docs  owned_MB  orphan_docs  orphan_MB  raw_MB  chunks  jumbo  write_ops
+--------  ----------  --------  -----------  ---------  ------  ------  -----  ---------
+shard1RS  226188      95.99     0            0.0        96.07   12      0      0        
+shard2RS  273812      116.2     226188       95.99      212.36  1       0      510      
+
+load 60.5s (8,276 docs/s); migrations committed: 12; balancer idle 5s after load end (t=66s)
+client insert commands per shard (latencyStats, 1,000-doc batches split by mongos): shard1RS 0 (0%), shard2RS 510 (100%)
+
+==============================================================================
+ON | ship_lowcard  key={'feature_type': 1}
+==============================================================================
+[12:24:19] shardCollection lab.ship_lowcard key={'feature_type': 1}
+[12:25:30] ship_lowcard: inserted 500,000 docs in 70.7s (7,073 docs/s)
+shard     owned_docs  owned_MB  orphan_docs  orphan_MB  raw_MB  chunks  jumbo  write_ops
+--------  ----------  --------  -----------  ---------  ------  ------  -----  ---------
+shard1RS  203600      83.49     0            0.0        83.57   3       0      415      
+shard2RS  296400      127.48    56423        24.27      151.86  1       1      503      
+
+load 71.0s (7,073 docs/s); migrations committed: 3; balancer idle 5s after load end (t=76s)
+client insert commands per shard (latencyStats, 1,000-doc batches split by mongos): shard1RS 415 (45%), shard2RS 503 (55%)
+
+==============================================================================
+ON | ship_hashed  key={'_id': 'hashed'}
+==============================================================================
+[12:25:58] shardCollection lab.ship_hashed key={'_id': 'hashed'}
+[12:27:24] ship_hashed: inserted 500,000 docs in 85.9s (5,817 docs/s)
+shard     owned_docs  owned_MB  orphan_docs  orphan_MB  raw_MB  chunks  jumbo  write_ops
+--------  ----------  --------  -----------  ---------  ------  ------  -----  ---------
+shard1RS  249779      106.0     0            0.0        106.08  1       0      500      
+shard2RS  250221      106.19    0            0.0        106.28  1       0      500      
+
+load 86.5s (5,817 docs/s); migrations committed: 0; balancer idle 5s after load end (t=92s)
+client insert commands per shard (latencyStats, 1,000-doc batches split by mongos): shard1RS 500 (50%), shard2RS 500 (50%)
+
+==============================================================================
+ON | ship_compound  key={'region': 1, 'recrd': 1}
+==============================================================================
+[12:27:54] shardCollection lab.ship_compound key={'region': 1, 'recrd': 1}
+[12:29:46] ship_compound: inserted 500,000 docs in 110.9s (4,510 docs/s)
+shard     owned_docs  owned_MB  orphan_docs  orphan_MB  raw_MB  chunks  jumbo  write_ops
+--------  ----------  --------  -----------  ---------  ------  ------  -----  ---------
+shard1RS  223076      94.46     0            0.0        94.58   3       0      401      
+shard2RS  276924      117.52    62568        26.55      144.33  1       0      503      
+
+load 112.0s (4,510 docs/s); migrations committed: 3; balancer idle 5s after load end (t=117s)
+client insert commands per shard (latencyStats, 1,000-doc batches split by mongos): shard1RS 401 (44%), shard2RS 503 (56%)
+
+==============================================================================
+E2 summary (owned data excludes orphans awaiting the range deleter)
+==============================================================================
+phase  coll           shard     owned_docs  owned_MB  owned_pct  orphan_MB  chunks  jumbo  insert_cmds  insert_pct  load_s  migrations  idle_after_load_s  imbalance_MB
+-----  -------------  --------  ----------  --------  ---------  ---------  ------  -----  -----------  ----------  ------  ----------  -----------------  ------------
+off    ship_mono      shard2RS  500000      212.19    100.0      0.0        1       0      500          100.0       69.2    0                              0.0         
+off    ship_lowcard   shard2RS  500000      212.19    100.0      0.0        1       0      500          100.0       47.8    0                              0.0         
+off    ship_hashed    shard1RS  249779      106.0     50.0       0.0        1       0      500          50.0        57.1    0                              0.2         
+off    ship_hashed    shard2RS  250221      106.19    50.0       0.0        1       0      500          50.0        57.1    0                              0.2         
+off    ship_compound  shard2RS  500000      212.19    100.0      0.0        1       0      500          100.0       57.2    0                              0.0         
+on     ship_mono      shard1RS  226188      95.99     45.2       0.0        12      0      0            0.0         60.5    12          5.1                20.2        
+on     ship_mono      shard2RS  273812      116.2     54.8       95.99      1       0      510          100.0       60.5    12          5.1                20.2        
+on     ship_lowcard   shard1RS  203600      83.49     39.6       0.0        3       0      415          45.2        71.0    3           5.2                44.0        
+on     ship_lowcard   shard2RS  296400      127.48    60.4       24.27      1       1      503          54.8        71.0    3           5.2                44.0        
+on     ship_hashed    shard1RS  249779      106.0     50.0       0.0        1       0      500          50.0        86.5    0           5.3                0.2         
+on     ship_hashed    shard2RS  250221      106.19    50.0       0.0        1       0      500          50.0        86.5    0           5.3                0.2         
+on     ship_compound  shard1RS  223076      94.46     44.6       0.0        3       0      401          44.4        112.0   3           5.1                23.1        
+on     ship_compound  shard2RS  276924      117.52    55.4       26.55      1       0      503          55.6        112.0   3           5.1                23.1        
+[12:30:13] E2 done -> C:\GitHub\N21-INT3202-2\b3\results\e02
+[export] e02: 15 images -> C:\GitHub\N21-INT3202-2\b3\results\e02\img  |  PDF -> C:\GitHub\N21-INT3202-2\b3\results\e02\e02_report.pdf

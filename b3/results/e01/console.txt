@@ -1,0 +1,163 @@
+[11:45:55] E1 cluster survey -> C:\GitHub\N21-INT3202-2\b3\results\e01
+
+==============================================================================
+1. sh.status()  (mongosh inside the mongos container)
+==============================================================================
+shardingVersion
+{ _id: 1, clusterId: ObjectId('6af6940346ace889d3e998ec') }
+---
+shards
+[
+  {
+    _id: 'shard1RS',
+    host: 'shard1RS/s1a:27017,s1b:27017,s1c:27017',
+    state: 1,
+    topologyTime: Timestamp({ t: 1794544669, i: 10 }),
+    replSetConfigVersion: Long('-1')
+  },
+  {
+    _id: 'shard2RS',
+    host: 'shard2RS/s2a:27017,s2b:27017,s2c:27017',
+    state: 1,
+    topologyTime: Timestamp({ t: 1794544669, i: 29 }),
+    replSetConfigVersion: Long('-1')
+  }
+]
+---
+active mongoses
+[ { '8.0.38': 1 } ]
+---
+autosplit
+{ 'Currently enabled': 'yes' }
+---
+balancer
+{
+  'Currently enabled': 'yes',
+  'Currently running': 'no',
+  'Failed balancer rounds in last 5 attempts': 0,
+  'Migration Results for the last 24 hours': 'No recent migrations'
+}
+---
+shardedDataDistribution
+[
+  {
+    ns: 'config.system.sessions',
+    shards: [
+      {
+        shardName: 'shard1RS',
+        numOrphanedDocs: 0,
+        numOwnedDocuments: 187,
+        ownedSizeBytes: 18513,
+        orphanedSizeBytes: 0
+      }
+    ]
+  }
+]
+---
+databases
+[
+  {
+    database: { _id: 'config', primary: 'config', partitioned: true },
+    collections: {
+      'config.system.sessions': {
+        shardKey: { _id: 1 },
+        unique: false,
+        balancing: true,
+        allowMigrations: true,
+        chunkMetadata: [ { shard: 'shard1RS', nChunks: 1 } ],
+        chunks: [
+          { min: { _id: MinKey() }, max: { _id: MaxKey() }, 'on shard': 'shard1RS', 'last modified': Timestamp({ t: 1, i: 0 }) }
+        ],
+        tags: []
+      }
+    }
+  }
+]
+
+
+==============================================================================
+2. mongos: shards, balancer, settings
+==============================================================================
+mongos version 8.0.38  (hello.msg=isdbgrid)
+shard     host                                    state
+--------  --------------------------------------  -----
+shard1RS  shard1RS/s1a:27017,s1b:27017,s1c:27017  1    
+shard2RS  shard2RS/s2a:27017,s2b:27017,s2c:27017  1    
+
+balancer mode=full inBalancerRound=False numBalancerRounds=52
+config.settings: [{'_id': 'chunksize', 'value': 8}]
+
+==============================================================================
+3. rs.status() per replica set
+==============================================================================
+
+cfgRS  term=1  configsvr=True  electionTimeoutMillis=10000  heartbeatIntervalMillis=2000  writeMajorityCount=2
+member      state      health  uptime_s  priority  votes  syncSource  lag   electionDate       
+----------  ---------  ------  --------  --------  -----  ----------  ----  -------------------
+cfg1:27017  PRIMARY    1.0     534       1.0       1      -           -     2026-11-13 04:37:23
+cfg2:27017  SECONDARY  1.0     524       1.0       1      cfg1:27017  2.0s  -                  
+cfg3:27017  SECONDARY  1.0     524       1.0       1      cfg1:27017  2.0s  -                  
+
+shard1RS  term=1  configsvr=False  electionTimeoutMillis=10000  heartbeatIntervalMillis=2000  writeMajorityCount=2
+member     state      health  uptime_s  priority  votes  syncSource  lag   electionDate       
+---------  ---------  ------  --------  --------  -----  ----------  ----  -------------------
+s1a:27017  PRIMARY    1.0     535       1.0       1      -           -     2026-11-13 04:37:36
+s1b:27017  SECONDARY  1.0     512       1.0       1      s1a:27017   0.0s  -                  
+s1c:27017  SECONDARY  1.0     512       1.0       1      s1a:27017   0.0s  -                  
+
+shard2RS  term=1  configsvr=False  electionTimeoutMillis=10000  heartbeatIntervalMillis=2000  writeMajorityCount=2
+member     state      health  uptime_s  priority  votes  syncSource  lag   electionDate       
+---------  ---------  ------  --------  --------  -----  ----------  ----  -------------------
+s2a:27017  PRIMARY    1.0     534       1.0       1      -           -     2026-11-13 04:37:48
+s2b:27017  SECONDARY  1.0     499       1.0       1      s2a:27017   0.0s  -                  
+s2c:27017  SECONDARY  1.0     499       1.0       1      s2a:27017   0.0s  -                  
+
+==============================================================================
+4. hello on each node (direct connection to its host port)
+==============================================================================
+node  host_port  internal    setName   cluster_role  role       primary     version  wt_cache_GB  electionId              
+----  ---------  ----------  --------  ------------  ---------  ----------  -------  -----------  ------------------------
+cfg1  27101      cfg1:27017  cfgRS     configsvr     PRIMARY    cfg1:27017  8.0.38   0.25         7fffffff0000000000000001
+cfg2  27102      cfg2:27017  cfgRS     configsvr     SECONDARY  cfg1:27017  8.0.38   0.25                                 
+cfg3  27103      cfg3:27017  cfgRS     configsvr     SECONDARY  cfg1:27017  8.0.38   0.25                                 
+s1a   27104      s1a:27017   shard1RS  shardsvr      PRIMARY    s1a:27017   8.0.38   0.25         7fffffff0000000000000001
+s1b   27105      s1b:27017   shard1RS  shardsvr      SECONDARY  s1a:27017   8.0.38   0.25                                 
+s1c   27106      s1c:27017   shard1RS  shardsvr      SECONDARY  s1a:27017   8.0.38   0.25                                 
+s2a   27107      s2a:27017   shard2RS  shardsvr      PRIMARY    s2a:27017   8.0.38   0.25         7fffffff0000000000000001
+s2b   27108      s2b:27017   shard2RS  shardsvr      SECONDARY  s2a:27017   8.0.38   0.25                                 
+s2c   27109      s2c:27017   shard2RS  shardsvr      SECONDARY  s2a:27017   8.0.38   0.25                                 
+
+==============================================================================
+5. docker stats (memory budget)
+==============================================================================
+container  cpu    mem_used  mem_limit  mem_pct
+---------  -----  --------  ---------  -------
+cfg1       4.77%  132.9MiB  640MiB     20.76% 
+cfg2       2.90%  126.4MiB  640MiB     19.75% 
+cfg3       2.43%  126.1MiB  640MiB     19.71% 
+s1a        2.91%  125.3MiB  640MiB     19.57% 
+s1b        4.75%  123.8MiB  640MiB     19.34% 
+s1c        4.50%  122MiB    640MiB     19.07% 
+s2a        4.72%  120.2MiB  640MiB     18.79% 
+s2b        4.67%  118.7MiB  640MiB     18.54% 
+s2c        4.58%  126.2MiB  640MiB     19.71% 
+mongos     0.17%  23.2MiB   512MiB     4.53%  
+
+total memory used by cluster: 1145 MiB (1.12 GiB)
+
+==============================================================================
+summary
+==============================================================================
+container  host_port  replset   docker           role       setName   primary_seen
+---------  ---------  --------  ---------------  ---------  --------  ------------
+cfg1       27101      cfgRS     running/healthy  PRIMARY    cfgRS     cfg1:27017  
+cfg2       27102      cfgRS     running/healthy  SECONDARY  cfgRS     cfg1:27017  
+cfg3       27103      cfgRS     running/healthy  SECONDARY  cfgRS     cfg1:27017  
+s1a        27104      shard1RS  running/healthy  PRIMARY    shard1RS  s1a:27017   
+s1b        27105      shard1RS  running/healthy  SECONDARY  shard1RS  s1a:27017   
+s1c        27106      shard1RS  running/healthy  SECONDARY  shard1RS  s1a:27017   
+s2a        27107      shard2RS  running/healthy  PRIMARY    shard2RS  s2a:27017   
+s2b        27108      shard2RS  running/healthy  SECONDARY  shard2RS  s2a:27017   
+s2c        27109      shard2RS  running/healthy  SECONDARY  shard2RS  s2a:27017   
+mongos     27100      -         running/healthy  MONGOS     None      None        
+[11:46:03] E1 done. Raw data in C:\GitHub\N21-INT3202-2\b3\results\e01

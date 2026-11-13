@@ -1,0 +1,409 @@
+[
+  {
+    "id": "A1",
+    "group": "A",
+    "collection": "ship_compound",
+    "shard_key": "{'region': 1, 'recrd': 1}",
+    "filter": "{region: \"great_lakes\"}",
+    "why": "region = prefix of shard key",
+    "plan_stage": "SINGLE_SHARD",
+    "shards_contacted": "shard1RS",
+    "n_shards": 1,
+    "scan": "IXSCAN",
+    "keys_examined": 34811,
+    "docs_examined": 34811,
+    "returned": 34811,
+    "server_ms": 121,
+    "client_median_ms": 208.6,
+    "client_n": 34811,
+    "_per": {
+      "shard1RS": {
+        "scan": "IXSCAN",
+        "keys": 34811,
+        "docs": 34811,
+        "returned": 34811,
+        "ms": 119
+      }
+    }
+  },
+  {
+    "id": "A2",
+    "group": "A",
+    "collection": "ship_mono",
+    "shard_key": "{'ts': 1}",
+    "filter": "{region: \"great_lakes\"}",
+    "why": "region not in shard key {ts}",
+    "plan_stage": "SHARD_MERGE",
+    "shards_contacted": "shard1RS+shard2RS",
+    "n_shards": 2,
+    "scan": "COLLSCAN",
+    "keys_examined": 0,
+    "docs_examined": 500000,
+    "returned": 34811,
+    "server_ms": 225,
+    "client_median_ms": 395.3,
+    "client_n": 34811,
+    "_per": {
+      "shard1RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 226188,
+        "returned": 15693,
+        "ms": 198
+      },
+      "shard2RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 273812,
+        "returned": 19118,
+        "ms": 223
+      }
+    }
+  },
+  {
+    "id": "A3",
+    "group": "A",
+    "collection": "ship_hashed",
+    "shard_key": "{'_id': 'hashed'}",
+    "filter": "{region: \"great_lakes\"}",
+    "why": "region not in shard key {_id hashed}",
+    "plan_stage": "SHARD_MERGE",
+    "shards_contacted": "shard1RS+shard2RS",
+    "n_shards": 2,
+    "scan": "COLLSCAN",
+    "keys_examined": 0,
+    "docs_examined": 500000,
+    "returned": 34811,
+    "server_ms": 233,
+    "client_median_ms": 251.6,
+    "client_n": 34811,
+    "_per": {
+      "shard2RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 250221,
+        "returned": 17274,
+        "ms": 222
+      },
+      "shard1RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 249779,
+        "returned": 17537,
+        "ms": 232
+      }
+    }
+  },
+  {
+    "id": "A4",
+    "group": "A",
+    "collection": "ship_lowcard",
+    "shard_key": "{'feature_type': 1}",
+    "filter": "{region: \"great_lakes\"}",
+    "why": "region not in shard key {feature_type}",
+    "plan_stage": "SHARD_MERGE",
+    "shards_contacted": "shard1RS+shard2RS",
+    "n_shards": 2,
+    "scan": "COLLSCAN",
+    "keys_examined": 0,
+    "docs_examined": 500000,
+    "returned": 34811,
+    "server_ms": 354,
+    "client_median_ms": 311.0,
+    "client_n": 34811,
+    "_per": {
+      "shard1RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 203600,
+        "returned": 10895,
+        "ms": 146
+      },
+      "shard2RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 296400,
+        "returned": 23916,
+        "ms": 352
+      }
+    }
+  },
+  {
+    "id": "B1",
+    "group": "B",
+    "collection": "ship_compound",
+    "shard_key": "{'region': 1, 'recrd': 1}",
+    "filter": "{region: \"gulf_of_mexico\", recrd: \"19950101\"}",
+    "why": "full shard key (equality)",
+    "plan_stage": "SINGLE_SHARD",
+    "shards_contacted": "shard1RS",
+    "n_shards": 1,
+    "scan": "IXSCAN",
+    "keys_examined": 9,
+    "docs_examined": 9,
+    "returned": 9,
+    "server_ms": 1,
+    "client_median_ms": 2.1,
+    "client_n": 9,
+    "_per": {
+      "shard1RS": {
+        "scan": "IXSCAN",
+        "keys": 9,
+        "docs": 9,
+        "returned": 9,
+        "ms": 0
+      }
+    }
+  },
+  {
+    "id": "B2",
+    "group": "B",
+    "collection": "ship_compound",
+    "shard_key": "{'region': 1, 'recrd': 1}",
+    "filter": "{region: \"gulf_of_mexico\"}",
+    "why": "key prefix whose range spans 2 shards",
+    "plan_stage": "SHARD_MERGE",
+    "shards_contacted": "shard1RS+shard2RS",
+    "n_shards": 2,
+    "scan": "IXSCAN",
+    "keys_examined": 162778,
+    "docs_examined": 162778,
+    "returned": 162778,
+    "server_ms": 658,
+    "client_median_ms": 986.5,
+    "client_n": 162778,
+    "_per": {
+      "shard2RS": {
+        "scan": "IXSCAN",
+        "keys": 3822,
+        "docs": 3822,
+        "returned": 3822,
+        "ms": 62
+      },
+      "shard1RS": {
+        "scan": "IXSCAN",
+        "keys": 158956,
+        "docs": 158956,
+        "returned": 158956,
+        "ms": 656
+      }
+    }
+  },
+  {
+    "id": "B3",
+    "group": "B",
+    "collection": "ship_compound",
+    "shard_key": "{'region': 1, 'recrd': 1}",
+    "filter": "{feature_type: \"Wrecks - Submerged, dangerous\", depth: {$gt: 20}}",
+    "why": "no shard key",
+    "plan_stage": "SHARD_MERGE",
+    "shards_contacted": "shard1RS+shard2RS",
+    "n_shards": 2,
+    "scan": "COLLSCAN",
+    "keys_examined": 0,
+    "docs_examined": 500000,
+    "returned": 2715,
+    "server_ms": 183,
+    "client_median_ms": 264.8,
+    "client_n": 2715,
+    "_per": {
+      "shard1RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 223076,
+        "returned": 994,
+        "ms": 137
+      },
+      "shard2RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 276924,
+        "returned": 1721,
+        "ms": 181
+      }
+    }
+  },
+  {
+    "id": "B4",
+    "group": "B",
+    "collection": "ship_mono",
+    "shard_key": "{'ts': 1}",
+    "filter": "{ts: {$gte: ISODate(\"2025-01-01T00:00\"), $lt: ISODate(\"2025-01-01T01:00\")}}",
+    "why": "range on shard key (first hour)",
+    "plan_stage": "SINGLE_SHARD",
+    "shards_contacted": "shard1RS",
+    "n_shards": 1,
+    "scan": "IXSCAN",
+    "keys_examined": 3600,
+    "docs_examined": 3600,
+    "returned": 3600,
+    "server_ms": 16,
+    "client_median_ms": 36.9,
+    "client_n": 3600,
+    "_per": {
+      "shard1RS": {
+        "scan": "IXSCAN",
+        "keys": 3600,
+        "docs": 3600,
+        "returned": 3600,
+        "ms": 14
+      }
+    }
+  },
+  {
+    "id": "B5",
+    "group": "B",
+    "collection": "ship_mono",
+    "shard_key": "{'ts': 1}",
+    "filter": "{chart: \"US,US,graph,Chart 14969\"}",
+    "why": "no shard key",
+    "plan_stage": "SHARD_MERGE",
+    "shards_contacted": "shard1RS+shard2RS",
+    "n_shards": 2,
+    "scan": "COLLSCAN",
+    "keys_examined": 0,
+    "docs_examined": 500000,
+    "returned": 324,
+    "server_ms": 218,
+    "client_median_ms": 188.3,
+    "client_n": 324,
+    "_per": {
+      "shard1RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 226188,
+        "returned": 130,
+        "ms": 188
+      },
+      "shard2RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 273812,
+        "returned": 194,
+        "ms": 216
+      }
+    }
+  },
+  {
+    "id": "B6",
+    "group": "B",
+    "collection": "ship_hashed",
+    "shard_key": "{'_id': 'hashed'}",
+    "filter": "{_id: ObjectId(\"…000036\")}",
+    "why": "equality on hashed key",
+    "plan_stage": "SINGLE_SHARD",
+    "shards_contacted": "shard1RS",
+    "n_shards": 1,
+    "scan": "EXPRESS_IXSCAN",
+    "keys_examined": 1,
+    "docs_examined": 1,
+    "returned": 1,
+    "server_ms": 2,
+    "client_median_ms": 3.4,
+    "client_n": 1,
+    "_per": {
+      "shard1RS": {
+        "scan": "EXPRESS_IXSCAN",
+        "keys": 1,
+        "docs": 1,
+        "returned": 1,
+        "ms": 0
+      }
+    }
+  },
+  {
+    "id": "B7",
+    "group": "B",
+    "collection": "ship_hashed",
+    "shard_key": "{'_id': 'hashed'}",
+    "filter": "{_id: {$gte: ObjectId(\"…0186a0\"), $lte: ObjectId(\"…018e6f\")}}",
+    "why": "RANGE on hashed key (hash destroys order)",
+    "plan_stage": "SHARD_MERGE",
+    "shards_contacted": "shard1RS+shard2RS",
+    "n_shards": 2,
+    "scan": "IXSCAN",
+    "keys_examined": 2000,
+    "docs_examined": 0,
+    "returned": 2000,
+    "server_ms": 3,
+    "client_median_ms": 14.7,
+    "client_n": 2000,
+    "_per": {
+      "shard2RS": {
+        "scan": "IXSCAN",
+        "keys": 1001,
+        "docs": 0,
+        "returned": 1001,
+        "ms": 1
+      },
+      "shard1RS": {
+        "scan": "IXSCAN",
+        "keys": 999,
+        "docs": 0,
+        "returned": 999,
+        "ms": 1
+      }
+    }
+  },
+  {
+    "id": "B8",
+    "group": "B",
+    "collection": "ship_lowcard",
+    "shard_key": "{'feature_type': 1}",
+    "filter": "{feature_type: \"Wrecks - Visible\"}",
+    "why": "equality on shard key",
+    "plan_stage": "SINGLE_SHARD",
+    "shards_contacted": "shard1RS",
+    "n_shards": 1,
+    "scan": "IXSCAN",
+    "keys_examined": 116284,
+    "docs_examined": 116284,
+    "returned": 116284,
+    "server_ms": 156,
+    "client_median_ms": 444.3,
+    "client_n": 116284,
+    "_per": {
+      "shard1RS": {
+        "scan": "IXSCAN",
+        "keys": 116284,
+        "docs": 116284,
+        "returned": 116284,
+        "ms": 154
+      }
+    }
+  },
+  {
+    "id": "B9",
+    "group": "B",
+    "collection": "ship_lowcard",
+    "shard_key": "{'feature_type': 1}",
+    "filter": "{watlev: \"awash\"}",
+    "why": "no shard key",
+    "plan_stage": "SHARD_MERGE",
+    "shards_contacted": "shard1RS+shard2RS",
+    "n_shards": 2,
+    "scan": "COLLSCAN",
+    "keys_examined": 0,
+    "docs_examined": 500000,
+    "returned": 703,
+    "server_ms": 220,
+    "client_median_ms": 163.8,
+    "client_n": 703,
+    "_per": {
+      "shard1RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 203600,
+        "returned": 227,
+        "ms": 103
+      },
+      "shard2RS": {
+        "scan": "COLLSCAN",
+        "keys": 0,
+        "docs": 296400,
+        "returned": 476,
+        "ms": 218
+      }
+    }
+  }
+]

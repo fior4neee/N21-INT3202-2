@@ -1,0 +1,113 @@
+--lab04 trigger view
+USE sakila;
+
+-- Câu 1: Bảng payment_log + trigger khi thêm, sửa payment
+DROP TABLE IF EXISTS payment_log;
+CREATE TABLE payment_log (
+    log_id       INT AUTO_INCREMENT PRIMARY KEY,
+    payment_id   SMALLINT UNSIGNED NOT NULL,
+    customer_id  SMALLINT UNSIGNED NOT NULL,
+    staff_id     TINYINT UNSIGNED  NOT NULL,
+    rental_id    INT               DEFAULT NULL,
+    amount       DECIMAL(5,2)      NOT NULL,
+    payment_date DATETIME          NOT NULL,
+    action       VARCHAR(10)       NOT NULL,   -- INSERT / UPDATE
+    log_time     DATETIME          NOT NULL
+);
+
+DROP TRIGGER IF EXISTS trg_payment_insert;
+DROP TRIGGER IF EXISTS trg_payment_update;
+DELIMITER $$
+CREATE TRIGGER trg_payment_insert AFTER INSERT ON payment
+FOR EACH ROW
+BEGIN
+    INSERT INTO payment_log (payment_id, customer_id, staff_id, rental_id,
+                             amount, payment_date, action, log_time)
+    VALUES (NEW.payment_id, NEW.customer_id, NEW.staff_id, NEW.rental_id,
+            NEW.amount, NEW.payment_date, 'INSERT', NOW());
+END$$
+
+CREATE TRIGGER trg_payment_update AFTER UPDATE ON payment
+FOR EACH ROW
+BEGIN
+    INSERT INTO payment_log (payment_id, customer_id, staff_id, rental_id,
+                             amount, payment_date, action, log_time)
+    VALUES (NEW.payment_id, NEW.customer_id, NEW.staff_id, NEW.rental_id,
+            NEW.amount, NEW.payment_date, 'UPDATE', NOW());
+END$$
+DELIMITER ;
+
+-- Câu 2: Cột is_available cho inventory + trigger trên rental
+ALTER TABLE inventory ADD COLUMN is_available BOOLEAN NOT NULL DEFAULT TRUE;
+
+-- Khởi tạo giá trị theo dữ liệu hiện có: đĩa đang được thuê chưa trả = FALSE
+UPDATE inventory i
+SET i.is_available = NOT EXISTS (SELECT 1 FROM rental r
+                                 WHERE r.inventory_id = i.inventory_id
+                                   AND r.return_date IS NULL);
+
+DROP TRIGGER IF EXISTS trg_rental_insert;
+DROP TRIGGER IF EXISTS trg_rental_update;
+DELIMITER $$
+-- Khi đĩa được thuê -> is_available = FALSE
+CREATE TRIGGER trg_rental_insert AFTER INSERT ON rental
+FOR EACH ROW
+BEGIN
+    IF NEW.return_date IS NULL THEN
+        UPDATE inventory SET is_available = FALSE
+        WHERE inventory_id = NEW.inventory_id;
+    END IF;
+END$$
+
+-- Khi đĩa được trả lại -> is_available = TRUE
+CREATE TRIGGER trg_rental_update AFTER UPDATE ON rental
+FOR EACH ROW
+BEGIN
+    IF OLD.return_date IS NULL AND NEW.return_date IS NOT NULL THEN
+        UPDATE inventory SET is_available = TRUE
+        WHERE inventory_id = NEW.inventory_id;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Câu 3: View customer_list
+SHOW CREATE VIEW customer_list;
+
+SELECT * FROM customer_list;
+
+-- Thử cập nhật qua view (mỗi lệnh chỉ sửa cột của MỘT bảng gốc)
+UPDATE customer_list SET address = '123 Le Loi'   WHERE ID = 1;  -- OK (bảng address)
+UPDATE customer_list SET phone   = '0901234567'   WHERE ID = 1;  -- OK (bảng address)
+UPDATE customer_list SET city    = 'Ha Noi'       WHERE ID = 1;  -- OK (bảng city), nhưng đổi tên
+                                                                 -- thành phố cho MỌI địa chỉ thuộc city đó
+-- Các lệnh sau sẽ LỖI:
+-- UPDATE customer_list SET name  = 'A B'  WHERE ID = 1;   -- cột tính toán CONCAT -> không sửa được
+-- UPDATE customer_list SET notes = ''     WHERE ID = 1;   -- cột tính toán IF -> không sửa được
+-- UPDATE customer_list SET address = 'x', city = 'y' WHERE ID = 1; -- sửa 2 bảng gốc trong 1 lệnh -> lỗi
+
+-- Câu 4: View actor_list có thêm danh sách film diễn viên tham gia
+CREATE OR REPLACE VIEW actor_list AS
+SELECT a.actor_id,
+       a.first_name,
+       a.last_name,
+       COUNT(fa.film_id) AS so_film,
+       GROUP_CONCAT(f.title ORDER BY f.title SEPARATOR ', ') AS films
+FROM actor a
+LEFT JOIN film_actor fa ON a.actor_id = fa.actor_id
+LEFT JOIN film f        ON fa.film_id = f.film_id
+GROUP BY a.actor_id, a.first_name, a.last_name;
+
+SELECT * FROM actor_list;
+
+-- Câu 5: View sales_by_customer - doanh số theo khách hàng, giảm dần
+CREATE OR REPLACE VIEW sales_by_customer AS
+SELECT c.customer_id,
+       CONCAT(c.first_name, ' ', c.last_name) AS customer,
+       c.email,
+       SUM(p.amount) AS total_sales
+FROM payment p
+JOIN customer c ON p.customer_id = c.customer_id
+GROUP BY c.customer_id, c.first_name, c.last_name, c.email
+ORDER BY total_sales DESC;
+
+SELECT * FROM sales_by_customer;

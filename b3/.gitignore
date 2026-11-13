@@ -1,0 +1,6 @@
+# secrets: Atlas connection string lives only here
+.env
+__pycache__/
+*.pyc
+# the repo root ignores *.csv; keep experiment results in this lab
+!*.csv
