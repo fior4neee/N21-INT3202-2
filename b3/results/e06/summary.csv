@@ -1,0 +1,4 @@
+method,target,new_primary,t_fault_epoch,docker_cmd_returned_s,old_exit_code,log_election_started_s,log_election_won_s,log_catchup_s,log_writable_s,old_stepdown_s,old_quiesce_s,election_s,first_fail_s,writes_resumed_s,outage_s,failed_writes,writes_shard1,error_types,shard2_failed,rejoin_after_restore_s,terms_seen,two_primaries_seen
+kill,s1b,s1c,1794556364.567,0.62,137,10.084,10.094,0.562,10.676,,,10.93,0.1,10.45,10.35,6,156,NetworkTimeout(); WriteError(50); WriteError(6),0,1.83,5->6,False
+stop,s1c,s1a,1794556419.745,10.59,137,0.094,0.112,0.012,0.172,0.077,0.094,0.4,,,,0,154,,0,2.02,6->7,False
+pause,s1a,s1c,1794556473.212,0.28,,11.422,11.443,10.001,21.48,,,21.69,0.25,26.68,26.44,13,237,NetworkTimeout(); WTimeoutError(50); WriteError(50),0,1.59,7->8,False

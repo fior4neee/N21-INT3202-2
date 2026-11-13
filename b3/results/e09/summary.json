@@ -1,0 +1,208 @@
+{
+  "t_add_s": 33.4,
+  "first_migration_after_add_s": 20.9,
+  "balanced_after_add_s": 79.1,
+  "migrations": 15,
+  "MB_moved": 120.0,
+  "by_route": {
+    "ship_compound shard2RS->shard3RS": [
+      5,
+      40.15
+    ],
+    "ship_hashed shard2RS->shard3RS": [
+      4,
+      32.03
+    ],
+    "ship_hashed shard1RS->shard3RS": [
+      4,
+      32.019999999999996
+    ],
+    "ship_compound shard1RS->shard3RS": [
+      2,
+      15.760000000000002
+    ]
+  },
+  "writer": [
+    {
+      "phase": "before addShard",
+      "writes": 247,
+      "failed": 0,
+      "p50_ms": 15.4,
+      "p95_ms": 27.7,
+      "max_ms": 42.2
+    },
+    {
+      "phase": "during migrations",
+      "writes": 472,
+      "failed": 0,
+      "p50_ms": 17.5,
+      "p95_ms": 55.0,
+      "max_ms": 183.8
+    },
+    {
+      "phase": "after balancing",
+      "writes": 418,
+      "failed": 0,
+      "p50_ms": 17.3,
+      "p95_ms": 42.0,
+      "max_ms": 146.2
+    }
+  ],
+  "before": {
+    "ship_hashed": [
+      {
+        "shard": "shard1RS",
+        "owned_docs": 249779,
+        "owned_MB": 106.0,
+        "orphan_docs": 0,
+        "orphan_MB": 0.0,
+        "raw_docs": 249779,
+        "raw_MB": 106.08,
+        "storage_MB": 29.13,
+        "chunks": 1,
+        "jumbo": 0,
+        "write_ops": 0,
+        "read_ops": 3
+      },
+      {
+        "shard": "shard2RS",
+        "owned_docs": 250221,
+        "owned_MB": 106.19,
+        "orphan_docs": 0,
+        "orphan_MB": 0.0,
+        "raw_docs": 250221,
+        "raw_MB": 106.28,
+        "storage_MB": 30.44,
+        "chunks": 1,
+        "jumbo": 0,
+        "write_ops": 0,
+        "read_ops": 8
+      }
+    ],
+    "ship_compound": [
+      {
+        "shard": "shard1RS",
+        "owned_docs": 223076,
+        "owned_MB": 94.46,
+        "orphan_docs": 0,
+        "orphan_MB": 0.0,
+        "raw_docs": 223076,
+        "raw_MB": 94.58,
+        "storage_MB": 26.73,
+        "chunks": 1,
+        "jumbo": 0,
+        "write_ops": 0,
+        "read_ops": 3
+      },
+      {
+        "shard": "shard2RS",
+        "owned_docs": 276924,
+        "owned_MB": 117.52,
+        "orphan_docs": 0,
+        "orphan_MB": 0.0,
+        "raw_docs": 276924,
+        "raw_MB": 117.78,
+        "storage_MB": 55.64,
+        "chunks": 1,
+        "jumbo": 0,
+        "write_ops": 0,
+        "read_ops": 992
+      }
+    ]
+  },
+  "after": {
+    "ship_hashed": [
+      {
+        "shard": "shard1RS",
+        "owned_docs": 175136,
+        "owned_MB": 74.33,
+        "orphan_docs": 75403,
+        "orphan_MB": 32.0,
+        "raw_docs": 250539,
+        "raw_MB": 106.4,
+        "storage_MB": 29.13,
+        "chunks": 1,
+        "jumbo": 0,
+        "write_ops": 763,
+        "read_ops": 168
+      },
+      {
+        "shard": "shard2RS",
+        "owned_docs": 175581,
+        "owned_MB": 74.51,
+        "orphan_docs": 75398,
+        "orphan_MB": 32.0,
+        "raw_docs": 250979,
+        "raw_MB": 106.61,
+        "storage_MB": 30.44,
+        "chunks": 1,
+        "jumbo": 0,
+        "write_ops": 761,
+        "read_ops": 175
+      },
+      {
+        "shard": "shard3RS",
+        "owned_docs": 150963,
+        "owned_MB": 64.07,
+        "orphan_docs": 0,
+        "orphan_MB": 0.0,
+        "raw_docs": 150963,
+        "raw_MB": 64.12,
+        "storage_MB": 16.3,
+        "chunks": 8,
+        "jumbo": 0,
+        "write_ops": 164,
+        "read_ops": 84
+      }
+    ],
+    "ship_compound": [
+      {
+        "shard": "shard1RS",
+        "owned_docs": 185292,
+        "owned_MB": 78.46,
+        "orphan_docs": 37784,
+        "orphan_MB": 16.0,
+        "raw_docs": 223076,
+        "raw_MB": 94.58,
+        "storage_MB": 26.73,
+        "chunks": 1,
+        "jumbo": 0,
+        "write_ops": 0,
+        "read_ops": 172
+      },
+      {
+        "shard": "shard2RS",
+        "owned_docs": 182705,
+        "owned_MB": 77.54,
+        "orphan_docs": 94219,
+        "orphan_MB": 39.99,
+        "raw_docs": 276924,
+        "raw_MB": 117.78,
+        "storage_MB": 55.64,
+        "chunks": 1,
+        "jumbo": 0,
+        "write_ops": 0,
+        "read_ops": 1161
+      },
+      {
+        "shard": "shard3RS",
+        "owned_docs": 132003,
+        "owned_MB": 55.89,
+        "orphan_docs": 0,
+        "orphan_MB": 0.0,
+        "raw_docs": 132003,
+        "raw_MB": 55.9,
+        "storage_MB": 12.79,
+        "chunks": 7,
+        "jumbo": 0,
+        "write_ops": 0,
+        "read_ops": 96
+      }
+    ]
+  },
+  "s3_volumes": [
+    "mongolab_s3c_data 305.6MB",
+    "mongolab_s3b_data 305.8MB",
+    "mongolab_s3a_data 304.3MB"
+  ]
+}

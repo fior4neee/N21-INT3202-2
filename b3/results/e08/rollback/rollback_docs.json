@@ -1,0 +1,290 @@
+[
+  {
+    "_id": {
+      "$oid": "6af6c62a6a1bbac6f835c3b2"
+    },
+    "k": {
+      "$numberDouble": "-4.05745804E+09"
+    },
+    "seq": {
+      "$numberInt": "40"
+    },
+    "src": "e08-isolated",
+    "wc": "1",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557482347"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6296a1bbac6f835c3b0"
+    },
+    "k": {
+      "$numberDouble": "-4.057458038E+09"
+    },
+    "seq": {
+      "$numberInt": "38"
+    },
+    "src": "e08-isolated",
+    "wc": "1",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557481123"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6246a1bbac6f835c3a8"
+    },
+    "k": {
+      "$numberDouble": "-4.05745803E+09"
+    },
+    "seq": {
+      "$numberInt": "30"
+    },
+    "src": "e08-isolated",
+    "wc": "1",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557476220"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6276a1bbac6f835c3ae"
+    },
+    "k": {
+      "$numberDouble": "-4.057458036E+09"
+    },
+    "seq": {
+      "$numberInt": "36"
+    },
+    "src": "e08-isolated",
+    "wc": "1",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557479898"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6216a1bbac6f835c3a5"
+    },
+    "k": {
+      "$numberDouble": "-4.057458027E+09"
+    },
+    "seq": {
+      "$numberInt": "27"
+    },
+    "src": "e08-isolated",
+    "wc": "majority",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557473976"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6216a1bbac6f835c3a4"
+    },
+    "k": {
+      "$numberDouble": "-4.057458026E+09"
+    },
+    "seq": {
+      "$numberInt": "26"
+    },
+    "src": "e08-isolated",
+    "wc": "1",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557473768"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6256a1bbac6f835c3ab"
+    },
+    "k": {
+      "$numberDouble": "-4.057458033E+09"
+    },
+    "seq": {
+      "$numberInt": "33"
+    },
+    "src": "e08-isolated",
+    "wc": "majority",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557477651"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6286a1bbac6f835c3af"
+    },
+    "k": {
+      "$numberDouble": "-4.057458037E+09"
+    },
+    "seq": {
+      "$numberInt": "37"
+    },
+    "src": "e08-isolated",
+    "wc": "majority",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557480105"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6226a1bbac6f835c3a6"
+    },
+    "k": {
+      "$numberDouble": "-4.057458028E+09"
+    },
+    "seq": {
+      "$numberInt": "28"
+    },
+    "src": "e08-isolated",
+    "wc": "1",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557474995"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6266a1bbac6f835c3ad"
+    },
+    "k": {
+      "$numberDouble": "-4.057458035E+09"
+    },
+    "seq": {
+      "$numberInt": "35"
+    },
+    "src": "e08-isolated",
+    "wc": "majority",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557478879"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c62a6a1bbac6f835c3b3"
+    },
+    "k": {
+      "$numberDouble": "-4.057458041E+09"
+    },
+    "seq": {
+      "$numberInt": "41"
+    },
+    "src": "e08-isolated",
+    "wc": "majority",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557482554"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6246a1bbac6f835c3a9"
+    },
+    "k": {
+      "$numberDouble": "-4.057458031E+09"
+    },
+    "seq": {
+      "$numberInt": "31"
+    },
+    "src": "e08-isolated",
+    "wc": "majority",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557476428"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6236a1bbac6f835c3a7"
+    },
+    "k": {
+      "$numberDouble": "-4.057458029E+09"
+    },
+    "seq": {
+      "$numberInt": "29"
+    },
+    "src": "e08-isolated",
+    "wc": "majority",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557475202"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6266a1bbac6f835c3ac"
+    },
+    "k": {
+      "$numberDouble": "-4.057458034E+09"
+    },
+    "seq": {
+      "$numberInt": "34"
+    },
+    "src": "e08-isolated",
+    "wc": "1",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557478671"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6256a1bbac6f835c3aa"
+    },
+    "k": {
+      "$numberDouble": "-4.057458032E+09"
+    },
+    "seq": {
+      "$numberInt": "32"
+    },
+    "src": "e08-isolated",
+    "wc": "1",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557477448"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6af6c6296a1bbac6f835c3b1"
+    },
+    "k": {
+      "$numberDouble": "-4.057458039E+09"
+    },
+    "seq": {
+      "$numberInt": "39"
+    },
+    "src": "e08-isolated",
+    "wc": "majority",
+    "t": {
+      "$date": {
+        "$numberLong": "1794557481328"
+      }
+    }
+  }
+]

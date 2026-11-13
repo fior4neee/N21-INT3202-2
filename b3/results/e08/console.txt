@@ -1,0 +1,68 @@
+
+==============================================================================
+E8 setup: isolate s1c (primary of shard1RS); majority side = s1a, s1b
+==============================================================================
+Docker VM clock - Windows clock = +18 ms; rollback files already on s1c: 0
+
+==============================================================================
+E8 partition
+==============================================================================
+[15:11:13] chaos: docker network disconnect mongolab_net s1c
+[15:11:24] majority side elected s1b at +11.59 s
+[15:11:24] isolated s1c stopped reporting PRIMARY at +10.15 s (its own view)
+
+==============================================================================
+E8 heal
+==============================================================================
+[15:11:28] chaos: docker network connect --alias s1c mongolab_net s1c
+[15:11:28] s1c back as SECONDARY at +0.34 s after reconnect
+
+==============================================================================
+E8 results
+==============================================================================
+event                                              t_s         
+-------------------------------------------------  ------------
+network disconnect s1c                             0.0         
+majority side: s1b PRIMARY (poller)                11.59       
+isolated s1c: stops reporting PRIMARY (own hello)  10.15       
+TWO PRIMARIES at the same time                     not observed
+network connect s1c                                14.59       
+s1c SECONDARY again                                14.94       
+
+direct writes to isolated P during partition              count
+--------------------------------------------------------  -----
+w:1 acknowledged                                          8    
+w:1 failed                                                11   
+w:majority acknowledged                                   1    
+w:majority failed / timed out                             19   
+w:1 acknowledged but NOT in the collection after healing  8    
+writes acknowledged before the partition, missing after   0    
+
+example w:majority error on the isolated primary: WriteConcernFailed waiting for replication timed out
+example w:1 error on the isolated primary: NotWritablePrimary not primary
+
+new rollback files on s1c:
+  /data/db/rollback/4d4e3a09-562d-4894-b57e-27d944a95a25/removed.2026-11-13T08-11-28.0.bson  (1416 bytes)
+documents in the new rollback files: 16 (16 from the isolated client; all w:1-acknowledged-and-lost are in it: True)
+first rolled-back document: {"_id": {"$oid": "6af6c62a6a1bbac6f835c3b2"}, "k": {"$numberDouble": "-4.05745804E+09"}, "seq": {"$numberInt": "40"}, "src": "e08-isolated", "wc": "1", "t": {"$date": {"$numberLong": "1794557482347"}}}
+
+s1c log lines mentioning rollback (15):
+  08:11:28.396  Starting rollback due to fetcher error
+  08:11:28.396  Rollback using 'recoverToStableTimestamp' method
+  08:11:28.396  Scheduling rollback
+  08:11:28.420  Rollback common point
+  08:11:28.424  Incremented the rollback ID
+  08:11:28.424  Stopping index builds before rollback
+  08:11:28.424  Waiting for all background operations to complete before starting rollback
+  08:11:28.424  Finished waiting for background operations to complete before rollback
+  08:11:28.424  Preparing to write deleted documents to a rollback file
+  08:11:29.574  Operations reverted by rollback
+  08:11:29.612  Not updating committed snapshot because we are in rollback
+  08:11:29.612  Triggering the rollback op observer
+  08:11:29.612  Rollback complete
+  08:11:29.612  Rollback summary
+
+writer through mongos during the experiment: {'shard1RS': {'writes': 135, 'failed': 7}, 'shard2RS': {'writes': 134, 'failed': 0}}
+
+HEALTHY
+[15:12:24] E8 done -> C:\GitHub\N21-INT3202-2\b3\results\e08

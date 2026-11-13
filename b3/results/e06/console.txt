@@ -1,0 +1,70 @@
+Docker VM clock - Windows clock = +12 ms (log timestamps are corrected by this; resolution about +-0.1 s)
+
+==============================================================================
+E6 KILL: docker kill on s1b (current primary of shard1RS)
+==============================================================================
+[14:52:45] chaos: docker kill -s KILL s1b
+[14:52:55] new primary s1c seen at +10.93 s
+[14:53:01] chaos: docker start s1b
+[14:53:02] s1b back as SECONDARY at +1.83 s after restore
+method  target  new_primary  election_s  first_fail_s  writes_resumed_s  outage_s  failed_writes  shard2_failed  rejoin_after_restore_s  terms_seen
+------  ------  -----------  ----------  ------------  ----------------  --------  -------------  -------------  ----------------------  ----------
+kill    s1b     s1c          10.93       0.1           10.45             10.35     6              0              1.83                    5->6      
+(election_s = first hello with isWritablePrimary on a new node, polled every 0.25 s)
+error types: NetworkTimeout(); WriteError(50); WriteError(6)
+  WriteError: Write results unavailable from s1b:27017 :: caused by :: futurize :: caused by :: Connection reset by peer
+  NetworkTimeout: 127.0.0.1:27100: timed out (configured timeouts: timeoutMS: 2000.0ms, connectTimeoutMS: 2000.0ms)
+from the new primary's log: election started +10.084 s, won +10.094 s, catch-up 0.562 s, writable +10.676 s
+[14:53:17] cluster healthy again
+
+==============================================================================
+E6 STOP: docker stop on s1c (current primary of shard1RS)
+==============================================================================
+[14:53:50] chaos: docker stop -t 10 s1c
+[14:53:50] new primary s1a seen at +0.40 s
+[14:53:56] chaos: docker start s1c
+[14:53:57] s1c back as SECONDARY at +2.02 s after restore
+method  target  new_primary  election_s  first_fail_s  writes_resumed_s  outage_s  failed_writes  shard2_failed  rejoin_after_restore_s  terms_seen
+------  ------  -----------  ----------  ------------  ----------------  --------  -------------  -------------  ----------------------  ----------
+stop    s1c     s1a          0.4         None          None              None      0              0              2.02                    6->7      
+(election_s = first hello with isWritablePrimary on a new node, polled every 0.25 s)
+error types: -
+from the new primary's log: election started +0.094 s, won +0.112 s, catch-up 0.012 s, writable +0.172 s
+old primary log: SIGTERM -> stepdown +0.077 s, quiesce mode +0.094 s; docker stop returned after 10.59 s, container exit code 137 (137 = SIGKILL after docker's 10 s timeout)
+[14:54:10] cluster healthy again
+
+==============================================================================
+E6 PAUSE: docker pause on s1a (current primary of shard1RS)
+==============================================================================
+[14:54:33] chaos: docker pause s1a
+[14:54:54] new primary s1c seen at +21.69 s
+[14:55:06] chaos: docker unpause s1a
+[14:55:07] s1a back as SECONDARY at +1.59 s after restore
+method  target  new_primary  election_s  first_fail_s  writes_resumed_s  outage_s  failed_writes  shard2_failed  rejoin_after_restore_s  terms_seen
+------  ------  -----------  ----------  ------------  ----------------  --------  -------------  -------------  ----------------------  ----------
+pause   s1a     s1c          21.69       0.25          26.68             26.44     13             0              1.59                    7->8      
+(election_s = first hello with isWritablePrimary on a new node, polled every 0.25 s)
+error types: NetworkTimeout(); WTimeoutError(50); WriteError(50)
+  NetworkTimeout: 127.0.0.1:27100: timed out (configured timeouts: timeoutMS: 2000.0ms, connectTimeoutMS: 2000.0ms)
+  WriteError: Write results unavailable from s1a:27017 :: caused by :: operation exceeded time limit
+  WTimeoutError: MaxTimeMSExpired: operation exceeded time limit; Error details: { writeConcern: { w: "majority", wtimeout: 0, provenance: "clientSupplied" } } at shard1RS
+from the new primary's log: election started +11.422 s, won +11.443 s, catch-up 10.001 s, writable +21.48 s
+[14:55:28] cluster healthy again
+
+==============================================================================
+E6 summary (times in s after the fault; log_* from the new primary's mongod log)
+==============================================================================
+method  target  new_primary  log_election_won_s  log_catchup_s  log_writable_s  writes_resumed_s  outage_s  failed_writes  shard2_failed  rejoin_after_restore_s
+------  ------  -----------  ------------------  -------------  --------------  ----------------  --------  -------------  -------------  ----------------------
+kill    s1b     s1c          10.094              0.562          10.676          10.45             10.35     6              0              1.83                  
+stop    s1c     s1a          0.112               0.012          0.172           None              None      0              0              2.02                  
+pause   s1a     s1c          11.443              10.001         21.48           26.68             26.44     13             0              1.59                  
+
+method  error_types                                          docker_cmd_returned_s  old_exit_code  terms_seen
+------  ---------------------------------------------------  ---------------------  -------------  ----------
+kill    NetworkTimeout(); WriteError(50); WriteError(6)      0.62                   137            5->6      
+stop                                                         10.59                  137            6->7      
+pause   NetworkTimeout(); WTimeoutError(50); WriteError(50)  0.28                   None           7->8      
+
+HEALTHY
+[14:55:49] E6 done -> C:\GitHub\N21-INT3202-2\b3\results\e06

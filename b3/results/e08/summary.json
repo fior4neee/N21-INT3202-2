@@ -1,0 +1,30 @@
+{
+  "isolated": "s1c",
+  "new_primary": "s1b",
+  "t_cut": 1794557473.397958,
+  "elected_s": 11.59,
+  "isolated_stepdown_s": 10.15,
+  "two_primaries_s": 0,
+  "heal_s": 14.59,
+  "rejoin_s": 14.94,
+  "w1_acked": 8,
+  "w1_failed": 11,
+  "wmaj_acked": 1,
+  "wmaj_failed": 19,
+  "w1_acked_lost": 8,
+  "pre_partition_lost": 0,
+  "rollback_files": [
+    "/data/db/rollback/4d4e3a09-562d-4894-b57e-27d944a95a25/removed.2026-11-13T08-11-28.0.bson"
+  ],
+  "rollback_docs": 16,
+  "writer": {
+    "shard1RS": {
+      "writes": 135,
+      "failed": 7
+    },
+    "shard2RS": {
+      "writes": 134,
+      "failed": 0
+    }
+  }
+}

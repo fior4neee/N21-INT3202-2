@@ -1,0 +1,335 @@
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "SHARD_MERGE",
+      "shards": [
+        {
+          "explainVersion": "1",
+          "shardName": "shard1RS",
+          "connectionString": "shard1RS/s1a:27017,s1b:27017,s1c:27017",
+          "serverInfo": {
+            "host": "s1b",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_compound",
+          "parsedQuery": {
+            "location": {
+              "$geoWithin": {
+                "$centerSphere": [
+                  [
+                    -81.7,
+                    41.6
+                  ],
+                  0.004703595114532541
+                ]
+              }
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "5DBB2FD5",
+          "planCacheShapeHash": "5DBB2FD5",
+          "planCacheKey": "52FFF6B1",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "location": {
+                    "$geoWithin": {
+                      "$centerSphere": [
+                        [
+                          -81.7,
+                          41.6
+                        ],
+                        0.004703595114532541
+                      ]
+                    }
+                  }
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        },
+        {
+          "explainVersion": "1",
+          "shardName": "shard2RS",
+          "connectionString": "shard2RS/s2a:27017,s2b:27017,s2c:27017",
+          "serverInfo": {
+            "host": "s2c",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_compound",
+          "parsedQuery": {
+            "location": {
+              "$geoWithin": {
+                "$centerSphere": [
+                  [
+                    -81.7,
+                    41.6
+                  ],
+                  0.004703595114532541
+                ]
+              }
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "5DBB2FD5",
+          "planCacheShapeHash": "5DBB2FD5",
+          "planCacheKey": "52FFF6B1",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "location": {
+                    "$geoWithin": {
+                      "$centerSphere": [
+                        [
+                          -81.7,
+                          41.6
+                        ],
+                        0.004703595114532541
+                      ]
+                    }
+                  }
+                },
+                "direction": "forward"
+              }
+            }
+          },
+          "rejectedPlans": []
+        }
+      ]
+    }
+  },
+  "executionStats": {
+    "nReturned": 692,
+    "executionTimeMillis": 208,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 500000,
+    "executionStages": {
+      "stage": "SHARD_MERGE",
+      "nReturned": 692,
+      "executionTimeMillis": 208,
+      "totalKeysExamined": 0,
+      "totalDocsExamined": 500000,
+      "totalChildMillis": 357,
+      "shards": [
+        {
+          "shardName": "shard1RS",
+          "executionSuccess": true,
+          "nReturned": 692,
+          "executionTimeMillis": 153,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 223076,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 692,
+            "executionTimeMillisEstimate": 151,
+            "works": 223077,
+            "advanced": 692,
+            "needTime": 222384,
+            "needYield": 0,
+            "saveState": 8,
+            "restoreState": 8,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 692,
+              "executionTimeMillisEstimate": 151,
+              "works": 223077,
+              "advanced": 692,
+              "needTime": 222384,
+              "needYield": 0,
+              "saveState": 8,
+              "restoreState": 8,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "location": {
+                    "$geoWithin": {
+                      "$centerSphere": [
+                        [
+                          -81.7,
+                          41.6
+                        ],
+                        0.004703595114532541
+                      ]
+                    }
+                  }
+                },
+                "nReturned": 692,
+                "executionTimeMillisEstimate": 151,
+                "works": 223077,
+                "advanced": 692,
+                "needTime": 222384,
+                "needYield": 0,
+                "saveState": 8,
+                "restoreState": 8,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 223076
+              }
+            }
+          }
+        },
+        {
+          "shardName": "shard2RS",
+          "executionSuccess": true,
+          "nReturned": 0,
+          "executionTimeMillis": 204,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 276924,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 201,
+            "works": 276925,
+            "advanced": 0,
+            "needTime": 276924,
+            "needYield": 0,
+            "saveState": 10,
+            "restoreState": 10,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 0,
+              "executionTimeMillisEstimate": 201,
+              "works": 276925,
+              "advanced": 0,
+              "needTime": 276924,
+              "needYield": 0,
+              "saveState": 10,
+              "restoreState": 10,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                  "location": {
+                    "$geoWithin": {
+                      "$centerSphere": [
+                        [
+                          -81.7,
+                          41.6
+                        ],
+                        0.004703595114532541
+                      ]
+                    }
+                  }
+                },
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 191,
+                "works": 276925,
+                "advanced": 0,
+                "needTime": 276924,
+                "needYield": 0,
+                "saveState": 10,
+                "restoreState": 10,
+                "isEOF": 1,
+                "direction": "forward",
+                "docsExamined": 276924
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "queryShapeHash": "2F3BF7AB862F8673DC998FC1F871B89FC9CABF4A4C3EAB25CC3F9AAC86D49EB8",
+  "serverInfo": {
+    "host": "mongos",
+    "port": 27017,
+    "version": "8.0.38",
+    "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "find": "ship_compound",
+    "filter": {
+      "location": {
+        "$geoWithin": {
+          "$centerSphere": [
+            [
+              -81.7,
+              41.6
+            ],
+            0.004703595114532541
+          ]
+        }
+      }
+    },
+    "projection": {
+      "_id": 1
+    },
+    "lsid": {
+      "id": "b'\\xfdH\\xd4 \\xa3\\xc4A\\x19\\x8e\\xd9\\xb9\\xaa\\xc0>j\\x16'"
+    },
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794553646, 2)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "$db": "lab"
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1794553646, 2)",
+    "signature": {
+      "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "keyId": 0
+    }
+  },
+  "operationTime": "Timestamp(1794553646, 2)"
+}

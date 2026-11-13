@@ -308,6 +308,58 @@ def draw_routing(path, title: str, query: str, collection: str, shard_key: str, 
     return path
 
 
+def draw_reads(path, title: str, subtitle: str, state: dict, counts: dict, captions: dict | None = None) -> Path:
+    """Read-routing diagram: mongos -> every shard node, arrow width ∝ share of reads it served.
+    counts: {node: reads served}; captions: optional {node: 'lag p95 85 ms'} printed under the node."""
+    captions = captions or {}
+    nodes = state["nodes"]
+    shards = [rs for rs in REPLSETS if rs != "cfgRS" and any(v["rs"] == rs for v in nodes.values())]
+    total = sum(counts.values()) or 1
+    fig = plt.figure(figsize=(13, 6.6))
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.set_xlim(0, 100)
+    ax.set_ylim(0, 54)
+    ax.axis("off")
+    ax.text(2, 52.5, title.replace("$", r"\$"), fontsize=15, fontweight="bold", color=INK, va="top")
+    ax.text(2, 49, subtitle.replace("$", r"\$"), fontsize=10, color=INK2, va="top")
+    cx = 50
+    _box(ax, cx - 9, 40, 18, 4.6, "white", INK2)
+    ax.text(cx, 42.3, "client (reader.py)", ha="center", va="center", fontsize=9, color=INK)
+    _box(ax, cx - 7, 31, 14, 5.4, "#eeeeea", INK)
+    ax.text(cx, 33.7, "mongos", ha="center", va="center", fontsize=12, fontweight="bold", color=INK)
+    _arrow(ax, (cx, 40), (cx, 36.5), INK2)
+    k = len(shards)
+    gap = 3
+    sw = (96 - gap * (k - 1)) / k
+    for j, rs in enumerate(shards):
+        x0 = 2 + j * (sw + gap)
+        _box(ax, x0, 2, sw, 19, "white", GRID, r=1.2, z=1)
+        ax.text(x0 + 1.2, 19.8, rs, fontsize=11, fontweight="bold", color=INK, va="top")
+        nw = min(12, (sw - 4) / 3)
+        tot = 3 * nw + 2 * 1.5
+        for i, n in enumerate(REPLSETS[rs]):
+            x = x0 + (sw - tot) / 2 + i * (nw + 1.5)
+            _node(ax, x, 6.5, nw, 9, n, nodes[n])
+            c = counts.get(n, 0)
+            share = c / total
+            ax.text(x + nw / 2, 4.6, f"{c:,} reads ({100 * share:.0f}%)", ha="center", fontsize=8.6,
+                    color=INK if c else MUTED, fontweight="bold" if c else "normal")
+            if captions.get(n):
+                ax.text(x + nw / 2, 3.0, captions[n], ha="center", fontsize=7.6, color=INK2)
+            if c:
+                ax.add_patch(FancyArrowPatch((cx, 31), (x + nw / 2, 15.6), arrowstyle="-|>", mutation_scale=12,
+                                             color=BLUE, lw=1 + 9 * share, alpha=0.75, zorder=1, shrinkA=2,
+                                             shrinkB=2))
+            else:
+                ax.plot([cx, x + nw / 2], [31, 15.6], color=MUTED, lw=0.8, ls=":", zorder=0)
+    ax.text(2, 0.4, "arrow width ∝ share of all reads; dotted = node served no reads", fontsize=8, color=INK2)
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(path, dpi=130, facecolor="white")
+    plt.close(fig)
+    return path
+
+
 def storyboard(paths: list, out, cols: int = 2) -> Path:
     """Stitch step diagrams into one image (rows of `cols`)."""
     from PIL import Image

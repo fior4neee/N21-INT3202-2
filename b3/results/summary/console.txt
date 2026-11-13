@@ -1,0 +1,60 @@
+
+==============================================================================
+Summary: expected behaviour vs observation (all experiments)
+==============================================================================
+exp  case                                                      observed                                                                                                                                          key numbers                                             
+---  --------------------------------------------------------  ------------------------------------------------------------------------------------------------------------------------------------------------  --------------------------------------------------------
+E1   cluster survey                                            9 mongod + 1 mongos, primaries cfg1, s1a, s2a; MongoDB 8.0.38                                                                                     WT cache 0.25 GB per node                               
+E2   ship_mono                                                 balancer on: 96 / 116 MB per shard (off: 212); jumbo 0; 100.0% of new docs to shard2RS                                                            12 migrations, gap 20.2 MB (threshold 24 MB)            
+E2   ship_lowcard                                              balancer on: 83 / 127 MB per shard (off: 212); jumbo 1; 70.3% of new docs to shard2RS                                                             3 migrations, gap 44.0 MB (threshold 24 MB)             
+E2   ship_hashed                                               balancer on: 106 / 106 MB per shard (off: 106 / 106); jumbo 0; 50.0% of new docs to shard1RS                                                      0 migrations, gap 0.2 MB (threshold 24 MB)              
+E2   ship_compound                                             balancer on: 94 / 118 MB per shard (off: 212); jumbo 0; 67.9% of new docs to shard2RS                                                             3 migrations, gap 23.1 MB (threshold 24 MB)             
+E3   A1 ship_compound region = prefix of shard key             SINGLE_SHARD, 1 shard(s), IXSCAN                                                                                                                  docs examined 34,811 -> returned 34,811                 
+E3   A2 ship_mono region not in shard key {ts}                 SHARD_MERGE, 2 shard(s), COLLSCAN                                                                                                                 docs examined 500,000 -> returned 34,811                
+E3   B1 ship_compound full shard key (equality)                SINGLE_SHARD, 1 shard(s), IXSCAN                                                                                                                  docs examined 9 -> returned 9                           
+E3   B6 ship_hashed equality on hashed key                     SINGLE_SHARD, 1 shard(s), EXPRESS_IXSCAN                                                                                                          docs examined 1 -> returned 1                           
+E3   B7 ship_hashed RANGE on hashed key (hash destroys order)  SHARD_MERGE, 2 shard(s), IXSCAN                                                                                                                   docs examined 0 -> returned 2,000                       
+E4   2dsphere index                                            G1 COLLSCAN 500,000 docs -> G3 IXSCAN 772 docs; $near without index: error                                                                        352.3 ms -> 6.2 ms; index 3.2-4.0 MB per shard          
+E4   $near / $geoNear routing                                  no key: 2 shards; with region: 1 shard                                                                                                            geo index cannot be a shard key: shardCollection error 2
+E5   readPreference primary                                    100% primaries / 0% secondaries                                                                                                                   400 reads, 2 nodes served                               
+E5   readPreference secondary                                  0% primaries / 100% secondaries                                                                                                                   400 reads, 4 nodes served                               
+E5   readPreference secondaryPreferred                         0% primaries / 100% secondaries                                                                                                                   400 reads, 4 nodes served                               
+E5   readPreference nearest                                    34% primaries / 66% secondaries                                                                                                                   400 reads, 6 nodes served                               
+E5   replication lag under write load                          loaded shard p50 7.2 ms, p95 32.2 ms, max 810.2 ms; control p95 12.0 ms                                                                           3,333 updates/s                                         
+E6   docker kill of the shard1 primary                         election won 10.1 s, catch-up 0.6 s, writable 10.7 s, writes ok 10.4 s                                                                            6 failed writes; shard2 0 failed                        
+E6   docker stop of the shard1 primary                         election won 0.1 s, catch-up 0.0 s, writable 0.2 s, writes ok -                                                                                   0 failed writes; shard2 0 failed                        
+E6   docker pause of the shard1 primary                        election won 11.4 s, catch-up 10.0 s, writable 21.5 s, writes ok 26.7 s                                                                           13 failed writes; shard2 0 failed                       
+E7   2 of 3 shard1RS members down                              s1c stepped down at +20.1 s (incl. ~11 s docker stop); failing: W shard1 w:majority, W shard1 w:1, R shard1 primary, R shard1 secondaryPreferred  primary again 11.8 s after restart                      
+E7   2 of 3 cfgRS members down                                 cfg1 stepped down at +20.1 s (incl. ~11 s docker stop); failing: W shard1 w:majority, M config write (chunksize), M shardCollection (new coll)    primary again 2.3 s after restart                       
+E8   partition of the shard1 primary                           8 w:1 acked while isolated -> 8 lost (rollback file: 16 docs); w:majority acked 1, failed 19; two primaries: not observed                         old primary stepped down +10.15 s, new elected +11.59 s 
+E9   add a third shard                                         15 migrations, 120.0 MB moved, balanced 79.1 s after addShard; 0 failed writes                                                                    insert p95 27.7 -> 55.0 ms during migration             
+
+==============================================================================
+Summary: what theory predicted for each case
+==============================================================================
+exp  case                                                      expected (theory)                                                                                                     
+---  --------------------------------------------------------  ----------------------------------------------------------------------------------------------------------------------
+E1   cluster survey                                            3 cfg + 2x3 shard members + mongos; 1 primary per replica set                                                         
+E2   ship_mono                                                 hot shard: all inserts on 1 shard                                                                                     
+E2   ship_lowcard                                              jumbo chunks                                                                                                          
+E2   ship_hashed                                               even spread without the balancer                                                                                      
+E2   ship_compound                                             balanced, targeted                                                                                                    
+E3   A1 ship_compound region = prefix of shard key             targeted if the filter has the shard key, else scatter-gather                                                         
+E3   A2 ship_mono region not in shard key {ts}                 targeted if the filter has the shard key, else scatter-gather                                                         
+E3   B1 ship_compound full shard key (equality)                targeted if the filter has the shard key, else scatter-gather                                                         
+E3   B6 ship_hashed equality on hashed key                     targeted if the filter has the shard key, else scatter-gather                                                         
+E3   B7 ship_hashed RANGE on hashed key (hash destroys order)  targeted if the filter has the shard key, else scatter-gather                                                         
+E4   2dsphere index                                            COLLSCAN before, IXSCAN after; $near needs the index                                                                  
+E4   $near / $geoNear routing                                  scatter-gather unless the shard key is in the query                                                                   
+E5   readPreference primary                                    all reads on primaries                                                                                                
+E5   readPreference secondary                                  all reads on secondaries                                                                                              
+E5   readPreference secondaryPreferred                         secondaries while available                                                                                           
+E5   readPreference nearest                                    any member within the latency window                                                                                  
+E5   replication lag under write load                          lag grows with write load on that shard only                                                                          
+E6   docker kill of the shard1 primary                         ~election timeout (10 s)                                                                                              
+E6   docker stop of the shard1 primary                         fastest: clean step-down                                                                                              
+E6   docker pause of the shard1 primary                        ~election timeout (10 s)                                                                                              
+E7   2 of 3 shard1RS members down                              no majority -> no primary; shard read-only                                                                            
+E7   2 of 3 cfgRS members down                                 config read-only: data ops continue, metadata ops fail                                                                
+E8   partition of the shard1 primary                           isolated primary keeps accepting w:1 writes until it steps down; they are rolled back; brief window with two primaries
+E9   add a third shard                                         balancer moves data until within 3 x chunk size; writes continue                                                      

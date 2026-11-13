@@ -1,0 +1,587 @@
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "SHARD_MERGE",
+      "shards": [
+        {
+          "explainVersion": "1",
+          "shardName": "shard2RS",
+          "connectionString": "shard2RS/s2a:27017,s2b:27017,s2c:27017",
+          "serverInfo": {
+            "host": "s2c",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_compound",
+          "parsedQuery": {
+            "location": {
+              "$geoWithin": {
+                "$centerSphere": [
+                  [
+                    -81.7,
+                    41.6
+                  ],
+                  0.004703595114532541
+                ]
+              }
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "5DBB2FD5",
+          "planCacheShapeHash": "5DBB2FD5",
+          "planCacheKey": "AF0D50C5",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "FETCH",
+                "filter": {
+                  "location": {
+                    "$geoWithin": {
+                      "$centerSphere": [
+                        [
+                          -81.7,
+                          41.6
+                        ],
+                        0.004703595114532541
+                      ]
+                    }
+                  }
+                },
+                "inputStage": {
+                  "stage": "IXSCAN",
+                  "keyPattern": {
+                    "location": "2dsphere"
+                  },
+                  "indexName": "location_2dsphere",
+                  "isMultiKey": false,
+                  "multiKeyPaths": {
+                    "location": []
+                  },
+                  "isUnique": false,
+                  "isSparse": false,
+                  "isPartial": false,
+                  "indexVersion": 2,
+                  "direction": "forward",
+                  "indexBounds": {
+                    "location": [
+                      "[-8633400485669240832, -8633400485669240832]",
+                      "[-8633330116925063168, -8633330116925063168]",
+                      "[-8633330116925063167, -8633294932552974337]",
+                      "[-8633294932552974335, -8633286136459952129]",
+                      "[-8633286136459952127, -8633283937436696577]",
+                      "[-8633281738413441024, -8633281738413441024]",
+                      "[-8633277340366929920, -8633277340366929920]",
+                      "[-8633264146227396608, -8633264146227396608]",
+                      "[-8633264146227396607, -8633261947204141057]",
+                      "[-8633259748180885503, -8633250952087863297]",
+                      "[-8633250952087863295, -8633242155994841089]",
+                      "[-8633242155994841088, -8633242155994841088]",
+                      "[-8633242155994841087, -8633233359901818881]",
+                      "[-8633189379436707840, -8633189379436707840]",
+                      "[-8633154195064619007, -8633119010692530177]",
+                      "[-8633119010692530176, -8633119010692530176]",
+                      "[-8633119010692530175, -8633110214599507969]",
+                      "[-8633110214599507967, -8633110206009573377]",
+                      "[-8633110197419638784, -8633110197419638784]",
+                      "[-8633110145880031232, -8633110145880031232]",
+                      "[-8633109939721601024, -8633109939721601024]",
+                      "[-8633109115087880192, -8633109115087880192]",
+                      "[-8633105816552996864, -8633105816552996864]",
+                      "[-8633101418506485760, -8633101418506485760]",
+                      "[-8633092622413463551, -8633083826320441345]",
+                      "[-8633048641948352512, -8633048641948352512]",
+                      "[-8632938690785574912, -8632938690785574912]",
+                      "[-8632935392250691584, -8632935392250691584]",
+                      "[-8632934567616970752, -8632934567616970752]",
+                      "[-8632934430178017279, -8632934292739063809]",
+                      "[-8632934292739063807, -8632925496646041601]",
+                      "[-8632925496646041600, -8632925496646041600]",
+                      "[-8632925496646041599, -8632916700553019393]",
+                      "[-8632907904459997184, -8632907904459997184]",
+                      "[-8632274585762398208, -8632274585762398208]",
+                      "[-8628896886041870336, -8628896886041870336]",
+                      "[-8574853690513424384, -8574853690513424384]"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "rejectedPlans": []
+        },
+        {
+          "explainVersion": "1",
+          "shardName": "shard1RS",
+          "connectionString": "shard1RS/s1a:27017,s1b:27017,s1c:27017",
+          "serverInfo": {
+            "host": "s1b",
+            "port": 27017,
+            "version": "8.0.38",
+            "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+          },
+          "namespace": "lab.ship_compound",
+          "parsedQuery": {
+            "location": {
+              "$geoWithin": {
+                "$centerSphere": [
+                  [
+                    -81.7,
+                    41.6
+                  ],
+                  0.004703595114532541
+                ]
+              }
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "5DBB2FD5",
+          "planCacheShapeHash": "5DBB2FD5",
+          "planCacheKey": "AF0D50C5",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "inputStage": {
+                "stage": "FETCH",
+                "filter": {
+                  "location": {
+                    "$geoWithin": {
+                      "$centerSphere": [
+                        [
+                          -81.7,
+                          41.6
+                        ],
+                        0.004703595114532541
+                      ]
+                    }
+                  }
+                },
+                "inputStage": {
+                  "stage": "IXSCAN",
+                  "keyPattern": {
+                    "location": "2dsphere"
+                  },
+                  "indexName": "location_2dsphere",
+                  "isMultiKey": false,
+                  "multiKeyPaths": {
+                    "location": []
+                  },
+                  "isUnique": false,
+                  "isSparse": false,
+                  "isPartial": false,
+                  "indexVersion": 2,
+                  "direction": "forward",
+                  "indexBounds": {
+                    "location": [
+                      "[-8633400485669240832, -8633400485669240832]",
+                      "[-8633330116925063168, -8633330116925063168]",
+                      "[-8633330116925063167, -8633294932552974337]",
+                      "[-8633294932552974335, -8633286136459952129]",
+                      "[-8633286136459952127, -8633283937436696577]",
+                      "[-8633281738413441024, -8633281738413441024]",
+                      "[-8633277340366929920, -8633277340366929920]",
+                      "[-8633264146227396608, -8633264146227396608]",
+                      "[-8633264146227396607, -8633261947204141057]",
+                      "[-8633259748180885503, -8633250952087863297]",
+                      "[-8633250952087863295, -8633242155994841089]",
+                      "[-8633242155994841088, -8633242155994841088]",
+                      "[-8633242155994841087, -8633233359901818881]",
+                      "[-8633189379436707840, -8633189379436707840]",
+                      "[-8633154195064619007, -8633119010692530177]",
+                      "[-8633119010692530176, -8633119010692530176]",
+                      "[-8633119010692530175, -8633110214599507969]",
+                      "[-8633110214599507967, -8633110206009573377]",
+                      "[-8633110197419638784, -8633110197419638784]",
+                      "[-8633110145880031232, -8633110145880031232]",
+                      "[-8633109939721601024, -8633109939721601024]",
+                      "[-8633109115087880192, -8633109115087880192]",
+                      "[-8633105816552996864, -8633105816552996864]",
+                      "[-8633101418506485760, -8633101418506485760]",
+                      "[-8633092622413463551, -8633083826320441345]",
+                      "[-8633048641948352512, -8633048641948352512]",
+                      "[-8632938690785574912, -8632938690785574912]",
+                      "[-8632935392250691584, -8632935392250691584]",
+                      "[-8632934567616970752, -8632934567616970752]",
+                      "[-8632934430178017279, -8632934292739063809]",
+                      "[-8632934292739063807, -8632925496646041601]",
+                      "[-8632925496646041600, -8632925496646041600]",
+                      "[-8632925496646041599, -8632916700553019393]",
+                      "[-8632907904459997184, -8632907904459997184]",
+                      "[-8632274585762398208, -8632274585762398208]",
+                      "[-8628896886041870336, -8628896886041870336]",
+                      "[-8574853690513424384, -8574853690513424384]"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "rejectedPlans": []
+        }
+      ]
+    }
+  },
+  "executionStats": {
+    "nReturned": 692,
+    "executionTimeMillis": 3,
+    "totalKeysExamined": 783,
+    "totalDocsExamined": 772,
+    "executionStages": {
+      "stage": "SHARD_MERGE",
+      "nReturned": 692,
+      "executionTimeMillis": 3,
+      "totalKeysExamined": 783,
+      "totalDocsExamined": 772,
+      "totalChildMillis": 2,
+      "shards": [
+        {
+          "shardName": "shard2RS",
+          "executionSuccess": true,
+          "nReturned": 0,
+          "executionTimeMillis": 0,
+          "totalKeysExamined": 2,
+          "totalDocsExamined": 0,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 0,
+            "works": 2,
+            "advanced": 0,
+            "needTime": 1,
+            "needYield": 0,
+            "saveState": 0,
+            "restoreState": 0,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 0,
+              "executionTimeMillisEstimate": 0,
+              "works": 2,
+              "advanced": 0,
+              "needTime": 1,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "FETCH",
+                "filter": {
+                  "location": {
+                    "$geoWithin": {
+                      "$centerSphere": [
+                        [
+                          -81.7,
+                          41.6
+                        ],
+                        0.004703595114532541
+                      ]
+                    }
+                  }
+                },
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 0,
+                "works": 2,
+                "advanced": 0,
+                "needTime": 1,
+                "needYield": 0,
+                "saveState": 0,
+                "restoreState": 0,
+                "isEOF": 1,
+                "docsExamined": 0,
+                "alreadyHasObj": 0,
+                "inputStage": {
+                  "stage": "IXSCAN",
+                  "nReturned": 0,
+                  "executionTimeMillisEstimate": 0,
+                  "works": 2,
+                  "advanced": 0,
+                  "needTime": 1,
+                  "needYield": 0,
+                  "saveState": 0,
+                  "restoreState": 0,
+                  "isEOF": 1,
+                  "keyPattern": {
+                    "location": "2dsphere"
+                  },
+                  "indexName": "location_2dsphere",
+                  "isMultiKey": false,
+                  "multiKeyPaths": {
+                    "location": []
+                  },
+                  "isUnique": false,
+                  "isSparse": false,
+                  "isPartial": false,
+                  "indexVersion": 2,
+                  "direction": "forward",
+                  "indexBounds": {
+                    "location": [
+                      "[-8633400485669240832, -8633400485669240832]",
+                      "[-8633330116925063168, -8633330116925063168]",
+                      "[-8633330116925063167, -8633294932552974337]",
+                      "[-8633294932552974335, -8633286136459952129]",
+                      "[-8633286136459952127, -8633283937436696577]",
+                      "[-8633281738413441024, -8633281738413441024]",
+                      "[-8633277340366929920, -8633277340366929920]",
+                      "[-8633264146227396608, -8633264146227396608]",
+                      "[-8633264146227396607, -8633261947204141057]",
+                      "[-8633259748180885503, -8633250952087863297]",
+                      "[-8633250952087863295, -8633242155994841089]",
+                      "[-8633242155994841088, -8633242155994841088]",
+                      "[-8633242155994841087, -8633233359901818881]",
+                      "[-8633189379436707840, -8633189379436707840]",
+                      "[-8633154195064619007, -8633119010692530177]",
+                      "[-8633119010692530176, -8633119010692530176]",
+                      "[-8633119010692530175, -8633110214599507969]",
+                      "[-8633110214599507967, -8633110206009573377]",
+                      "[-8633110197419638784, -8633110197419638784]",
+                      "[-8633110145880031232, -8633110145880031232]",
+                      "[-8633109939721601024, -8633109939721601024]",
+                      "[-8633109115087880192, -8633109115087880192]",
+                      "[-8633105816552996864, -8633105816552996864]",
+                      "[-8633101418506485760, -8633101418506485760]",
+                      "[-8633092622413463551, -8633083826320441345]",
+                      "[-8633048641948352512, -8633048641948352512]",
+                      "[-8632938690785574912, -8632938690785574912]",
+                      "[-8632935392250691584, -8632935392250691584]",
+                      "[-8632934567616970752, -8632934567616970752]",
+                      "[-8632934430178017279, -8632934292739063809]",
+                      "[-8632934292739063807, -8632925496646041601]",
+                      "[-8632925496646041600, -8632925496646041600]",
+                      "[-8632925496646041599, -8632916700553019393]",
+                      "[-8632907904459997184, -8632907904459997184]",
+                      "[-8632274585762398208, -8632274585762398208]",
+                      "[-8628896886041870336, -8628896886041870336]",
+                      "[-8574853690513424384, -8574853690513424384]"
+                    ]
+                  },
+                  "keysExamined": 2,
+                  "seeks": 2,
+                  "dupsTested": 0,
+                  "dupsDropped": 0
+                }
+              }
+            }
+          }
+        },
+        {
+          "shardName": "shard1RS",
+          "executionSuccess": true,
+          "nReturned": 692,
+          "executionTimeMillis": 2,
+          "totalKeysExamined": 781,
+          "totalDocsExamined": 772,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 692,
+            "executionTimeMillisEstimate": 2,
+            "works": 781,
+            "advanced": 692,
+            "needTime": 88,
+            "needYield": 0,
+            "saveState": 0,
+            "restoreState": 0,
+            "isEOF": 1,
+            "transformBy": {
+              "_id": 1
+            },
+            "inputStage": {
+              "stage": "SHARDING_FILTER",
+              "nReturned": 692,
+              "executionTimeMillisEstimate": 2,
+              "works": 781,
+              "advanced": 692,
+              "needTime": 88,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 1,
+              "chunkSkips": 0,
+              "inputStage": {
+                "stage": "FETCH",
+                "filter": {
+                  "location": {
+                    "$geoWithin": {
+                      "$centerSphere": [
+                        [
+                          -81.7,
+                          41.6
+                        ],
+                        0.004703595114532541
+                      ]
+                    }
+                  }
+                },
+                "nReturned": 692,
+                "executionTimeMillisEstimate": 2,
+                "works": 781,
+                "advanced": 692,
+                "needTime": 88,
+                "needYield": 0,
+                "saveState": 0,
+                "restoreState": 0,
+                "isEOF": 1,
+                "docsExamined": 772,
+                "alreadyHasObj": 0,
+                "inputStage": {
+                  "stage": "IXSCAN",
+                  "nReturned": 772,
+                  "executionTimeMillisEstimate": 0,
+                  "works": 781,
+                  "advanced": 772,
+                  "needTime": 8,
+                  "needYield": 0,
+                  "saveState": 0,
+                  "restoreState": 0,
+                  "isEOF": 1,
+                  "keyPattern": {
+                    "location": "2dsphere"
+                  },
+                  "indexName": "location_2dsphere",
+                  "isMultiKey": false,
+                  "multiKeyPaths": {
+                    "location": []
+                  },
+                  "isUnique": false,
+                  "isSparse": false,
+                  "isPartial": false,
+                  "indexVersion": 2,
+                  "direction": "forward",
+                  "indexBounds": {
+                    "location": [
+                      "[-8633400485669240832, -8633400485669240832]",
+                      "[-8633330116925063168, -8633330116925063168]",
+                      "[-8633330116925063167, -8633294932552974337]",
+                      "[-8633294932552974335, -8633286136459952129]",
+                      "[-8633286136459952127, -8633283937436696577]",
+                      "[-8633281738413441024, -8633281738413441024]",
+                      "[-8633277340366929920, -8633277340366929920]",
+                      "[-8633264146227396608, -8633264146227396608]",
+                      "[-8633264146227396607, -8633261947204141057]",
+                      "[-8633259748180885503, -8633250952087863297]",
+                      "[-8633250952087863295, -8633242155994841089]",
+                      "[-8633242155994841088, -8633242155994841088]",
+                      "[-8633242155994841087, -8633233359901818881]",
+                      "[-8633189379436707840, -8633189379436707840]",
+                      "[-8633154195064619007, -8633119010692530177]",
+                      "[-8633119010692530176, -8633119010692530176]",
+                      "[-8633119010692530175, -8633110214599507969]",
+                      "[-8633110214599507967, -8633110206009573377]",
+                      "[-8633110197419638784, -8633110197419638784]",
+                      "[-8633110145880031232, -8633110145880031232]",
+                      "[-8633109939721601024, -8633109939721601024]",
+                      "[-8633109115087880192, -8633109115087880192]",
+                      "[-8633105816552996864, -8633105816552996864]",
+                      "[-8633101418506485760, -8633101418506485760]",
+                      "[-8633092622413463551, -8633083826320441345]",
+                      "[-8633048641948352512, -8633048641948352512]",
+                      "[-8632938690785574912, -8632938690785574912]",
+                      "[-8632935392250691584, -8632935392250691584]",
+                      "[-8632934567616970752, -8632934567616970752]",
+                      "[-8632934430178017279, -8632934292739063809]",
+                      "[-8632934292739063807, -8632925496646041601]",
+                      "[-8632925496646041600, -8632925496646041600]",
+                      "[-8632925496646041599, -8632916700553019393]",
+                      "[-8632907904459997184, -8632907904459997184]",
+                      "[-8632274585762398208, -8632274585762398208]",
+                      "[-8628896886041870336, -8628896886041870336]",
+                      "[-8574853690513424384, -8574853690513424384]"
+                    ]
+                  },
+                  "keysExamined": 781,
+                  "seeks": 9,
+                  "dupsTested": 0,
+                  "dupsDropped": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "queryShapeHash": "2F3BF7AB862F8673DC998FC1F871B89FC9CABF4A4C3EAB25CC3F9AAC86D49EB8",
+  "serverInfo": {
+    "host": "mongos",
+    "port": 27017,
+    "version": "8.0.38",
+    "gitVersion": "b2f7afe3a6838999fd375c7a7ea678189f795568"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "find": "ship_compound",
+    "filter": {
+      "location": {
+        "$geoWithin": {
+          "$centerSphere": [
+            [
+              -81.7,
+              41.6
+            ],
+            0.004703595114532541
+          ]
+        }
+      }
+    },
+    "projection": {
+      "_id": 1
+    },
+    "lsid": {
+      "id": "b'C\\xe9o\\x9cd\\xabKp\\x86$\\xa91\\xf88\\xe6O'"
+    },
+    "$clusterTime": {
+      "clusterTime": "Timestamp(1794553737, 1)",
+      "signature": {
+        "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+        "keyId": 0
+      }
+    },
+    "$db": "lab"
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1794553737, 2)",
+    "signature": {
+      "hash": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "keyId": 0
+    }
+  },
+  "operationTime": "Timestamp(1794553737, 2)"
+}

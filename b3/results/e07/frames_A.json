@@ -1,0 +1,1190 @@
+[
+  {
+    "t": 1794557254.3789337,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557255.6190238,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557256.8484187,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557258.1520905,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557259.4754343,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557260.7411907,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557262.0444696,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557263.2797878,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557264.5628288,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557265.7543316,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557267.0032377,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557268.2695668,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557269.5449808,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557270.781211,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557271.9902985,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557273.6469703,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557274.5111537,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557275.3412335,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557276.1423233,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557277.0141351,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557277.847601,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557278.6663146,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557279.4727488,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557280.3097744,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557281.1591644,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "PRIMARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557282.015312,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557282.8836725,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557283.751275,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557284.603359,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557285.4513028,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557286.2373872,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557287.0521421,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557287.9240944,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557288.8074584,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557289.6720352,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557290.5411851,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557291.4426858,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557292.3112054,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557293.1629107,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557294.0613122,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557294.9106252,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557295.7256215,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557296.588045,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557297.3969662,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557298.237374,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557299.094436,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557299.9594455,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557300.8267713,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557301.6797435,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557302.4734838,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "exited/unhealthy",
+      "s1b": "exited/unhealthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557303.2720296,
+    "roles": {
+      "s1a": "UNREACHABLE",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "running/starting",
+      "s1b": "running/starting",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557304.5460603,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "SECONDARY",
+      "s1b": "UNREACHABLE"
+    },
+    "docker": {
+      "s1a": "running/starting",
+      "s1b": "running/starting",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557305.7652311,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "SECONDARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/starting",
+      "s1b": "running/starting",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557307.048468,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "SECONDARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/starting",
+      "s1b": "running/starting",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557308.3171413,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "SECONDARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/starting",
+      "s1b": "running/starting",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557309.497691,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "SECONDARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557310.7807918,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "SECONDARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557312.057106,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "SECONDARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557313.2687416,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "SECONDARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557314.5542572,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557315.8100665,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557317.0665736,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557318.3372765,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557319.657473,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557320.9843357,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  },
+  {
+    "t": 1794557322.2418463,
+    "roles": {
+      "s1a": "SECONDARY",
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    }
+  }
+]

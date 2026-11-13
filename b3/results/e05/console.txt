@@ -1,0 +1,47 @@
+
+==============================================================================
+E5 part 1: read preference routing (20 reads/s x 20 s per mode, through mongos)
+==============================================================================
+[14:38:16] primary            400 reads, errors 0, unattributed 0; primary 400, secondary 0; latency p50 10.5 ms
+[14:38:47] secondary          400 reads, errors 0, unattributed 0; primary 0, secondary 400; latency p50 13.5 ms
+[14:39:17] secondaryPreferred 400 reads, errors 0, unattributed 0; primary 0, secondary 400; latency p50 8.3 ms
+[14:39:48] nearest            400 reads, errors 0, unattributed 0; primary 134, secondary 266; latency p50 7.5 ms
+
+node  shard     role       primary  secondary  secondaryPreferred  nearest
+----  --------  ---------  -------  ---------  ------------------  -------
+s1a   shard1RS  SECONDARY  0        92         94                  48     
+s1b   shard1RS  PRIMARY    197      0          0                   60     
+s1c   shard1RS  SECONDARY  0        91         102                 71     
+s2a   shard2RS  SECONDARY  0        105        122                 82     
+s2b   shard2RS  SECONDARY  0        112        82                  65     
+s2c   shard2RS  PRIMARY    203      0          0                   74     
+
+==============================================================================
+E5 part 2: replication lag, idle -> write load -> recovery
+==============================================================================
+[14:39:49] lab.e05_load already has 20,000 docs (reused)
+loaded shard: shard2RS (primary shard of db 'lab', holds e05_load); control shard: shard1RS
+[14:39:49] phase idle (20 s)
+[14:40:09] phase load (45 s)
+[14:40:56] load stopped: 150,000 updates in 45 s (3,333/s)
+[14:40:56] phase recovery (20 s)
+
+shard     role     secondary  phase     probes  not_seen_15s  lag_p50_ms  lag_p95_ms  lag_max_ms  write_ack_p50_ms
+--------  -------  ---------  --------  ------  ------------  ----------  ----------  ----------  ----------------
+shard2RS  loaded   s2a        idle      20      0             5.8         15.7        15.7        56.4            
+shard2RS  loaded   s2a        load      44      0             6.9         32.2        810.2       49.2            
+shard2RS  loaded   s2a        recovery  20      0             5.3         11.4        11.4        38.7            
+shard2RS  loaded   s2b        idle      20      0             6.3         18.1        18.1        56.4            
+shard2RS  loaded   s2b        load      44      0             7.2         23.6        193.7       49.2            
+shard2RS  loaded   s2b        recovery  20      0             6.6         18.5        18.5        38.7            
+shard1RS  control  s1a        idle      20      0             5.1         16.8        16.8        13.7            
+shard1RS  control  s1a        load      44      0             4.4         11.0        34.4        16.5            
+shard1RS  control  s1a        recovery  20      0             4.5         31.7        31.7        14.6            
+shard1RS  control  s1c        idle      20      0             6.6         17.7        17.7        13.7            
+shard1RS  control  s1c        load      44      0             4.9         12.0        35.5        16.5            
+shard1RS  control  s1c        recovery  20      0             5.2         32.7        32.7        14.6            
+
+write load: 3,333 updates/s (w:1, 4 threads x 500-doc batches) on shard2RS
+replSetGetStatus optime lag (1 s resolution): idle max 7 s, load max 4 s  <- compare with the probe-measured lag above;
+  when idle the primary only writes a no-op every 10 s, so optimeDate differences are not real lag
+[14:41:24] E5 done -> C:\GitHub\N21-INT3202-2\b3\results\e05

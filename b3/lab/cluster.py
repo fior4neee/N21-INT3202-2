@@ -3,6 +3,7 @@
 Every step is idempotent, so `init` can be re-run at any time.
 
     python -m lab.cluster up        # docker compose up + init
+    python -m lab.cluster start     # restart existing containers after a Docker/Windows restart
     python -m lab.cluster init      # (re)initialise an already running cluster
     python -m lab.cluster status    # one-screen status table
     python -m lab.cluster health    # exit code 0 only if every set has a primary and all members are healthy
@@ -217,6 +218,23 @@ def wait_healthy_cluster(timeout: float = 180) -> None:
     wait_until(lambda: healthy(verbose=False), timeout, 3, "cluster healthy")
 
 
+def start_existing() -> None:
+    """Restart the EXISTING containers (e.g. after Docker Desktop / Windows restarted) without recreating
+    them: config servers first, then shards, then mongos; wait until the cluster is healthy."""
+    from .common import docker
+    groups = [REPLSETS["cfgRS"], REPLSETS["shard1RS"] + REPLSETS["shard2RS"]]
+    if container_state("s3a") != "missing":
+        groups.append(REPLSETS["shard3RS"])
+    groups.append(["mongos"])
+    for g in groups:
+        stopped = [n for n in g if not container_state(n).startswith("running")]
+        if stopped:
+            log(f"docker start {' '.join(stopped)}")
+            docker("start", *stopped)
+    wait_healthy_cluster(300)
+    log("cluster healthy")
+
+
 def shrink(size_mb: int = 1024) -> None:
     """Cap every member's oplog at size_mb (replSetResizeOplog, online) and compact it, so space is
     released inside Docker's VM. Same limit as --oplogSize in the compose files, for clusters that were
@@ -239,7 +257,7 @@ def shrink(size_mb: int = 1024) -> None:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["up", "init", "status", "health", "reset", "down", "shard3", "shrink"])
+    ap.add_argument("cmd", choices=["up", "start", "init", "status", "health", "reset", "down", "shard3", "shrink"])
     ap.add_argument("--load", action="store_true", help="reset: also run the data load afterwards")
     ap.add_argument("--docs", type=int, default=None, help="reset --load: generated document count")
     a = ap.parse_args(argv)
@@ -271,6 +289,9 @@ def main(argv=None) -> int:
         status()
     elif a.cmd == "shrink":
         shrink()
+    elif a.cmd == "start":
+        start_existing()
+        status()
     return 0
 
 

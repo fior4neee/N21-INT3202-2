@@ -12,7 +12,7 @@ With --coll ship_xxx the writer inserts generator-shaped documents into that col
 retryWrites=False on purpose: every failure is visible, nothing is hidden by a driver retry.
 Each write is bounded by a client-side timeout (pymongo CSOT, default 2 s -> sent as maxTimeMS).
 
-CSV columns: seq, t_iso, t_rel_s, target, ok, error_type, error_code, error_msg, latency_ms
+CSV columns: seq, t_iso, t_epoch, t_rel_s, target, ok, error_type, error_code, error_msg, latency_ms
 """
 from __future__ import annotations
 
@@ -96,7 +96,8 @@ class Writer:
             with mongos_client() as c:
                 ensure_probe(c)
         f = open(self.out, "w", newline="", encoding="utf-8")
-        cols = ["seq", "t_iso", "t_rel_s", "target", "ok", "error_type", "error_code", "error_msg", "latency_ms"]
+        cols = ["seq", "t_iso", "t_epoch", "t_rel_s", "target", "ok", "error_type", "error_code", "error_msg",
+                "latency_ms"]
         wr = csv.DictWriter(f, fieldnames=cols)
         wr.writeheader()
         t0 = time.time()
@@ -106,7 +107,7 @@ class Writer:
                 target, doc = make(seq)
                 ts = time.time()
                 row = {"seq": seq, "t_iso": datetime.fromtimestamp(ts, timezone.utc).isoformat(timespec="milliseconds"),
-                       "t_rel_s": round(ts - t0, 3), "target": target, "ok": 1, "error_type": "",
+                       "t_epoch": round(ts, 3), "t_rel_s": round(ts - t0, 3), "target": target, "ok": 1, "error_type": "",
                        "error_code": "", "error_msg": ""}
                 try:
                     with pymongo.timeout(self.timeout):

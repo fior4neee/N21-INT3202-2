@@ -43,6 +43,7 @@ ATLAS_URI=mongodb+srv://<user>:<password>@<cluster>/
 
 ```powershell
 python -m lab.cluster up       # start containers, initiate replica sets, addShard, chunk size
+python -m lab.cluster start    # after Docker Desktop / Windows restarted: start the existing containers
 python -m lab.cluster status   # node/role table, shards, balancer
 python -m lab.cluster health   # exit code 0 = every set has 1 primary and all members healthy
 python -m lab.cluster init     # re-run initialisation (idempotent)
@@ -206,6 +207,13 @@ failure on one shard shows as errors on that shard only.
 | E1 | `python experiments\e01_cluster_survey.py` (+ topology diagram) | `results\e01\` |
 | E2 | `python experiments\e02_shard_keys.py` (~20 min; `--docs`, `--phases off on`, `--colls`); `--replot` rebuilds summary/charts/chunk map from saved data | `results\e02\` |
 | E3 | `python experiments\e03_query_routing.py` (~1 min; needs the E2 collections) | `results\e03\` |
+| E4 | `python experiments\e04_geo_queries.py` (~1 min). A full run **drops and rebuilds** the `location_2dsphere` index on ship_compound so "before" has no geo index; `--after-only` re-runs only the after-index part and keeps the index | `results\e04\` |
+| E5 | `python experiments\e05_replication_reads.py` (~4 min). Creates `lab.e05_load` once (20k docs, ~20 MB per replica) and reuses it; turns the profiler on during reads and off again. **Disk:** the update load fills the oplog of the database's primary shard up to its 1 GB cap (~0.6 GB on disk per member, random padding barely compresses) | `results\e05\` |
+| E6 | `python experiments\e06_failover.py` (~5 min): kill / stop / pause of the shard1RS primary under write load; restores and checks health. `--replot` redraws diagrams from the saved run | `results\e06\` |
+| E7 | `python experiments\e07_quorum.py` (~4 min): 2 of 3 shard1RS members down, then 2 of 3 config servers down; probe matrix of reads/writes/metadata ops; restores and checks health. Note: a `shardCollection` probe that times out while the config servers lack a majority is completed by the server later, leaving empty `lab.e07_ddl_*` collections | `results\e07\` |
+| E8 | `python experiments\e08_partition_rollback.py` (~2 min): network-disconnects the shard1RS primary, writes to it directly (w:1 and w:majority) from inside its container, reconnects, reads the rollback file with bsondump | `results\e08\` |
+| E9 | `python experiments\e09_scale_out.py` (~3-15 min, **adds ~0.9 GB**: 3 volumes x ~305 MB): starts shard3RS, addShard, waits until ship_hashed and ship_compound are balanced (ship_mono / ship_lowcard get `noBalance` to limit disk use). `--replot` redraws charts/diagrams from saved files | `results\e09\` |
+| Summary | `python experiments\summary.py`: one table "expected (theory) vs observed" built from all results (no cluster access) | `results\summary\` |
 
 ## Layout
 
@@ -221,7 +229,9 @@ lab\writer.py               write probe (CSV: timestamp, ok/error, error type, l
 lab\metrics.py              5 s sampler: per-shard MB/docs, opcounters, balancer, docker stats
 lab\chaos.py                kill / stop / pause / disconnect / netem wrappers + restore
 lab\plots.py                shared chart style (fixed colour per shard)
-lab\diagram.py              cluster diagrams from observed state (topology / per-step / query routing)
+lab\diagram.py              cluster diagrams from observed state (topology / per-step / query / read routing)
+lab\reader.py               read probe with a read preference; profiler attributes each read to a node
+lab\explain.py              explain() summaries for find / aggregate through mongos
 experiments\eNN_*.py        one script per experiment
 results\eNN\                CSV / JSON / TXT output per experiment
 ```

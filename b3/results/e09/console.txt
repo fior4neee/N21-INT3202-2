@@ -1,0 +1,74 @@
+
+==============================================================================
+E9 setup
+==============================================================================
+disk estimate: 3 new containers + volumes for shard3RS, ~0.5 GB in total inside Docker
+noBalance lab.ship_mono: False -> True (not moved to shard3, to limit disk use)
+noBalance lab.ship_lowcard: False -> True (not moved to shard3, to limit disk use)
+
+ship_hashed before:
+shard     owned_docs  owned_MB  chunks  jumbo
+--------  ----------  --------  ------  -----
+shard1RS  249779      106.0     1       0    
+shard2RS  250221      106.19    1       0    
+
+ship_compound before:
+shard     owned_docs  owned_MB  chunks  jumbo
+--------  ----------  --------  ------  -----
+shard1RS  223076      94.46     1       0    
+shard2RS  276924      117.52    1       0    
+
+==============================================================================
+E9 add shard3RS
+==============================================================================
+[15:14:01] starting shard3 containers
+[15:14:09] waiting for containers to be healthy: s3a, s3b, s3c
+[15:14:21] shard3RS: replSetInitiate ['s3a:27017', 's3b:27017', 's3c:27017']
+[15:14:33] shard3RS: primary is s3a (11.1s)
+[15:14:33] addShard shard3RS/s3a:27017,s3b:27017,s3c:27017
+[15:14:34] shard3RS started + initiated + added in 33.4 s
+
+==============================================================================
+E9 balancing
+==============================================================================
+[15:15:17] migrations so far 4; owned MB (balanced colls): shard1RS 193, shard2RS 192, shard3RS 40
+[15:15:53] migrations so far 15; owned MB (balanced colls): shard1RS 153, shard2RS 152, shard3RS 120
+[15:16:14] balanced: 15 migrations, idle at +79 s after addShard
+
+==============================================================================
+E9 results
+==============================================================================
+
+ship_hashed after:
+shard     owned_docs  owned_MB  orphan_MB  chunks  jumbo
+--------  ----------  --------  ---------  ------  -----
+shard1RS  175136      74.33     32.0       1       0    
+shard2RS  175581      74.51     32.0       1       0    
+shard3RS  150963      64.07     0.0        8       0    
+
+ship_compound after:
+shard     owned_docs  owned_MB  orphan_MB  chunks  jumbo
+--------  ----------  --------  ---------  ------  -----
+shard1RS  185292      78.46     16.0       1       0    
+shard2RS  182705      77.54     39.99      1       0    
+shard3RS  132003      55.89     0.0        7       0    
+
+migrations committed:
+collection     from      to        count  MB_moved
+-------------  --------  --------  -----  --------
+ship_compound  shard1RS  shard3RS  2      15.8    
+ship_compound  shard2RS  shard3RS  5      40.1    
+ship_hashed    shard1RS  shard3RS  4      32.0    
+ship_hashed    shard2RS  shard3RS  4      32.0    
+
+writer.py inserts into ship_hashed (through mongos):
+phase              writes  failed  p50_ms  p95_ms  max_ms
+-----------------  ------  ------  ------  ------  ------
+before addShard    247     0       15.4    27.7    42.2  
+during migrations  472     0       17.5    55.0    183.8 
+after balancing    418     0       17.3    42.0    146.2 
+
+shard3 volumes: mongolab_s3c_data 305.6MB, mongolab_s3b_data 305.8MB, mongolab_s3a_data 304.3MB
+t_add_s  first_migration_after_add_s  balanced_after_add_s  migrations  MB_moved
+-------  ---------------------------  --------------------  ----------  --------
+33.4     20.9                         79.1                  15          120.0   

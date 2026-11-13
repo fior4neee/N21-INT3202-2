@@ -1,0 +1,52 @@
+
+==============================================================================
+E4 step 1: can a 2dsphere index be the shard key?
+==============================================================================
+shardCollection(lab.e04_geokey_test, key={location: '2dsphere'})
+  -> OperationFailure code 2: Shard key { location: "2dsphere" }numerical fields must be set to a value of 1 (ascending). Failed to parse field location
+collection created by the failed command: False
+
+==============================================================================
+E4 step 2: BEFORE a 2dsphere index
+==============================================================================
+indexes: [[('_id', 1)], [('region', 1), ('recrd', 1)]]
+[14:07:29] G1: SHARD_MERGE shards=shard1RS+shard2RS scan=COLLSCAN keys=0 docs=500,000 returned=692 client=352.3 ms
+[14:07:29] G2: ERROR OperationFailure code=291: Encountered non-retryable error during query :: caused by :: error processing query: ns=lab.ship_compoundTree: GEONEAR  field=location maxdist=30000 isNearSpher
+
+==============================================================================
+E4 step 3: createIndex({location: '2dsphere'}) through mongos
+==============================================================================
+built in 1.7 s; index size per shard (MB): {'shard2RS': 4.0, 'shard1RS': 3.2}
+
+==============================================================================
+E4 step 4: AFTER the 2dsphere index
+==============================================================================
+[14:08:57] G3: SHARD_MERGE shards=shard1RS+shard2RS scan=IXSCAN keys=783 docs=772 returned=692 client=6.2 ms
+[14:08:58] G4: SINGLE_SHARD shards=shard1RS scan=IXSCAN keys=781 docs=772 returned=692 client=78.9 ms
+[14:08:58] G5: SHARD_MERGE shards=shard1RS+shard2RS scan=GEO_NEAR_2DSPHERE keys=855 docs=740 returned=692 client=8.5 ms
+[14:08:58] G6: SINGLE_SHARD shards=shard1RS scan=GEO_NEAR_2DSPHERE keys=853 docs=1,432 returned=692 client=7.1 ms
+[14:08:59] G7: merge on mongos shards=shard1RS+shard2RS scan=GEO_NEAR_2DSPHERE keys=410 docs=337 returned=50 client=4.3 ms
+[14:08:59] G8: SINGLE_SHARD shards=shard1RS scan=GEO_NEAR_2DSPHERE keys=408 docs=433 returned=50 client=4.3 ms
+
+==============================================================================
+E4 results
+==============================================================================
+id  why                                      plan             shards_contacted   scan               keys  docs    returned  server_ms  client_ms
+--  ---------------------------------------  ---------------  -----------------  -----------------  ----  ------  --------  ---------  ---------
+G1  geoWithin, no geo index                  SHARD_MERGE      shard1RS+shard2RS  COLLSCAN           0     500000  692       208        352.3    
+G2  $near, no geo index                      ERROR                                                                                              
+G3  geoWithin, 2dsphere index, no shard key  SHARD_MERGE      shard1RS+shard2RS  IXSCAN             783   772     692       3          6.2      
+G4  geoWithin + region (shard-key prefix)    SINGLE_SHARD     shard1RS           IXSCAN             781   772     692       6          78.9     
+G5  $near, no shard key                      SHARD_MERGE      shard1RS+shard2RS  GEO_NEAR_2DSPHERE  855   740     692       3          8.5      
+G6  $near + region (shard-key prefix)        SINGLE_SHARD     shard1RS           GEO_NEAR_2DSPHERE  853   1432    692       3          7.1      
+G7  $geoNear aggregation, no shard key       merge on mongos  shard1RS+shard2RS  GEO_NEAR_2DSPHERE  410   337     50        1          4.3      
+G8  $geoNear + region in query               SINGLE_SHARD     shard1RS           GEO_NEAR_2DSPHERE  408   433     50        1          4.3      
+G2 error: OperationFailure 291: unable to find index for $geoNear query (full text re-read from the same query on ship_mono, also without a geo index)
+
+5 nearest wrecks to the search point ($geoNear, distance in metres):
+       473 m  [-81.705593, 41.600764]    depth=7.3
+       538 m  [-81.694711, 41.597217]  Wrecks - Submerged, dangerous  depth=8.2
+       847 m  [-81.702691, 41.607335]  Wrecks - Submerged, dangerous  depth=0
+      1422 m  [-81.706852, 41.611701]  Wrecks - Submerged, dangerous  depth=0
+      1462 m  [-81.700032, 41.586866]  Wrecks - Submerged, dangerous  depth=0
+[14:09:01] E4 done -> C:\GitHub\N21-INT3202-2\b3\results\e04

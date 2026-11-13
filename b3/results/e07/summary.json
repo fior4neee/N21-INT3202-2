@@ -1,0 +1,167 @@
+[
+  {
+    "phase": "A",
+    "replset": "shard1RS",
+    "survivor": "s1c",
+    "stopped": [
+      "s1a",
+      "s1b"
+    ],
+    "stepdown_s": 20.15,
+    "stop_cmd_s": 10.8,
+    "primary_again_after_restore_s": 11.76,
+    "new_primary": "s1c",
+    "table": [
+      {
+        "operation": "W shard1 w:majority",
+        "baseline_ok": "4/4",
+        "degraded_ok": "0/2",
+        "restored_ok": "4/4",
+        "degraded_errors": "NetworkTimeout(), WriteError(50)"
+      },
+      {
+        "operation": "W shard1 w:1",
+        "baseline_ok": "4/4",
+        "degraded_ok": "0/2",
+        "restored_ok": "4/4",
+        "degraded_errors": "WriteError(50)"
+      },
+      {
+        "operation": "W shard2 w:majority",
+        "baseline_ok": "4/4",
+        "degraded_ok": "3/3",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "R shard1 primary",
+        "baseline_ok": "4/4",
+        "degraded_ok": "0/3",
+        "restored_ok": "4/4",
+        "degraded_errors": "ExecutionTimeout(50), NetworkTimeout()"
+      },
+      {
+        "operation": "R shard1 secondaryPreferred",
+        "baseline_ok": "4/4",
+        "degraded_ok": "2/3",
+        "restored_ok": "4/4",
+        "degraded_errors": "ExecutionTimeout(50)"
+      },
+      {
+        "operation": "R shard1 nearest",
+        "baseline_ok": "4/4",
+        "degraded_ok": "3/3",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "R shard2 primary",
+        "baseline_ok": "4/4",
+        "degraded_ok": "3/3",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "M config write (chunksize)",
+        "baseline_ok": "4/4",
+        "degraded_ok": "3/3",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "M flushRouterConfig + read",
+        "baseline_ok": "4/4",
+        "degraded_ok": "3/3",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      }
+    ],
+    "created_collections": []
+  },
+  {
+    "phase": "B",
+    "replset": "cfgRS",
+    "survivor": "cfg1",
+    "stopped": [
+      "cfg2",
+      "cfg3"
+    ],
+    "stepdown_s": 20.11,
+    "stop_cmd_s": 10.77,
+    "primary_again_after_restore_s": 2.3,
+    "new_primary": "cfg1",
+    "table": [
+      {
+        "operation": "W shard1 w:majority",
+        "baseline_ok": "4/4",
+        "degraded_ok": "1/2",
+        "restored_ok": "4/4",
+        "degraded_errors": "NetworkTimeout()"
+      },
+      {
+        "operation": "W shard1 w:1",
+        "baseline_ok": "4/4",
+        "degraded_ok": "2/2",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "W shard2 w:majority",
+        "baseline_ok": "4/4",
+        "degraded_ok": "2/2",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "R shard1 primary",
+        "baseline_ok": "4/4",
+        "degraded_ok": "2/2",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "R shard1 secondaryPreferred",
+        "baseline_ok": "4/4",
+        "degraded_ok": "2/2",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "R shard1 nearest",
+        "baseline_ok": "4/4",
+        "degraded_ok": "2/2",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "R shard2 primary",
+        "baseline_ok": "4/4",
+        "degraded_ok": "2/2",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "M config write (chunksize)",
+        "baseline_ok": "4/4",
+        "degraded_ok": "0/2",
+        "restored_ok": "4/4",
+        "degraded_errors": "NetworkTimeout()"
+      },
+      {
+        "operation": "M flushRouterConfig + read",
+        "baseline_ok": "4/4",
+        "degraded_ok": "2/2",
+        "restored_ok": "4/4",
+        "degraded_errors": ""
+      },
+      {
+        "operation": "M shardCollection (new coll)",
+        "baseline_ok": "0/0",
+        "degraded_ok": "0/3",
+        "restored_ok": "0/0",
+        "degraded_errors": "ExecutionTimeout(50), NetworkTimeout()"
+      }
+    ],
+    "created_collections": []
+  }
+]

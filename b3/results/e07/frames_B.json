@@ -1,0 +1,1046 @@
+[
+  {
+    "t": 1794557340.9669673,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557342.2871454,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557343.5763764,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557344.7981505,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557346.045555,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557347.3652947,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557348.635138,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557349.7232568,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557351.0251677,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557352.293372,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557353.6576197,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557354.959766,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557356.1922216,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557357.4410193,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557358.6706984,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557360.1867287,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557361.05401,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557361.9040663,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557362.7682564,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557363.712367,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557364.5365565,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557365.4093776,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557366.1910381,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557367.0414784,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557367.8777802,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557368.7517812,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557369.6170664,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557370.480444,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557371.3790922,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557372.1878712,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557373.1044214,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557373.9170992,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557374.848667,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557375.6970494,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557376.4832597,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557377.323327,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557378.1886084,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557379.0247734,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557379.8719268,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557380.692059,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557381.545323,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557382.3860211,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557383.2227857,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557384.058879,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557384.9437459,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557385.772177,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557386.5467136,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557387.332272,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557388.0792165,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557388.8995352,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "exited/unhealthy",
+      "cfg3": "exited/unhealthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557389.6875362,
+    "roles": {
+      "cfg1": "SECONDARY",
+      "cfg2": "UNREACHABLE",
+      "cfg3": "UNREACHABLE"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/starting",
+      "cfg3": "running/starting"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557390.878678,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/starting",
+      "cfg3": "running/starting"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557392.1763537,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/starting",
+      "cfg3": "running/starting"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557393.398858,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/starting",
+      "cfg3": "running/starting"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557394.6710825,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/starting",
+      "cfg3": "running/starting"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557395.922528,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557397.2552543,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  },
+  {
+    "t": 1794557398.4970148,
+    "roles": {
+      "cfg1": "PRIMARY",
+      "cfg2": "SECONDARY",
+      "cfg3": "SECONDARY"
+    },
+    "docker": {
+      "cfg1": "running/healthy",
+      "cfg2": "running/healthy",
+      "cfg3": "running/healthy"
+    },
+    "connected": {
+      "cfg1": true,
+      "cfg2": true,
+      "cfg3": true
+    }
+  }
+]

@@ -1,0 +1,176 @@
+t_epoch,t_rel_s,stage,op,ok,error,latency_ms
+1794557340.981,-8.0,baseline,W shard1 w:majority,1,,33.7
+1794557341.014,-7.96,baseline,W shard1 w:1,1,,7.0
+1794557341.021,-7.96,baseline,W shard2 w:majority,1,,26.7
+1794557341.048,-7.93,baseline,R shard1 primary,1,,10.2
+1794557341.058,-7.92,baseline,R shard1 secondaryPreferred,1,,5.7
+1794557341.064,-7.91,baseline,R shard1 nearest,1,,5.7
+1794557341.07,-7.91,baseline,R shard2 primary,1,,3.9
+1794557341.074,-7.91,baseline,M config write (chunksize),1,,3.4
+1794557341.077,-7.9,baseline,M flushRouterConfig + read,1,,17.4
+1794557342.994,-5.98,baseline,W shard1 w:majority,1,,23.9
+1794557343.018,-5.96,baseline,W shard1 w:1,1,,4.6
+1794557343.023,-5.96,baseline,W shard2 w:majority,1,,13.9
+1794557343.037,-5.94,baseline,R shard1 primary,1,,4.2
+1794557343.041,-5.94,baseline,R shard1 secondaryPreferred,1,,3.2
+1794557343.044,-5.93,baseline,R shard1 nearest,1,,3.7
+1794557343.048,-5.93,baseline,R shard2 primary,1,,3.5
+1794557343.051,-5.93,baseline,M config write (chunksize),1,,3.3
+1794557343.055,-5.92,baseline,M flushRouterConfig + read,1,,9.4
+1794557345.006,-3.97,baseline,W shard1 w:majority,1,,38.8
+1794557345.045,-3.93,baseline,W shard1 w:1,1,,4.9
+1794557345.05,-3.93,baseline,W shard2 w:majority,1,,13.4
+1794557345.063,-3.92,baseline,R shard1 primary,1,,4.2
+1794557345.067,-3.91,baseline,R shard1 secondaryPreferred,1,,3.9
+1794557345.071,-3.91,baseline,R shard1 nearest,1,,4.5
+1794557345.076,-3.9,baseline,R shard2 primary,1,,4.1
+1794557345.08,-3.9,baseline,M config write (chunksize),1,,4.0
+1794557345.084,-3.89,baseline,M flushRouterConfig + read,1,,10.1
+1794557347.021,-1.96,baseline,W shard1 w:majority,1,,16.9
+1794557347.038,-1.94,baseline,W shard1 w:1,1,,5.0
+1794557347.043,-1.94,baseline,W shard2 w:majority,1,,11.9
+1794557347.055,-1.92,baseline,R shard1 primary,1,,4.4
+1794557347.059,-1.92,baseline,R shard1 secondaryPreferred,1,,3.6
+1794557347.063,-1.92,baseline,R shard1 nearest,1,,3.7
+1794557347.066,-1.91,baseline,R shard2 primary,1,,2.8
+1794557347.069,-1.91,baseline,M config write (chunksize),1,,6.4
+1794557347.076,-1.9,baseline,M flushRouterConfig + read,1,,9.8
+1794557349.034,0.06,stopping,W shard1 w:majority,1,,19.7
+1794557349.054,0.07,stopping,W shard1 w:1,1,,4.3
+1794557349.058,0.08,stopping,W shard2 w:majority,1,,8.5
+1794557349.066,0.09,stopping,R shard1 primary,1,,3.0
+1794557349.069,0.09,stopping,R shard1 secondaryPreferred,1,,3.1
+1794557349.073,0.09,stopping,R shard1 nearest,1,,6.2
+1794557349.079,0.1,stopping,R shard2 primary,1,,8.8
+1794557349.088,0.11,stopping,M config write (chunksize),1,,4.9
+1794557349.093,0.11,stopping,M flushRouterConfig + read,1,,9.0
+1794557351.036,2.06,stopping,W shard1 w:majority,1,,11.7
+1794557351.047,2.07,stopping,W shard1 w:1,1,,6.0
+1794557351.053,2.07,stopping,W shard2 w:majority,1,,10.9
+1794557351.064,2.09,stopping,R shard1 primary,1,,3.9
+1794557351.068,2.09,stopping,R shard1 secondaryPreferred,1,,6.7
+1794557351.075,2.1,stopping,R shard1 nearest,1,,5.4
+1794557351.08,2.1,stopping,R shard2 primary,1,,3.5
+1794557351.084,2.11,stopping,M config write (chunksize),1,,4.7
+1794557351.089,2.11,stopping,M flushRouterConfig + read,1,,11.7
+1794557353.046,4.07,stopping,W shard1 w:majority,1,,10.6
+1794557353.057,4.08,stopping,W shard1 w:1,1,,3.0
+1794557353.06,4.08,stopping,W shard2 w:majority,1,,13.6
+1794557353.073,4.09,stopping,R shard1 primary,1,,3.2
+1794557353.076,4.1,stopping,R shard1 secondaryPreferred,1,,6.7
+1794557353.083,4.1,stopping,R shard1 nearest,1,,5.2
+1794557353.088,4.11,stopping,R shard2 primary,1,,3.6
+1794557353.092,4.11,stopping,M config write (chunksize),1,,3.9
+1794557353.096,4.12,stopping,M flushRouterConfig + read,1,,7.0
+1794557355.049,6.07,stopping,W shard1 w:majority,1,,13.0
+1794557355.062,6.08,stopping,W shard1 w:1,1,,5.3
+1794557355.067,6.09,stopping,W shard2 w:majority,1,,14.8
+1794557355.082,6.1,stopping,R shard1 primary,1,,4.0
+1794557355.086,6.11,stopping,R shard1 secondaryPreferred,1,,3.8
+1794557355.09,6.11,stopping,R shard1 nearest,1,,2.5
+1794557355.092,6.11,stopping,R shard2 primary,1,,3.6
+1794557355.096,6.12,stopping,M config write (chunksize),1,,3.2
+1794557355.099,6.12,stopping,M flushRouterConfig + read,1,,9.9
+1794557357.052,8.07,stopping,W shard1 w:majority,1,,22.0
+1794557357.074,8.1,stopping,W shard1 w:1,1,,6.2
+1794557357.08,8.1,stopping,W shard2 w:majority,1,,15.3
+1794557357.095,8.12,stopping,R shard1 primary,1,,5.1
+1794557357.101,8.12,stopping,R shard1 secondaryPreferred,1,,4.5
+1794557357.105,8.13,stopping,R shard1 nearest,1,,3.6
+1794557357.109,8.13,stopping,R shard2 primary,1,,4.2
+1794557357.113,8.13,stopping,M config write (chunksize),1,,3.7
+1794557357.117,8.14,stopping,M flushRouterConfig + read,1,,14.9
+1794557359.065,10.09,stopping,W shard1 w:majority,1,,22.6
+1794557359.088,10.11,stopping,W shard1 w:1,1,,25.4
+1794557359.113,10.13,stopping,W shard2 w:majority,1,,25.5
+1794557359.139,10.16,stopping,R shard1 primary,1,,5.6
+1794557359.144,10.17,stopping,R shard1 secondaryPreferred,1,,9.9
+1794557359.154,10.18,stopping,R shard1 nearest,1,,5.6
+1794557359.16,10.18,stopping,R shard2 primary,1,,16.2
+1794557359.176,10.2,stopping,M config write (chunksize),1,,11.2
+1794557359.187,10.21,stopping,M flushRouterConfig + read,1,,36.7
+1794557361.079,12.1,degraded,W shard1 w:majority,1,,13.8
+1794557361.093,12.11,degraded,W shard1 w:1,1,,8.1
+1794557361.101,12.12,degraded,W shard2 w:majority,1,,21.1
+1794557361.122,12.14,degraded,R shard1 primary,1,,12.1
+1794557361.134,12.16,degraded,R shard1 secondaryPreferred,1,,14.0
+1794557361.148,12.17,degraded,R shard1 nearest,1,,10.4
+1794557361.159,12.18,degraded,R shard2 primary,1,,5.3
+1794557361.164,12.19,degraded,M config write (chunksize),0,"NetworkTimeout(): 127.0.0.1:27100: timed out (configured timeouts: timeoutMS: 3000.0ms, connectTimeoutMS: 20000.0ms)",3009.3
+1794557364.174,15.19,degraded,M flushRouterConfig + read,1,,23.5
+1794557364.197,15.22,degraded,M shardCollection (new coll),0,ExecutionTimeout(50): operation exceeded time limit,3001.2
+1794557367.198,18.22,degraded,W shard1 w:majority,1,,22.6
+1794557367.221,18.24,degraded,W shard1 w:1,1,,6.0
+1794557367.227,18.25,degraded,W shard2 w:majority,1,,16.7
+1794557367.244,18.26,degraded,R shard1 primary,1,,8.5
+1794557367.252,18.27,degraded,R shard1 secondaryPreferred,1,,5.6
+1794557367.258,18.28,degraded,R shard1 nearest,1,,6.4
+1794557367.264,18.29,degraded,R shard2 primary,1,,6.2
+1794557367.27,18.29,degraded,M config write (chunksize),0,"WriteConcernError(6): InterruptedDueToReplStateChange: operation was interrupted; Error details: { writeConcern: { w: ""majority"", wt",1724.2
+1794557368.995,20.02,degraded,M flushRouterConfig + read,0,"NetworkTimeout(): 127.0.0.1:27100: timed out (configured timeouts: timeoutMS: 3000.0ms, connectTimeoutMS: 20000.0ms)",3016.0
+1794557372.011,23.03,degraded,M shardCollection (new coll),0,"NetworkTimeout(): 127.0.0.1:27100: timed out (configured timeouts: timeoutMS: 3000.0ms, connectTimeoutMS: 20000.0ms)",3002.0
+1794557375.013,26.03,degraded,W shard1 w:majority,0,"NetworkTimeout(): 127.0.0.1:27100: timed out (configured timeouts: timeoutMS: 3000.0ms, connectTimeoutMS: 20000.0ms)",3015.4
+1794557378.028,29.05,degraded,W shard1 w:1,1,,993.0
+1794557379.021,30.04,degraded,W shard2 w:majority,1,,15.4
+1794557379.036,30.06,degraded,R shard1 primary,1,,5.2
+1794557379.042,30.06,degraded,R shard1 secondaryPreferred,1,,6.5
+1794557379.048,30.07,degraded,R shard1 nearest,1,,4.4
+1794557379.053,30.07,degraded,R shard2 primary,1,,5.3
+1794557379.058,30.08,degraded,M config write (chunksize),0,"NetworkTimeout(): 127.0.0.1:27100: timed out (configured timeouts: timeoutMS: 3000.0ms, connectTimeoutMS: 20000.0ms)",3009.6
+1794557382.068,33.09,degraded,M flushRouterConfig + read,1,,25.9
+1794557382.093,33.11,degraded,M shardCollection (new coll),0,ExecutionTimeout(50): operation exceeded time limit,3005.3
+1794557385.099,36.12,degraded,W shard1 w:majority,1,,16.5
+1794557385.115,36.14,degraded,W shard1 w:1,1,,3.9
+1794557385.119,36.14,degraded,W shard2 w:majority,1,,11.7
+1794557385.131,36.15,degraded,R shard1 primary,1,,4.4
+1794557385.135,36.16,degraded,R shard1 secondaryPreferred,1,,4.2
+1794557385.14,36.16,degraded,R shard1 nearest,1,,4.5
+1794557385.144,36.17,degraded,R shard2 primary,1,,4.5
+1794557385.149,36.17,degraded,M config write (chunksize),0,"NetworkTimeout(): 127.0.0.1:27100: timed out (configured timeouts: timeoutMS: 3000.0ms, connectTimeoutMS: 20000.0ms)",3003.6
+1794557388.152,39.17,degraded,M flushRouterConfig + read,1,,16.2
+1794557388.169,39.19,degraded,M shardCollection (new coll),0,ExecutionTimeout(50): operation exceeded time limit,3008.4
+1794557391.177,42.2,restoring,W shard1 w:majority,1,,11.1
+1794557391.188,42.21,restoring,W shard1 w:1,1,,3.6
+1794557391.192,42.21,restoring,W shard2 w:majority,1,,18.5
+1794557391.21,42.23,restoring,R shard1 primary,1,,6.9
+1794557391.217,42.24,restoring,R shard1 secondaryPreferred,1,,9.4
+1794557391.227,42.25,restoring,R shard1 nearest,1,,3.9
+1794557391.231,42.25,restoring,R shard2 primary,1,,2.9
+1794557391.234,42.25,restoring,M config write (chunksize),1,,3.7
+1794557391.237,42.26,restoring,M flushRouterConfig + read,1,,33.9
+1794557393.189,44.21,restored,W shard1 w:majority,1,,20.3
+1794557393.21,44.23,restored,W shard1 w:1,1,,4.5
+1794557393.214,44.24,restored,W shard2 w:majority,1,,12.5
+1794557393.227,44.25,restored,R shard1 primary,1,,3.9
+1794557393.231,44.25,restored,R shard1 secondaryPreferred,1,,3.9
+1794557393.235,44.26,restored,R shard1 nearest,1,,5.2
+1794557393.24,44.26,restored,R shard2 primary,1,,6.0
+1794557393.246,44.27,restored,M config write (chunksize),1,,3.9
+1794557393.25,44.27,restored,M flushRouterConfig + read,1,,10.4
+1794557395.206,46.23,restored,W shard1 w:majority,1,,11.7
+1794557395.217,46.24,restored,W shard1 w:1,1,,3.7
+1794557395.221,46.24,restored,W shard2 w:majority,1,,18.2
+1794557395.239,46.26,restored,R shard1 primary,1,,5.8
+1794557395.245,46.27,restored,R shard1 secondaryPreferred,1,,5.0
+1794557395.25,46.27,restored,R shard1 nearest,1,,5.4
+1794557395.256,46.28,restored,R shard2 primary,1,,4.7
+1794557395.26,46.28,restored,M config write (chunksize),1,,3.4
+1794557395.264,46.28,restored,M flushRouterConfig + read,1,,25.5
+1794557397.22,48.24,restored,W shard1 w:majority,1,,71.5
+1794557397.291,48.31,restored,W shard1 w:1,1,,4.9
+1794557397.296,48.32,restored,W shard2 w:majority,1,,11.8
+1794557397.308,48.33,restored,R shard1 primary,1,,6.2
+1794557397.314,48.34,restored,R shard1 secondaryPreferred,1,,5.5
+1794557397.32,48.34,restored,R shard1 nearest,1,,5.7
+1794557397.325,48.35,restored,R shard2 primary,1,,5.3
+1794557397.331,48.35,restored,M config write (chunksize),1,,5.5
+1794557397.336,48.36,restored,M flushRouterConfig + read,1,,11.8
+1794557399.222,50.24,restored,W shard1 w:majority,1,,10.7
+1794557399.233,50.25,restored,W shard1 w:1,1,,4.8
+1794557399.238,50.26,restored,W shard2 w:majority,1,,12.7
+1794557399.251,50.27,restored,R shard1 primary,1,,3.9
+1794557399.255,50.28,restored,R shard1 secondaryPreferred,1,,3.0
+1794557399.258,50.28,restored,R shard1 nearest,1,,4.9
+1794557399.262,50.28,restored,R shard2 primary,1,,3.1
+1794557399.266,50.29,restored,M config write (chunksize),1,,4.3
+1794557399.27,50.29,restored,M flushRouterConfig + read,1,,9.6

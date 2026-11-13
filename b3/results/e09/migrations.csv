@@ -1,0 +1,16 @@
+time,ns,from,to,docs,MB
+1794557695.372,lab.ship_compound,shard2RS,shard3RS,18838,8.05
+1794557701.048,lab.ship_hashed,shard2RS,shard3RS,18849,8.01
+1794557704.045,lab.ship_compound,shard2RS,shard3RS,18848,8.03
+1794557707.164,lab.ship_compound,shard2RS,shard3RS,18848,8.02
+1794557716.425,lab.ship_hashed,shard1RS,shard3RS,18850,8.01
+1794557718.689,lab.ship_hashed,shard2RS,shard3RS,18849,8.01
+1794557723.29,lab.ship_compound,shard1RS,shard3RS,18892,7.86
+1794557725.874,lab.ship_compound,shard2RS,shard3RS,18843,8.02
+1794557727.912,lab.ship_compound,shard1RS,shard3RS,18892,7.9
+1794557729.921,lab.ship_compound,shard2RS,shard3RS,18842,8.03
+1794557733.711,lab.ship_hashed,shard1RS,shard3RS,18850,8.0
+1794557736.771,lab.ship_hashed,shard2RS,shard3RS,18849,8.0
+1794557738.729,lab.ship_hashed,shard1RS,shard3RS,18849,8.0
+1794557740.562,lab.ship_hashed,shard2RS,shard3RS,18849,8.01
+1794557742.561,lab.ship_hashed,shard1RS,shard3RS,18849,8.01

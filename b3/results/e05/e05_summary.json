@@ -1,0 +1,345 @@
+{
+  "reads": [
+    {
+      "mode": "primary",
+      "node": "s1a",
+      "shard": "shard1RS",
+      "role": "SECONDARY",
+      "reads": 0,
+      "pct": 0.0
+    },
+    {
+      "mode": "primary",
+      "node": "s1b",
+      "shard": "shard1RS",
+      "role": "PRIMARY",
+      "reads": 197,
+      "pct": 49.2
+    },
+    {
+      "mode": "primary",
+      "node": "s1c",
+      "shard": "shard1RS",
+      "role": "SECONDARY",
+      "reads": 0,
+      "pct": 0.0
+    },
+    {
+      "mode": "primary",
+      "node": "s2a",
+      "shard": "shard2RS",
+      "role": "SECONDARY",
+      "reads": 0,
+      "pct": 0.0
+    },
+    {
+      "mode": "primary",
+      "node": "s2b",
+      "shard": "shard2RS",
+      "role": "SECONDARY",
+      "reads": 0,
+      "pct": 0.0
+    },
+    {
+      "mode": "primary",
+      "node": "s2c",
+      "shard": "shard2RS",
+      "role": "PRIMARY",
+      "reads": 203,
+      "pct": 50.8
+    },
+    {
+      "mode": "secondary",
+      "node": "s1a",
+      "shard": "shard1RS",
+      "role": "SECONDARY",
+      "reads": 92,
+      "pct": 23.0
+    },
+    {
+      "mode": "secondary",
+      "node": "s1b",
+      "shard": "shard1RS",
+      "role": "PRIMARY",
+      "reads": 0,
+      "pct": 0.0
+    },
+    {
+      "mode": "secondary",
+      "node": "s1c",
+      "shard": "shard1RS",
+      "role": "SECONDARY",
+      "reads": 91,
+      "pct": 22.8
+    },
+    {
+      "mode": "secondary",
+      "node": "s2a",
+      "shard": "shard2RS",
+      "role": "SECONDARY",
+      "reads": 105,
+      "pct": 26.2
+    },
+    {
+      "mode": "secondary",
+      "node": "s2b",
+      "shard": "shard2RS",
+      "role": "SECONDARY",
+      "reads": 112,
+      "pct": 28.0
+    },
+    {
+      "mode": "secondary",
+      "node": "s2c",
+      "shard": "shard2RS",
+      "role": "PRIMARY",
+      "reads": 0,
+      "pct": 0.0
+    },
+    {
+      "mode": "secondaryPreferred",
+      "node": "s1a",
+      "shard": "shard1RS",
+      "role": "SECONDARY",
+      "reads": 94,
+      "pct": 23.5
+    },
+    {
+      "mode": "secondaryPreferred",
+      "node": "s1b",
+      "shard": "shard1RS",
+      "role": "PRIMARY",
+      "reads": 0,
+      "pct": 0.0
+    },
+    {
+      "mode": "secondaryPreferred",
+      "node": "s1c",
+      "shard": "shard1RS",
+      "role": "SECONDARY",
+      "reads": 102,
+      "pct": 25.5
+    },
+    {
+      "mode": "secondaryPreferred",
+      "node": "s2a",
+      "shard": "shard2RS",
+      "role": "SECONDARY",
+      "reads": 122,
+      "pct": 30.5
+    },
+    {
+      "mode": "secondaryPreferred",
+      "node": "s2b",
+      "shard": "shard2RS",
+      "role": "SECONDARY",
+      "reads": 82,
+      "pct": 20.5
+    },
+    {
+      "mode": "secondaryPreferred",
+      "node": "s2c",
+      "shard": "shard2RS",
+      "role": "PRIMARY",
+      "reads": 0,
+      "pct": 0.0
+    },
+    {
+      "mode": "nearest",
+      "node": "s1a",
+      "shard": "shard1RS",
+      "role": "SECONDARY",
+      "reads": 48,
+      "pct": 12.0
+    },
+    {
+      "mode": "nearest",
+      "node": "s1b",
+      "shard": "shard1RS",
+      "role": "PRIMARY",
+      "reads": 60,
+      "pct": 15.0
+    },
+    {
+      "mode": "nearest",
+      "node": "s1c",
+      "shard": "shard1RS",
+      "role": "SECONDARY",
+      "reads": 71,
+      "pct": 17.8
+    },
+    {
+      "mode": "nearest",
+      "node": "s2a",
+      "shard": "shard2RS",
+      "role": "SECONDARY",
+      "reads": 82,
+      "pct": 20.5
+    },
+    {
+      "mode": "nearest",
+      "node": "s2b",
+      "shard": "shard2RS",
+      "role": "SECONDARY",
+      "reads": 65,
+      "pct": 16.2
+    },
+    {
+      "mode": "nearest",
+      "node": "s2c",
+      "shard": "shard2RS",
+      "role": "PRIMARY",
+      "reads": 74,
+      "pct": 18.5
+    }
+  ],
+  "lag": [
+    {
+      "shard": "shard2RS",
+      "role": "loaded",
+      "secondary": "s2a",
+      "phase": "idle",
+      "probes": 20,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 5.8,
+      "lag_p95_ms": 15.7,
+      "lag_max_ms": 15.7,
+      "write_ack_p50_ms": 56.4
+    },
+    {
+      "shard": "shard2RS",
+      "role": "loaded",
+      "secondary": "s2a",
+      "phase": "load",
+      "probes": 44,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 6.9,
+      "lag_p95_ms": 32.2,
+      "lag_max_ms": 810.2,
+      "write_ack_p50_ms": 49.2
+    },
+    {
+      "shard": "shard2RS",
+      "role": "loaded",
+      "secondary": "s2a",
+      "phase": "recovery",
+      "probes": 20,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 5.3,
+      "lag_p95_ms": 11.4,
+      "lag_max_ms": 11.4,
+      "write_ack_p50_ms": 38.7
+    },
+    {
+      "shard": "shard2RS",
+      "role": "loaded",
+      "secondary": "s2b",
+      "phase": "idle",
+      "probes": 20,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 6.3,
+      "lag_p95_ms": 18.1,
+      "lag_max_ms": 18.1,
+      "write_ack_p50_ms": 56.4
+    },
+    {
+      "shard": "shard2RS",
+      "role": "loaded",
+      "secondary": "s2b",
+      "phase": "load",
+      "probes": 44,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 7.2,
+      "lag_p95_ms": 23.6,
+      "lag_max_ms": 193.7,
+      "write_ack_p50_ms": 49.2
+    },
+    {
+      "shard": "shard2RS",
+      "role": "loaded",
+      "secondary": "s2b",
+      "phase": "recovery",
+      "probes": 20,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 6.6,
+      "lag_p95_ms": 18.5,
+      "lag_max_ms": 18.5,
+      "write_ack_p50_ms": 38.7
+    },
+    {
+      "shard": "shard1RS",
+      "role": "control",
+      "secondary": "s1a",
+      "phase": "idle",
+      "probes": 20,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 5.1,
+      "lag_p95_ms": 16.8,
+      "lag_max_ms": 16.8,
+      "write_ack_p50_ms": 13.7
+    },
+    {
+      "shard": "shard1RS",
+      "role": "control",
+      "secondary": "s1a",
+      "phase": "load",
+      "probes": 44,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 4.4,
+      "lag_p95_ms": 11.0,
+      "lag_max_ms": 34.4,
+      "write_ack_p50_ms": 16.5
+    },
+    {
+      "shard": "shard1RS",
+      "role": "control",
+      "secondary": "s1a",
+      "phase": "recovery",
+      "probes": 20,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 4.5,
+      "lag_p95_ms": 31.7,
+      "lag_max_ms": 31.7,
+      "write_ack_p50_ms": 14.6
+    },
+    {
+      "shard": "shard1RS",
+      "role": "control",
+      "secondary": "s1c",
+      "phase": "idle",
+      "probes": 20,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 6.6,
+      "lag_p95_ms": 17.7,
+      "lag_max_ms": 17.7,
+      "write_ack_p50_ms": 13.7
+    },
+    {
+      "shard": "shard1RS",
+      "role": "control",
+      "secondary": "s1c",
+      "phase": "load",
+      "probes": 44,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 4.9,
+      "lag_p95_ms": 12.0,
+      "lag_max_ms": 35.5,
+      "write_ack_p50_ms": 16.5
+    },
+    {
+      "shard": "shard1RS",
+      "role": "control",
+      "secondary": "s1c",
+      "phase": "recovery",
+      "probes": 20,
+      "not_seen_15s": 0,
+      "lag_p50_ms": 5.2,
+      "lag_p95_ms": 32.7,
+      "lag_max_ms": 32.7,
+      "write_ack_p50_ms": 14.6
+    }
+  ],
+  "loaded": "shard2RS",
+  "control": "shard1RS",
+  "updates_per_s": 3333.3333333333335
+}

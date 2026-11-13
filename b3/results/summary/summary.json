@@ -1,0 +1,170 @@
+[
+  {
+    "exp": "E1",
+    "case": "cluster survey",
+    "expected (theory)": "3 cfg + 2x3 shard members + mongos; 1 primary per replica set",
+    "observed": "9 mongod + 1 mongos, primaries cfg1, s1a, s2a; MongoDB 8.0.38",
+    "key numbers": "WT cache 0.25 GB per node"
+  },
+  {
+    "exp": "E2",
+    "case": "ship_mono",
+    "expected (theory)": "hot shard: all inserts on 1 shard",
+    "observed": "balancer on: 96 / 116 MB per shard (off: 212); jumbo 0; 100.0% of new docs to shard2RS",
+    "key numbers": "12 migrations, gap 20.2 MB (threshold 24 MB)"
+  },
+  {
+    "exp": "E2",
+    "case": "ship_lowcard",
+    "expected (theory)": "jumbo chunks",
+    "observed": "balancer on: 83 / 127 MB per shard (off: 212); jumbo 1; 70.3% of new docs to shard2RS",
+    "key numbers": "3 migrations, gap 44.0 MB (threshold 24 MB)"
+  },
+  {
+    "exp": "E2",
+    "case": "ship_hashed",
+    "expected (theory)": "even spread without the balancer",
+    "observed": "balancer on: 106 / 106 MB per shard (off: 106 / 106); jumbo 0; 50.0% of new docs to shard1RS",
+    "key numbers": "0 migrations, gap 0.2 MB (threshold 24 MB)"
+  },
+  {
+    "exp": "E2",
+    "case": "ship_compound",
+    "expected (theory)": "balanced, targeted",
+    "observed": "balancer on: 94 / 118 MB per shard (off: 212); jumbo 0; 67.9% of new docs to shard2RS",
+    "key numbers": "3 migrations, gap 23.1 MB (threshold 24 MB)"
+  },
+  {
+    "exp": "E3",
+    "case": "A1 ship_compound region = prefix of shard key",
+    "expected (theory)": "targeted if the filter has the shard key, else scatter-gather",
+    "observed": "SINGLE_SHARD, 1 shard(s), IXSCAN",
+    "key numbers": "docs examined 34,811 -> returned 34,811"
+  },
+  {
+    "exp": "E3",
+    "case": "A2 ship_mono region not in shard key {ts}",
+    "expected (theory)": "targeted if the filter has the shard key, else scatter-gather",
+    "observed": "SHARD_MERGE, 2 shard(s), COLLSCAN",
+    "key numbers": "docs examined 500,000 -> returned 34,811"
+  },
+  {
+    "exp": "E3",
+    "case": "B1 ship_compound full shard key (equality)",
+    "expected (theory)": "targeted if the filter has the shard key, else scatter-gather",
+    "observed": "SINGLE_SHARD, 1 shard(s), IXSCAN",
+    "key numbers": "docs examined 9 -> returned 9"
+  },
+  {
+    "exp": "E3",
+    "case": "B6 ship_hashed equality on hashed key",
+    "expected (theory)": "targeted if the filter has the shard key, else scatter-gather",
+    "observed": "SINGLE_SHARD, 1 shard(s), EXPRESS_IXSCAN",
+    "key numbers": "docs examined 1 -> returned 1"
+  },
+  {
+    "exp": "E3",
+    "case": "B7 ship_hashed RANGE on hashed key (hash destroys order)",
+    "expected (theory)": "targeted if the filter has the shard key, else scatter-gather",
+    "observed": "SHARD_MERGE, 2 shard(s), IXSCAN",
+    "key numbers": "docs examined 0 -> returned 2,000"
+  },
+  {
+    "exp": "E4",
+    "case": "2dsphere index",
+    "expected (theory)": "COLLSCAN before, IXSCAN after; $near needs the index",
+    "observed": "G1 COLLSCAN 500,000 docs -> G3 IXSCAN 772 docs; $near without index: error",
+    "key numbers": "352.3 ms -> 6.2 ms; index 3.2-4.0 MB per shard"
+  },
+  {
+    "exp": "E4",
+    "case": "$near / $geoNear routing",
+    "expected (theory)": "scatter-gather unless the shard key is in the query",
+    "observed": "no key: 2 shards; with region: 1 shard",
+    "key numbers": "geo index cannot be a shard key: shardCollection error 2"
+  },
+  {
+    "exp": "E5",
+    "case": "readPreference primary",
+    "expected (theory)": "all reads on primaries",
+    "observed": "100% primaries / 0% secondaries",
+    "key numbers": "400 reads, 2 nodes served"
+  },
+  {
+    "exp": "E5",
+    "case": "readPreference secondary",
+    "expected (theory)": "all reads on secondaries",
+    "observed": "0% primaries / 100% secondaries",
+    "key numbers": "400 reads, 4 nodes served"
+  },
+  {
+    "exp": "E5",
+    "case": "readPreference secondaryPreferred",
+    "expected (theory)": "secondaries while available",
+    "observed": "0% primaries / 100% secondaries",
+    "key numbers": "400 reads, 4 nodes served"
+  },
+  {
+    "exp": "E5",
+    "case": "readPreference nearest",
+    "expected (theory)": "any member within the latency window",
+    "observed": "34% primaries / 66% secondaries",
+    "key numbers": "400 reads, 6 nodes served"
+  },
+  {
+    "exp": "E5",
+    "case": "replication lag under write load",
+    "expected (theory)": "lag grows with write load on that shard only",
+    "observed": "loaded shard p50 7.2 ms, p95 32.2 ms, max 810.2 ms; control p95 12.0 ms",
+    "key numbers": "3,333 updates/s"
+  },
+  {
+    "exp": "E6",
+    "case": "docker kill of the shard1 primary",
+    "expected (theory)": "~election timeout (10 s)",
+    "observed": "election won 10.1 s, catch-up 0.6 s, writable 10.7 s, writes ok 10.4 s",
+    "key numbers": "6 failed writes; shard2 0 failed"
+  },
+  {
+    "exp": "E6",
+    "case": "docker stop of the shard1 primary",
+    "expected (theory)": "fastest: clean step-down",
+    "observed": "election won 0.1 s, catch-up 0.0 s, writable 0.2 s, writes ok -",
+    "key numbers": "0 failed writes; shard2 0 failed"
+  },
+  {
+    "exp": "E6",
+    "case": "docker pause of the shard1 primary",
+    "expected (theory)": "~election timeout (10 s)",
+    "observed": "election won 11.4 s, catch-up 10.0 s, writable 21.5 s, writes ok 26.7 s",
+    "key numbers": "13 failed writes; shard2 0 failed"
+  },
+  {
+    "exp": "E7",
+    "case": "2 of 3 shard1RS members down",
+    "expected (theory)": "no majority -> no primary; shard read-only",
+    "observed": "s1c stepped down at +20.1 s (incl. ~11 s docker stop); failing: W shard1 w:majority, W shard1 w:1, R shard1 primary, R shard1 secondaryPreferred",
+    "key numbers": "primary again 11.8 s after restart"
+  },
+  {
+    "exp": "E7",
+    "case": "2 of 3 cfgRS members down",
+    "expected (theory)": "config read-only: data ops continue, metadata ops fail",
+    "observed": "cfg1 stepped down at +20.1 s (incl. ~11 s docker stop); failing: W shard1 w:majority, M config write (chunksize), M shardCollection (new coll)",
+    "key numbers": "primary again 2.3 s after restart"
+  },
+  {
+    "exp": "E8",
+    "case": "partition of the shard1 primary",
+    "expected (theory)": "isolated primary keeps accepting w:1 writes until it steps down; they are rolled back; brief window with two primaries",
+    "observed": "8 w:1 acked while isolated -> 8 lost (rollback file: 16 docs); w:majority acked 1, failed 19; two primaries: not observed",
+    "key numbers": "old primary stepped down +10.15 s, new elected +11.59 s"
+  },
+  {
+    "exp": "E9",
+    "case": "add a third shard",
+    "expected (theory)": "balancer moves data until within 3 x chunk size; writes continue",
+    "observed": "15 migrations, 120.0 MB moved, balanced 79.1 s after addShard; 0 failed writes",
+    "key numbers": "insert p95 27.7 -> 55.0 ms during migration"
+  }
+]

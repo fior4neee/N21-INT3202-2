@@ -1,0 +1,1652 @@
+[
+  {
+    "t": 1794557467.38465,
+    "roles": {
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557468434,
+        "done": 1794557468451,
+        "i": 1,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "majority",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557468.4162288
+      }
+    }
+  },
+  {
+    "t": 1794557468.5805027,
+    "roles": {
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557469739,
+        "done": 1794557469753,
+        "i": 7,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "majority",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557469.7212288
+      }
+    }
+  },
+  {
+    "t": 1794557469.7887573,
+    "roles": {
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557470807,
+        "done": 1794557470813,
+        "i": 12,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557470.7892287
+      }
+    }
+  },
+  {
+    "t": 1794557470.9840252,
+    "roles": {
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557472078,
+        "done": 1794557472082,
+        "i": 18,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557472.0602288
+      }
+    }
+  },
+  {
+    "t": 1794557472.2074206,
+    "roles": {
+      "s1c": "PRIMARY",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557473328,
+        "done": 1794557473333,
+        "i": 24,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557473.3102288
+      }
+    }
+  },
+  {
+    "t": 1794557473.4459865,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557473766,
+        "done": 1794557473773,
+        "i": 26,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557473.7482288
+      }
+    }
+  },
+  {
+    "t": 1794557474.6121635,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557474991,
+        "done": 1794557474998,
+        "i": 28,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557474.9732287
+      }
+    }
+  },
+  {
+    "t": 1794557475.8481328,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557476217,
+        "done": 1794557476223,
+        "i": 30,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557476.1992288
+      }
+    }
+  },
+  {
+    "t": 1794557477.0402405,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557477443,
+        "done": 1794557477451,
+        "i": 32,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557477.4252288
+      }
+    }
+  },
+  {
+    "t": 1794557478.284075,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557478667,
+        "done": 1794557478674,
+        "i": 34,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557478.6492288
+      }
+    }
+  },
+  {
+    "t": 1794557479.537966,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557479895,
+        "done": 1794557479900,
+        "i": 36,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557479.8772287
+      }
+    }
+  },
+  {
+    "t": 1794557480.7923093,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557481121,
+        "done": 1794557481125,
+        "i": 38,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557481.1032288
+      }
+    }
+  },
+  {
+    "t": 1794557482.0005789,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "PRIMARY",
+      "P_inside_last": {
+        "t": 1794557482343,
+        "done": 1794557482349,
+        "i": 40,
+        "wp": true,
+        "sec": false,
+        "primary": "s1c:27017",
+        "w": "1",
+        "ok": 1,
+        "err": "",
+        "t_epoch": 1794557482.3252287
+      }
+    }
+  },
+  {
+    "t": 1794557483.2402565,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "SECONDARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557484398,
+        "done": 1794557484406,
+        "i": 46,
+        "wp": false,
+        "sec": true,
+        "primary": "",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557484.3802288
+      }
+    }
+  },
+  {
+    "t": 1794557484.4819553,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557485453,
+        "done": 1794557485457,
+        "i": 51,
+        "wp": false,
+        "sec": true,
+        "primary": "",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557485.4352288
+      }
+    }
+  },
+  {
+    "t": 1794557485.6479445,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557486902,
+        "done": 1794557486909,
+        "i": 58,
+        "wp": false,
+        "sec": true,
+        "primary": "",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557486.8842287
+      }
+    }
+  },
+  {
+    "t": 1794557486.9602537,
+    "roles": {
+      "s1c": "UNREACHABLE",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": false
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557488154,
+        "done": 1794557488158,
+        "i": 64,
+        "wp": false,
+        "sec": true,
+        "primary": "",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557488.1362288
+      }
+    }
+  },
+  {
+    "t": 1794557488.1799388,
+    "roles": {
+      "s1c": "OTHER",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "OTHER",
+      "P_inside_last": {
+        "t": 1794557489318,
+        "done": 1794557489323,
+        "i": 68,
+        "wp": false,
+        "sec": false,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557489.3002288
+      }
+    }
+  },
+  {
+    "t": 1794557489.4185286,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557490566,
+        "done": 1794557490572,
+        "i": 74,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557490.5482287
+      }
+    }
+  },
+  {
+    "t": 1794557490.577621,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557491605,
+        "done": 1794557491617,
+        "i": 79,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557491.5872288
+      }
+    }
+  },
+  {
+    "t": 1794557491.8157184,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557493059,
+        "done": 1794557493063,
+        "i": 86,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557493.0412288
+      }
+    }
+  },
+  {
+    "t": 1794557493.129589,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557494297,
+        "done": 1794557494304,
+        "i": 92,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557494.2792287
+      }
+    }
+  },
+  {
+    "t": 1794557494.4181015,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557495539,
+        "done": 1794557495545,
+        "i": 98,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557495.5212288
+      }
+    }
+  },
+  {
+    "t": 1794557495.6910663,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557496782,
+        "done": 1794557496787,
+        "i": 104,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557496.7642288
+      }
+    }
+  },
+  {
+    "t": 1794557496.9196544,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557498020,
+        "done": 1794557498025,
+        "i": 110,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557498.0022287
+      }
+    }
+  },
+  {
+    "t": 1794557498.1425023,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557499273,
+        "done": 1794557499280,
+        "i": 116,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557499.2552288
+      }
+    }
+  },
+  {
+    "t": 1794557499.3937159,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557500514,
+        "done": 1794557500519,
+        "i": 122,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557500.4962287
+      }
+    }
+  },
+  {
+    "t": 1794557500.57046,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557501566,
+        "done": 1794557501571,
+        "i": 127,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557501.5482287
+      }
+    }
+  },
+  {
+    "t": 1794557501.7620459,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557502798,
+        "done": 1794557502803,
+        "i": 133,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557502.7802289
+      }
+    }
+  },
+  {
+    "t": 1794557502.9760144,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557504255,
+        "done": 1794557504262,
+        "i": 140,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557504.2372289
+      }
+    }
+  },
+  {
+    "t": 1794557504.2775106,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557505495,
+        "done": 1794557505499,
+        "i": 146,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557505.4772286
+      }
+    }
+  },
+  {
+    "t": 1794557505.5129943,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557506528,
+        "done": 1794557506534,
+        "i": 151,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557506.5102289
+      }
+    }
+  },
+  {
+    "t": 1794557506.7329535,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557507972,
+        "done": 1794557507977,
+        "i": 158,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557507.9542286
+      }
+    }
+  },
+  {
+    "t": 1794557507.9956095,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557509225,
+        "done": 1794557509230,
+        "i": 164,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "1",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557509.2072287
+      }
+    }
+  },
+  {
+    "t": 1794557509.2685819,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557510258,
+        "done": 1794557510262,
+        "i": 169,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557510.2402287
+      }
+    }
+  },
+  {
+    "t": 1794557510.4630568,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557511494,
+        "done": 1794557511499,
+        "i": 175,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557511.4762287
+      }
+    }
+  },
+  {
+    "t": 1794557511.6703255,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557512731,
+        "done": 1794557512737,
+        "i": 181,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557512.7132287
+      }
+    }
+  },
+  {
+    "t": 1794557512.8666382,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557513969,
+        "done": 1794557513974,
+        "i": 187,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557513.9512289
+      }
+    }
+  },
+  {
+    "t": 1794557514.1447303,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557515224,
+        "done": 1794557515229,
+        "i": 193,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557515.2062287
+      }
+    }
+  },
+  {
+    "t": 1794557515.3760564,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557516475,
+        "done": 1794557516484,
+        "i": 199,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557516.4572287
+      }
+    }
+  },
+  {
+    "t": 1794557516.656422,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557517715,
+        "done": 1794557517719,
+        "i": 205,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557517.6972287
+      }
+    }
+  },
+  {
+    "t": 1794557517.8635564,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557518950,
+        "done": 1794557518954,
+        "i": 211,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557518.9322288
+      }
+    }
+  },
+  {
+    "t": 1794557519.0579116,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557520182,
+        "done": 1794557520185,
+        "i": 217,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557520.1642287
+      }
+    }
+  },
+  {
+    "t": 1794557520.2927754,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557521417,
+        "done": 1794557521423,
+        "i": 223,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557521.3992288
+      }
+    }
+  },
+  {
+    "t": 1794557521.4861178,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557522652,
+        "done": 1794557522656,
+        "i": 229,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557522.6342287
+      }
+    }
+  },
+  {
+    "t": 1794557522.6995173,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557523887,
+        "done": 1794557523893,
+        "i": 235,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557523.8692288
+      }
+    }
+  },
+  {
+    "t": 1794557523.951738,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557525120,
+        "done": 1794557525127,
+        "i": 241,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557525.1022286
+      }
+    }
+  },
+  {
+    "t": 1794557525.1581707,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557526355,
+        "done": 1794557526358,
+        "i": 247,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557526.3372288
+      }
+    }
+  },
+  {
+    "t": 1794557526.3829749,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557527590,
+        "done": 1794557527595,
+        "i": 253,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557527.5722287
+      }
+    }
+  },
+  {
+    "t": 1794557527.6828713,
+    "roles": {
+      "s1c": "SECONDARY",
+      "s1b": "PRIMARY",
+      "s1a": "SECONDARY"
+    },
+    "docker": {
+      "s1a": "running/healthy",
+      "s1b": "running/healthy",
+      "s1c": "running/healthy"
+    },
+    "connected": {
+      "s1a": true,
+      "s1b": true,
+      "s1c": true
+    },
+    "extra": {
+      "P_inside_role": "SECONDARY",
+      "P_inside_last": {
+        "t": 1794557528007,
+        "done": 1794557528011,
+        "i": 255,
+        "wp": false,
+        "sec": true,
+        "primary": "s1b:27017",
+        "w": "majority",
+        "ok": 0,
+        "err": "NotWritablePrimary not primary",
+        "t_epoch": 1794557527.9892287
+      }
+    }
+  }
+]
