@@ -1,0 +1,4 @@
+-> Nested loop inner join  (cost=160425 rows=405527) (actual time=0.176..475 rows=216473 loops=1)
+    -> Covering index lookup on h using idx_hokhau_geo1_vn (GEO1_VN=704001)  (cost=22778 rows=224486) (actual time=0.14..20.8 rows=104769 loops=1)
+    -> Filter: (n.AGE between 18 and 60)  (cost=0.252 rows=1.81) (actual time=0.00333..0.00416 rows=2.07 loops=104769)
+        -> Index lookup on n using PRIMARY (SERIAL=h.`SERIAL`)  (cost=0.252 rows=3.61) (actual time=0.00315..0.00388 rows=3.56 loops=104769)

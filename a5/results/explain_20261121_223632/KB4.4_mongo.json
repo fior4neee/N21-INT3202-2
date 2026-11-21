@@ -1,0 +1,372 @@
+{
+  "explainVersion": "1",
+  "stages": [
+    {
+      "$cursor": {
+        "queryPlanner": {
+          "namespace": "ipums_vn2019.hokhau",
+          "parsedQuery": {
+            "$and": [
+              {
+                "GEO1_VN": {
+                  "$eq": 704001
+                }
+              },
+              {
+                "nhankhau.MIGRATE5": {
+                  "$eq": 20
+                }
+              }
+            ]
+          },
+          "indexFilterSet": false,
+          "queryHash": "87A654D7",
+          "planCacheKey": "DB88D1E7",
+          "optimizationTimeMillis": 1,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": true,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "nhankhau": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "filter": {
+                "GEO1_VN": {
+                  "$eq": 704001
+                }
+              },
+              "inputStage": {
+                "stage": "IXSCAN",
+                "keyPattern": {
+                  "nhankhau.MIGRATE5": 1
+                },
+                "indexName": "idx_nhankhau_migrate5",
+                "isMultiKey": true,
+                "multiKeyPaths": {
+                  "nhankhau.MIGRATE5": [
+                    "nhankhau"
+                  ]
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "nhankhau.MIGRATE5": [
+                    "[20, 20]"
+                  ]
+                }
+              }
+            }
+          },
+          "rejectedPlans": [
+            {
+              "isCached": false,
+              "stage": "PROJECTION_SIMPLE",
+              "transformBy": {
+                "nhankhau": 1,
+                "_id": 0
+              },
+              "inputStage": {
+                "stage": "FETCH",
+                "filter": {
+                  "nhankhau.MIGRATE5": {
+                    "$eq": 20
+                  }
+                },
+                "inputStage": {
+                  "stage": "IXSCAN",
+                  "keyPattern": {
+                    "GEO1_VN": 1
+                  },
+                  "indexName": "idx_geo1_vn",
+                  "isMultiKey": false,
+                  "multiKeyPaths": {
+                    "GEO1_VN": []
+                  },
+                  "isUnique": false,
+                  "isSparse": false,
+                  "isPartial": false,
+                  "indexVersion": 2,
+                  "direction": "forward",
+                  "indexBounds": {
+                    "GEO1_VN": [
+                      "[704001, 704001]"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "isCached": false,
+              "stage": "PROJECTION_SIMPLE",
+              "transformBy": {
+                "nhankhau": 1,
+                "_id": 0
+              },
+              "inputStage": {
+                "stage": "FETCH",
+                "filter": {
+                  "$and": [
+                    {
+                      "GEO1_VN": {
+                        "$eq": 704001
+                      }
+                    },
+                    {
+                      "nhankhau.MIGRATE5": {
+                        "$eq": 20
+                      }
+                    }
+                  ]
+                },
+                "inputStage": {
+                  "stage": "AND_SORTED",
+                  "inputStages": [
+                    {
+                      "stage": "IXSCAN",
+                      "keyPattern": {
+                        "GEO1_VN": 1
+                      },
+                      "indexName": "idx_geo1_vn",
+                      "isMultiKey": false,
+                      "multiKeyPaths": {
+                        "GEO1_VN": []
+                      },
+                      "isUnique": false,
+                      "isSparse": false,
+                      "isPartial": false,
+                      "indexVersion": 2,
+                      "direction": "forward",
+                      "indexBounds": {
+                        "GEO1_VN": [
+                          "[704001, 704001]"
+                        ]
+                      }
+                    },
+                    {
+                      "stage": "IXSCAN",
+                      "keyPattern": {
+                        "nhankhau.MIGRATE5": 1
+                      },
+                      "indexName": "idx_nhankhau_migrate5",
+                      "isMultiKey": true,
+                      "multiKeyPaths": {
+                        "nhankhau.MIGRATE5": [
+                          "nhankhau"
+                        ]
+                      },
+                      "isUnique": false,
+                      "isSparse": false,
+                      "isPartial": false,
+                      "indexVersion": 2,
+                      "direction": "forward",
+                      "indexBounds": {
+                        "nhankhau.MIGRATE5": [
+                          "[20, 20]"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "executionStats": {
+          "executionSuccess": true,
+          "nReturned": 5573,
+          "executionTimeMillis": 105,
+          "totalKeysExamined": 44253,
+          "totalDocsExamined": 44253,
+          "executionStages": {
+            "isCached": true,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 5573,
+            "executionTimeMillisEstimate": 62,
+            "works": 44254,
+            "advanced": 5573,
+            "needTime": 38680,
+            "needYield": 0,
+            "saveState": 12,
+            "restoreState": 12,
+            "isEOF": 1,
+            "transformBy": {
+              "nhankhau": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "filter": {
+                "GEO1_VN": {
+                  "$eq": 704001
+                }
+              },
+              "nReturned": 5573,
+              "executionTimeMillisEstimate": 60,
+              "works": 44254,
+              "advanced": 5573,
+              "needTime": 38680,
+              "needYield": 0,
+              "saveState": 12,
+              "restoreState": 12,
+              "isEOF": 1,
+              "docsExamined": 44253,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "IXSCAN",
+                "nReturned": 44253,
+                "executionTimeMillisEstimate": 35,
+                "works": 44254,
+                "advanced": 44253,
+                "needTime": 0,
+                "needYield": 0,
+                "saveState": 12,
+                "restoreState": 12,
+                "isEOF": 1,
+                "keyPattern": {
+                  "nhankhau.MIGRATE5": 1
+                },
+                "indexName": "idx_nhankhau_migrate5",
+                "isMultiKey": true,
+                "multiKeyPaths": {
+                  "nhankhau.MIGRATE5": [
+                    "nhankhau"
+                  ]
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "nhankhau.MIGRATE5": [
+                    "[20, 20]"
+                  ]
+                },
+                "keysExamined": 44253,
+                "seeks": 1,
+                "dupsTested": 44253,
+                "dupsDropped": 0
+              }
+            }
+          }
+        }
+      },
+      "nReturned": 5573,
+      "executionTimeMillisEstimate": 86
+    },
+    {
+      "$unwind": {
+        "path": "$nhankhau"
+      },
+      "nReturned": 16875,
+      "executionTimeMillisEstimate": 86
+    },
+    {
+      "$match": {
+        "nhankhau.MIGRATE5": {
+          "$eq": 20
+        }
+      },
+      "nReturned": 8921,
+      "executionTimeMillisEstimate": 104
+    },
+    {
+      "$group": {
+        "_id": "$nhankhau.GEOMIG1_5",
+        "so_nguoi": {
+          "$sum": {
+            "$const": 1
+          }
+        }
+      },
+      "maxAccumulatorMemoryUsageBytes": {
+        "so_nguoi": 4992
+      },
+      "totalOutputDataSizeBytes": 9555,
+      "usedDisk": false,
+      "spills": 0,
+      "spilledDataStorageSize": 0,
+      "numBytesSpilledEstimate": 0,
+      "spilledRecords": 0,
+      "nReturned": 39,
+      "executionTimeMillisEstimate": 104
+    },
+    {
+      "$sort": {
+        "sortKey": {
+          "so_nguoi": -1,
+          "_id": 1
+        }
+      },
+      "totalDataSizeSortedBytesEstimate": 12675,
+      "usedDisk": false,
+      "spills": 0,
+      "spilledDataStorageSize": 0,
+      "nReturned": 39,
+      "executionTimeMillisEstimate": 104
+    }
+  ],
+  "serverInfo": {
+    "host": "fiorane",
+    "port": 27017,
+    "version": "8.0.3",
+    "gitVersion": "89d97f2744a2b9851ddfb51bdf22f687562d9b06"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "aggregate": "hokhau",
+    "pipeline": [
+      {
+        "$match": {
+          "GEO1_VN": 704001,
+          "nhankhau.MIGRATE5": 20
+        }
+      },
+      {
+        "$unwind": "$nhankhau"
+      },
+      {
+        "$match": {
+          "nhankhau.MIGRATE5": 20
+        }
+      },
+      {
+        "$group": {
+          "_id": "$nhankhau.GEOMIG1_5",
+          "so_nguoi": {
+            "$sum": 1
+          }
+        }
+      },
+      {
+        "$sort": {
+          "so_nguoi": -1,
+          "_id": 1
+        }
+      }
+    ],
+    "cursor": {},
+    "$db": "ipums_vn2019"
+  },
+  "ok": 1.0
+}

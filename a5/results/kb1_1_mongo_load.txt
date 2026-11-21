@@ -1,0 +1,3 @@
+Nạp 1,001,120 hộ / 3,550,482 nhân khẩu trong 69.5 s
+Tạo index trong 12.6 s
+Dung lượng: data 264 MB, index 40 MB

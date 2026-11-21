@@ -1,0 +1,380 @@
+{
+  "explainVersion": "1",
+  "stages": [
+    {
+      "$cursor": {
+        "queryPlanner": {
+          "namespace": "ipums_vn2019.hokhau",
+          "parsedQuery": {
+            "$and": [
+              {
+                "GEO1_VN": {
+                  "$eq": 704001
+                }
+              },
+              {
+                "nhankhau.AGE": {
+                  "$lte": 60
+                }
+              },
+              {
+                "nhankhau.AGE": {
+                  "$gte": 18
+                }
+              }
+            ]
+          },
+          "indexFilterSet": false,
+          "queryHash": "09172D65",
+          "planCacheKey": "BD5437BC",
+          "optimizationTimeMillis": 7,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": true,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "GEO1_VN": 1,
+              "SERIAL": 1,
+              "nhankhau": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "filter": {
+                "$and": [
+                  {
+                    "GEO1_VN": {
+                      "$eq": 704001
+                    }
+                  },
+                  {
+                    "nhankhau.AGE": {
+                      "$gte": 18
+                    }
+                  }
+                ]
+              },
+              "inputStage": {
+                "stage": "IXSCAN",
+                "keyPattern": {
+                  "nhankhau.AGE": 1
+                },
+                "indexName": "idx_nhankhau_age",
+                "isMultiKey": true,
+                "multiKeyPaths": {
+                  "nhankhau.AGE": [
+                    "nhankhau"
+                  ]
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "nhankhau.AGE": [
+                    "[-inf.0, 60]"
+                  ]
+                }
+              }
+            }
+          },
+          "rejectedPlans": [
+            {
+              "isCached": false,
+              "stage": "PROJECTION_SIMPLE",
+              "transformBy": {
+                "GEO1_VN": 1,
+                "SERIAL": 1,
+                "nhankhau": 1,
+                "_id": 0
+              },
+              "inputStage": {
+                "stage": "FETCH",
+                "filter": {
+                  "$and": [
+                    {
+                      "nhankhau.AGE": {
+                        "$lte": 60
+                      }
+                    },
+                    {
+                      "nhankhau.AGE": {
+                        "$gte": 18
+                      }
+                    }
+                  ]
+                },
+                "inputStage": {
+                  "stage": "IXSCAN",
+                  "keyPattern": {
+                    "GEO1_VN": 1
+                  },
+                  "indexName": "idx_geo1_vn",
+                  "isMultiKey": false,
+                  "multiKeyPaths": {
+                    "GEO1_VN": []
+                  },
+                  "isUnique": false,
+                  "isSparse": false,
+                  "isPartial": false,
+                  "indexVersion": 2,
+                  "direction": "forward",
+                  "indexBounds": {
+                    "GEO1_VN": [
+                      "[704001, 704001]"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "isCached": false,
+              "stage": "PROJECTION_SIMPLE",
+              "transformBy": {
+                "GEO1_VN": 1,
+                "SERIAL": 1,
+                "nhankhau": 1,
+                "_id": 0
+              },
+              "inputStage": {
+                "stage": "FETCH",
+                "filter": {
+                  "$and": [
+                    {
+                      "GEO1_VN": {
+                        "$eq": 704001
+                      }
+                    },
+                    {
+                      "nhankhau.AGE": {
+                        "$lte": 60
+                      }
+                    }
+                  ]
+                },
+                "inputStage": {
+                  "stage": "IXSCAN",
+                  "keyPattern": {
+                    "nhankhau.AGE": 1
+                  },
+                  "indexName": "idx_nhankhau_age",
+                  "isMultiKey": true,
+                  "multiKeyPaths": {
+                    "nhankhau.AGE": [
+                      "nhankhau"
+                    ]
+                  },
+                  "isUnique": false,
+                  "isSparse": false,
+                  "isPartial": false,
+                  "indexVersion": 2,
+                  "direction": "forward",
+                  "indexBounds": {
+                    "nhankhau.AGE": [
+                      "[18, inf.0]"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "executionStats": {
+          "executionSuccess": true,
+          "nReturned": 94634,
+          "executionTimeMillis": 9852,
+          "totalKeysExamined": 3039781,
+          "totalDocsExamined": 914634,
+          "executionStages": {
+            "isCached": true,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 94634,
+            "executionTimeMillisEstimate": 7570,
+            "works": 3039782,
+            "advanced": 94634,
+            "needTime": 2945147,
+            "needYield": 0,
+            "saveState": 518,
+            "restoreState": 518,
+            "isEOF": 1,
+            "transformBy": {
+              "GEO1_VN": 1,
+              "SERIAL": 1,
+              "nhankhau": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "filter": {
+                "$and": [
+                  {
+                    "GEO1_VN": {
+                      "$eq": 704001
+                    }
+                  },
+                  {
+                    "nhankhau.AGE": {
+                      "$gte": 18
+                    }
+                  }
+                ]
+              },
+              "nReturned": 94634,
+              "executionTimeMillisEstimate": 7463,
+              "works": 3039782,
+              "advanced": 94634,
+              "needTime": 2945147,
+              "needYield": 0,
+              "saveState": 518,
+              "restoreState": 518,
+              "isEOF": 1,
+              "docsExamined": 914634,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "IXSCAN",
+                "nReturned": 914634,
+                "executionTimeMillisEstimate": 1743,
+                "works": 3039782,
+                "advanced": 914634,
+                "needTime": 2125147,
+                "needYield": 0,
+                "saveState": 518,
+                "restoreState": 518,
+                "isEOF": 1,
+                "keyPattern": {
+                  "nhankhau.AGE": 1
+                },
+                "indexName": "idx_nhankhau_age",
+                "isMultiKey": true,
+                "multiKeyPaths": {
+                  "nhankhau.AGE": [
+                    "nhankhau"
+                  ]
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "nhankhau.AGE": [
+                    "[-inf.0, 60]"
+                  ]
+                },
+                "keysExamined": 3039781,
+                "seeks": 1,
+                "dupsTested": 3039781,
+                "dupsDropped": 2125147
+              }
+            }
+          }
+        }
+      },
+      "nReturned": 94634,
+      "executionTimeMillisEstimate": 8047
+    },
+    {
+      "$unwind": {
+        "path": "$nhankhau"
+      },
+      "nReturned": 357354,
+      "executionTimeMillisEstimate": 8136
+    },
+    {
+      "$match": {
+        "$and": [
+          {
+            "nhankhau.AGE": {
+              "$gte": 18
+            }
+          },
+          {
+            "nhankhau.AGE": {
+              "$lte": 60
+            }
+          }
+        ]
+      },
+      "nReturned": 216473,
+      "executionTimeMillisEstimate": 8498
+    },
+    {
+      "$replaceRoot": {
+        "newRoot": {
+          "$mergeObjects": [
+            "$nhankhau",
+            {
+              "SERIAL": "$SERIAL",
+              "GEO1_VN": "$GEO1_VN"
+            }
+          ]
+        }
+      },
+      "nReturned": 216473,
+      "executionTimeMillisEstimate": 9552
+    }
+  ],
+  "serverInfo": {
+    "host": "fiorane",
+    "port": 27017,
+    "version": "8.0.3",
+    "gitVersion": "89d97f2744a2b9851ddfb51bdf22f687562d9b06"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "aggregate": "hokhau",
+    "pipeline": [
+      {
+        "$match": {
+          "GEO1_VN": 704001,
+          "nhankhau.AGE": {
+            "$gte": 18,
+            "$lte": 60
+          }
+        }
+      },
+      {
+        "$unwind": "$nhankhau"
+      },
+      {
+        "$match": {
+          "nhankhau.AGE": {
+            "$gte": 18,
+            "$lte": 60
+          }
+        }
+      },
+      {
+        "$replaceRoot": {
+          "newRoot": {
+            "$mergeObjects": [
+              "$nhankhau",
+              {
+                "SERIAL": "$SERIAL",
+                "GEO1_VN": "$GEO1_VN"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "cursor": {},
+    "$db": "ipums_vn2019"
+  },
+  "ok": 1.0
+}

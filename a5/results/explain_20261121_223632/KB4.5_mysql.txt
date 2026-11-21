@@ -1,0 +1,6 @@
+-> Sort: h.GEO1_VN, n.SEX, nhom_tuoi  (actual time=4906..4906 rows=1326 loops=1)
+    -> Table scan on <temporary>  (actual time=4906..4906 rows=1326 loops=1)
+        -> Aggregate using temporary table  (actual time=4906..4906 rows=1326 loops=1)
+            -> Nested loop inner join  (cost=710344 rows=3.59e+6) (actual time=0.132..3357 rows=3.55e+6 loops=1)
+                -> Covering index scan on h using idx_hokhau_geo1_vn  (cost=101320 rows=993250) (actual time=0.113..192 rows=1e+6 loops=1)
+                -> Index lookup on n using PRIMARY (SERIAL=h.`SERIAL`)  (cost=0.252 rows=3.61) (actual time=0.00219..0.00292 rows=3.55 loops=1e+6)

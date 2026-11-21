@@ -1,0 +1,3 @@
+-> Group aggregate: count(0)  (cost=383378 rows=95) (actual time=2185..8773 rows=86 loops=1)
+    -> Filter: (nhankhau.EMPSTAT = 1)  (cost=348945 rows=344337) (actual time=2055..8667 rows=1.92e+6 loops=1)
+        -> Index scan on nhankhau using idx_nhankhau_age  (cost=348945 rows=3.44e+6) (actual time=4.38..8414 rows=3.55e+6 loops=1)

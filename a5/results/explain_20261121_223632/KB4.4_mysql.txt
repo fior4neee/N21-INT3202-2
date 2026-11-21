@@ -1,0 +1,7 @@
+-> Sort: so_nguoi DESC, n.GEOMIG1_5  (actual time=188..188 rows=39 loops=1)
+    -> Table scan on <temporary>  (actual time=188..188 rows=39 loops=1)
+        -> Aggregate using temporary table  (actual time=188..188 rows=39 loops=1)
+            -> Nested loop inner join  (cost=78378 rows=32423) (actual time=3.66..186 rows=8921 loops=1)
+                -> Index lookup on n using idx_nhankhau_migrate5 (MIGRATE5=20)  (cost=28168 rows=143456) (actual time=3.63..127 rows=73229 loops=1)
+                -> Filter: (h.GEO1_VN = 704001)  (cost=0.25 rows=0.226) (actual time=724e-6..732e-6 rows=0.122 loops=73229)
+                    -> Single-row index lookup on h using PRIMARY (SERIAL=n.`SERIAL`)  (cost=0.25 rows=1) (actual time=597e-6..616e-6 rows=1 loops=73229)

@@ -1,0 +1,6 @@
+MongoDB KB4.3  planner tự chọn                            11580 ms  docsExamined=914,634  index=['idx_nhankhau_age']  kết quả=216,473
+MongoDB KB4.3  hint idx_geo1_vn                            1716 ms  docsExamined=104,769  index=['idx_geo1_vn']  kết quả=216,473
+MongoDB KB4.3  index ghép {GEO1_VN, nhankhau.AGE}          1816 ms  docsExamined= 94,930  index=['tmp_geo_age']  kết quả=216,473
+MySQL   KB4.2  optimizer tự chọn                           7659 ms  truy cập=['Index scan']
+MySQL   KB4.2  IGNORE INDEX (idx_nhankhau_age)             1244 ms  truy cập=['Table scan', 'Table scan']
+MySQL   KB4.2  index ghép (EMPSTAT, AGE)                    555 ms  truy cập=[]

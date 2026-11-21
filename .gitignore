@@ -1,2 +1,4 @@
 *.csv
 .env
+!a5/results/*.csv
+__pycache__/

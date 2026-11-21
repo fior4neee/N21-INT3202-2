@@ -1,0 +1,1 @@
+-> Index lookup on n using PRIMARY (SERIAL=185160000)  (cost=0.35 rows=1) (actual time=0.0106..0.0135 rows=1 loops=1)

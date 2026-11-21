@@ -1,0 +1,171 @@
+{
+  "explainVersion": "1",
+  "stages": [
+    {
+      "$cursor": {
+        "queryPlanner": {
+          "namespace": "ipums_vn2019.hokhau",
+          "parsedQuery": {},
+          "indexFilterSet": false,
+          "queryHash": "B3F3A90F",
+          "planCacheKey": "22960A23",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "nhankhau": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "COLLSCAN",
+              "direction": "forward"
+            }
+          },
+          "rejectedPlans": []
+        },
+        "executionStats": {
+          "executionSuccess": true,
+          "nReturned": 1001120,
+          "executionTimeMillis": 5488,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 1001120,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 1001120,
+            "executionTimeMillisEstimate": 321,
+            "works": 1001121,
+            "advanced": 1001120,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 739,
+            "restoreState": 739,
+            "isEOF": 1,
+            "transformBy": {
+              "nhankhau": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "COLLSCAN",
+              "nReturned": 1001120,
+              "executionTimeMillisEstimate": 204,
+              "works": 1001121,
+              "advanced": 1001120,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 739,
+              "restoreState": 739,
+              "isEOF": 1,
+              "direction": "forward",
+              "docsExamined": 1001120
+            }
+          }
+        }
+      },
+      "nReturned": 1001120,
+      "executionTimeMillisEstimate": 2079
+    },
+    {
+      "$unwind": {
+        "path": "$nhankhau"
+      },
+      "nReturned": 3550482,
+      "executionTimeMillisEstimate": 2765
+    },
+    {
+      "$match": {
+        "nhankhau.EMPSTAT": {
+          "$eq": 1
+        }
+      },
+      "nReturned": 1923827,
+      "executionTimeMillisEstimate": 5222
+    },
+    {
+      "$group": {
+        "_id": "$nhankhau.AGE",
+        "n": {
+          "$sum": {
+            "$const": 1
+          }
+        }
+      },
+      "maxAccumulatorMemoryUsageBytes": {
+        "n": 11008
+      },
+      "totalOutputDataSizeBytes": 21070,
+      "usedDisk": false,
+      "spills": 0,
+      "spilledDataStorageSize": 0,
+      "numBytesSpilledEstimate": 0,
+      "spilledRecords": 0,
+      "nReturned": 86,
+      "executionTimeMillisEstimate": 5485
+    },
+    {
+      "$sort": {
+        "sortKey": {
+          "_id": 1
+        }
+      },
+      "totalDataSizeSortedBytesEstimate": 21758,
+      "usedDisk": false,
+      "spills": 0,
+      "spilledDataStorageSize": 0,
+      "nReturned": 86,
+      "executionTimeMillisEstimate": 5485
+    }
+  ],
+  "serverInfo": {
+    "host": "fiorane",
+    "port": 27017,
+    "version": "8.0.3",
+    "gitVersion": "89d97f2744a2b9851ddfb51bdf22f687562d9b06"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "aggregate": "hokhau",
+    "pipeline": [
+      {
+        "$unwind": "$nhankhau"
+      },
+      {
+        "$match": {
+          "nhankhau.EMPSTAT": 1
+        }
+      },
+      {
+        "$group": {
+          "_id": "$nhankhau.AGE",
+          "n": {
+            "$sum": 1
+          }
+        }
+      },
+      {
+        "$sort": {
+          "_id": 1
+        }
+      }
+    ],
+    "cursor": {},
+    "$db": "ipums_vn2019"
+  },
+  "ok": 1.0
+}
